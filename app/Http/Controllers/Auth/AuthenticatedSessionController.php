@@ -12,7 +12,7 @@ use Illuminate\View\View;
 use App\Http\Controllers\CrmController;
 
 class AuthenticatedSessionController extends Controller
-{
+{ 
     /**
      * Display the login view.
      */

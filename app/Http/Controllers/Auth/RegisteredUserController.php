@@ -15,7 +15,7 @@ use Illuminate\View\View;
 use App\Http\Controllers\CrmController;
 
 class RegisteredUserController extends Controller
-{
+{ 
     /**
      * Display the registration view.
      */
