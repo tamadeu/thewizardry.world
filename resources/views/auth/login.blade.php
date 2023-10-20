@@ -59,8 +59,10 @@
             <div class="form-item">
               <!-- FORM INPUT -->
               <div class="form-input">
-                <label for="login-username">Username or Email</label>
-                <input type="text" id="login-username" name="email" autocomplete="off">
+                <label for="loginUsername">Username or Email</label>
+                <input type="text" id="loginUsername" name="loginUsername" autocomplete="off">
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                <x-input-error :messages="$errors->get('username')" class="mt-2" />
               </div>
               <!-- /FORM INPUT -->
             </div>
@@ -76,6 +78,7 @@
               <div class="form-input">
                 <label for="login-password">Password</label>
                 <input type="password" id="login-password" name="password">
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
               </div>
               <!-- /FORM INPUT -->
             </div>
