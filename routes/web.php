@@ -3,8 +3,9 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CrmController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,21 @@ Route::get('/quiz', [QuizController::class, 'index'])->middleware(['auth', 'veri
 Route::post('/sendQuiz', [QuizController::class, 'sendQuiz'])->middleware(['auth', 'verified'])->name('sendQuiz');
 Route::get('/resultQuiz', [QuizController::class, 'result'])->middleware(['auth', 'verified'])->name('resultQuiz');
 
+Route::get('/@{username}', [ProfileController::class, 'timeline'])->middleware(['auth', 'verified']);
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::post('/criarTeste', [TestController::class, 'criarArquivoJSON']);
+Route::get('/getTeste/{id}', [TestController::class, 'lerArquivoJSON']);
+Route::put('/putTeste/{id}', [TestController::class, 'atualizarArquivoJSON']);
+
+
+
+Route::get('/admin/logout-all', [AdminController::class, 'logoutAllUsers'])->middleware('auth'); // Add any required middleware
+
 
 require __DIR__.'/auth.php';

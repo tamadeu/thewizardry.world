@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CrmController;
 use Illuminate\Support\Facades\File;
+use App\Models\DataModel;
 
 class QuizController extends Controller
 {
-    public function index(Request $request, CrmController $crm){
-        $user = $request->session()->get('user');
+    public function index(Request $request, CrmController $crm, DataModel $model){
 
-        if($user->houseId == null){
+        $user = $model->get('users/'.Auth::user()->crm_id);
+
+        $houseId = Auth::user()->houseId;
+
+        if($houseId == null){
 
             $questions = $crm->get('QuizzQuestion');
             $answers = $crm->get('QuizzAnswer');
@@ -27,14 +32,14 @@ class QuizController extends Controller
         }
     }
 
-    public function sendQuiz(Request $request, CrmController $crm){
-        $user = $request->session()->get('user');
+    public function sendQuiz(Request $request, DataModel $model){
+        $user = $model->get('users/'.Auth::user()->crm_id);
         $data = $request->all();
     
         // Convert the data array to JSON format
         $jsonData = json_encode($data);
     
-            // Decode the JSON data back to an array
+        // Decode the JSON data back to an array
         $dataArr = json_decode($jsonData, true);
 
         // Count the frequency of each word
@@ -47,16 +52,14 @@ class QuizController extends Controller
             "houseId" => $houseId
         ];
 
-        $updateUser = $crm->put('Student', $user->id, $data);
-
-        $request->session()->put('user', $updateUser);
+       $model->put('users/'.$user->id, $data);
 
         return redirect('/resultQuiz');
     }
 
-    public function result(Request $request, CrmController $crm){
-        $user = $request->session()->get('user');
-        $house = $crm->get('House/', $user->houseId);
+    public function result(Request $request, DataModel $model){
+        $user = $model->get('users/'.Auth::user()->crm_id);
+        $house = $model->get('houses/'.$user->houseId);
 
         return view('quiz/result', [
             'user' => $user,

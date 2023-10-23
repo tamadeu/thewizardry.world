@@ -8,7 +8,7 @@
     <!-- USER SHORT DESCRIPTION -->
     <div class="user-short-description">
       <!-- USER SHORT DESCRIPTION AVATAR -->
-      <a class="user-short-description-avatar user-avatar medium" href="profile-timeline.html">
+      <a class="user-short-description-avatar user-avatar medium" href="/{{ '@'.$user->username }}">
         <!-- USER AVATAR BORDER -->
         <div class="user-avatar-border">
           <!-- HEXAGON -->
@@ -20,7 +20,7 @@
         <!-- USER AVATAR CONTENT -->
         <div class="user-avatar-content">
           <!-- HEXAGON -->
-          <div class="hexagon-image-82-90" data-src="img/avatar/01.jpg"></div>
+          <div class="hexagon-image-82-90" data-src="{{ $user->pictureUrl }}"></div>
           <!-- /HEXAGON -->
         </div>
         <!-- /USER AVATAR CONTENT -->
@@ -68,7 +68,7 @@
       <!-- /USER SHORT DESCRIPTION AVATAR -->
 
       <!-- USER SHORT DESCRIPTION TITLE -->
-      <p class="user-short-description-title"><a href="profile-timeline.html">{{ $user->name }}</a></p>
+      <p class="user-short-description-title"><a href="/{{ '@'.$user->username }}">{{ $user->name }}</a></p>
       <!-- /USER SHORT DESCRIPTION TITLE -->
 
       <!-- USER SHORT DESCRIPTION TEXT -->

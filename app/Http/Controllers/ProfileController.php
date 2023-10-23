@@ -8,9 +8,35 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Http\Controllers\CrmController;
+use App\Models\DataModel;
 
 class ProfileController extends Controller
 {
+    public function timeline(Request $request, $username, CrmController $crm, DataModel $model){
+        $userId = Auth::user()->crm_id;
+        $user = $model->get('users/'.$userId);
+
+        $teste = $model->getAll('users');
+
+        $desiredId = $username;
+
+        $foundItem = array_filter(json_decode($teste), function ($item) use ($desiredId) {
+            return $item->username === $desiredId;
+        });
+
+
+        if (!empty($foundItem)) {
+            return view('profile/index', [
+                'profile'=> $foundItem[0],
+                'user' => $user
+            ]);
+        } else {
+            // Element with the specified id was not found
+            echo "Element not found";
+        }
+
+    }
     /**
      * Display the user's profile form.
      */

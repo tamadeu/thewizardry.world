@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-use App\Http\Controllers\CrmController;
+use App\Models\DataModel;
 
 class RegisteredUserController extends Controller
 { 
@@ -29,7 +29,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request, DataModel $model): RedirectResponse
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -39,34 +39,33 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $crm = new CrmController();
+        $name = substr(md5(uniqid('', true)), 0, 16);
 
         $body = [
+            "id" => $name,
             "firstName" => $request->name,
             "lastName" => $request->lastName,
             "email" => $request->email,
             "username" => $request->username
         ];
 
-        $createUser = $crm->post('Student', $body);
+        $model->post('users/'.$name.'', $body);
 
-        if($createUser != null){
+        $user = User::create([
+            'name' => $request->name,
+            'lastName' => $request->lastName,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'crm_id' => $name,
+        ]);
 
-            $user = User::create([
-                'name' => $request->name,
-                'lastName' => $request->lastName,
-                'username' => $request->username,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'crm_id' => $createUser->id,
-            ]);
-    
-            event(new Registered($user));
-    
-            Auth::login($user);
-    
-            return redirect(RouteServiceProvider::HOME);
-        }
+        event(new Registered($user));
+
+        Auth::login($user);
+
+        return redirect(RouteServiceProvider::HOME);
+        
 
     }
 }

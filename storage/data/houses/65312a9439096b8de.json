@@ -1,0 +1,13 @@
+{
+    "id": "65312a9439096b8de",
+    "name": "Crimsonthorn",
+    "description": null,
+    "createdAt": "2023-10-19 13:09:40",
+    "modifiedAt": "2023-10-19 13:11:42",
+    "story": "<div class=\"ql-block\" data-block-id=\"block-c5156de7-2c99-4438-acf7-5635bd902df0\"><strong>Seraphina Crimsonthorn</strong> was a formidable and daring wizard who founded House Crimsonthorn at Arcane Academy. Her passion for battle magic and her unwavering spirit made her a formidable protector of the school. The legacy of her courage continues to inspire students in this house.</div><div class=\"ql-block\" data-block-id=\"block-bb9bee67-358d-48b3-a2f3-87f689aa2b4e\">Known for their passion and daring spirit, the members of this house excel in battle magic and are often seen as protectors of the school.</div>",
+    "slug": null,
+    "schoolId": "653129a954790c5de",
+    "schoolName": "Arcane Academy",
+    "foundingWizardId": "65312c8b96e0fb8d6",
+    "foundingWizardName": "Seraphina Crimsonthorn"
+}

@@ -9,7 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use App\Http\Controllers\CrmController;
+use App\Models\DataModel;
 
 class AuthenticatedSessionController extends Controller
 { 
@@ -24,17 +24,11 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request, DataModel $model): RedirectResponse
     {
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        $userId = Auth::user()->crm_id;
-        $crm = new CrmController();
-        $user = $crm->get('Student/', $userId);
-
-        $request->session()->put('user', $user);
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }

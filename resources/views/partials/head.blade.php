@@ -16,3 +16,7 @@
   <title>The Wizardry World</title>
 </head>
 <body>
+
+  <!-- PAGE LOADER -->
+  @include('partials/loader')
+  <!-- /PAGE LOADER -->

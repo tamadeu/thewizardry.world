@@ -1,0 +1,13 @@
+{
+    "id": "65312a7f5c426e673",
+    "name": "Solarius",
+    "description": null,
+    "createdAt": "2023-10-19 13:09:19",
+    "modifiedAt": "2023-10-19 13:11:21",
+    "story": "<div class=\"ql-block\" data-block-id=\"block-8e4ecf22-93f0-4492-a7b6-1947c27b3356\"><strong>Astorius Solarius</strong>, a wise and venerable wizard, was the founder of House Solarius at Arcane Academy. Known for his profound knowledge of ancient spells and magical artifacts, he was a luminary in the field of wizardry. His dedication to the pursuit of wisdom and the preservation of magical lore remains an inspiration to students of this house.</div><div class=\"ql-block\" data-block-id=\"block-5147a658-281a-47ee-b215-f9e86a90cb8c\">This house values wisdom and the pursuit of knowledge. Students here are known for their dedication to studying ancient spells and magical artifacts.</div>",
+    "slug": null,
+    "schoolId": "653129a954790c5de",
+    "schoolName": "Arcane Academy",
+    "foundingWizardId": "65312c61419ccf9bb",
+    "foundingWizardName": "Astorius Solarius"
+}

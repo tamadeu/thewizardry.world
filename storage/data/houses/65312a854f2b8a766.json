@@ -1,0 +1,13 @@
+{
+    "id": "65312a854f2b8a766",
+    "name": "Sylvanor",
+    "description": null,
+    "createdAt": "2023-10-19 13:09:25",
+    "modifiedAt": "2023-10-19 13:12:12",
+    "story": "<div class=\"ql-block\" data-block-id=\"block-5b39d072-924d-4607-a292-bca8c7dc2705\"><strong>Elowen Sylvanor</strong>, an enigmatic figure, founded House Sylvanor at Arcane Academy. With a deep connection to nature and elemental magic, Elowen was often seen communing with the spirits of the forest. Her legacy lives on in the students of House Sylvanor, who carry on her tradition of herbology and animal communication.</div><div class=\"ql-block\" data-block-id=\"block-759a24d4-4f0f-4630-85f6-521cc3144cef\">Focused on nature and elemental magic, students in this house have a deep connection with the natural world and are often skilled in herbology and animal communication.</div>",
+    "slug": null,
+    "schoolId": "653129a954790c5de",
+    "schoolName": "Arcane Academy",
+    "foundingWizardId": "65312c424bb12b73a",
+    "foundingWizardName": "Elowen Sylvanor"
+}
