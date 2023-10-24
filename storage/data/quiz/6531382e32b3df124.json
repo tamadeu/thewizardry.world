@@ -34,10 +34,26 @@
         {
             "question": "Your ideal magical profession is:",
             "answers": [
-              "Answer 1",
-              "Answer 2",
-              "Answer 3",
-              "Answer 4"  
+                {
+                    "answer": "King Arthur",
+                    "houseId": "65312a9439096b8de",
+                    "houseName": "Crimsonthorn"
+                },
+                {
+                    "answer": "Nostradamus",
+                    "houseId": "65312a8dd84e90f7a",
+                    "houseName": "Umbralex"
+                },
+                {
+                    "answer": "Mother Nature",
+                    "houseId": "65312a854f2b8a766",
+                    "houseName": "Sylvanor"
+                },
+                {
+                    "answer": "Merlin",
+                    "houseId": "65312a7f5c426e673",
+                    "houseName": "Solarius"
+                }
             ]
         }
     ]
