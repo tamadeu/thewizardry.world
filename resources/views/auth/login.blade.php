@@ -244,6 +244,28 @@
           </div>
           <!-- /FORM ROW -->
 
+          <div class="form-row">
+            <div class="form-item">
+                <!-- FORM SELECT -->
+                <div class="form-select">
+                    <label for="country">Country</label>
+                      <select id="country" name="country">
+                        <option value="">Select your Country</option>
+                        <option value="Brazil" selected="">Brazil</option>
+                        <option value="England" selected="">England</option>
+                        <option value="USA" selected="">United States</option>
+                      </select>
+                    <x-input-error :messages="$errors->get('country')" class="mt-2" />
+                    <!-- FORM SELECT ICON -->
+                    <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                    </svg>
+                    <!-- /FORM SELECT ICON -->
+                </div>
+                <!-- /FORM SELECT -->
+            </div>
+          </div>
+
           <!-- FORM ROW -->
           <div class="form-row">
             <!-- FORM ITEM -->

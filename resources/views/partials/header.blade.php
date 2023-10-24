@@ -1931,7 +1931,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="{{ $user->pictureUrl }}"></div>
+                    <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->pictureUrl) }}"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -2074,7 +2074,7 @@
                                     this.closest('form').submit();">
                     <p class="dropdown-navigation-button button small secondary">{{ __('Log Out') }}</p>
                 </x-dropdown-link>
-            </form>
+          </form>
           <!-- /DROPDOWN NAVIGATION BUTTON -->
         </div>
         <!-- /DROPDOWN NAVIGATION -->

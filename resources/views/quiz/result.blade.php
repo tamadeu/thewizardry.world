@@ -244,7 +244,7 @@ form input[type=radio]:not(:checked)::before {
       <!-- MENU ITEM -->
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="newsfeed.html" data-title="Newsfeed">
+        <a class="menu-item-link text-tooltip-tfr" href="/feed" data-title="Newsfeed">
           <!-- MENU ITEM LINK ICON -->
           <svg class="menu-item-link-icon icon-newsfeed">
             <use xlink:href="#svg-newsfeed"></use>
@@ -258,7 +258,7 @@ form input[type=radio]:not(:checked)::before {
       <!-- MENU ITEM -->
       <li class="menu-item active">
         <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="overview.html" data-title="Overview">
+        <a class="menu-item-link text-tooltip-tfr" href="/" data-title="Overview">
           <!-- MENU ITEM LINK ICON -->
           <svg class="menu-item-link-icon icon-overview">
             <use xlink:href="#svg-overview"></use>

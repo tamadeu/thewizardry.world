@@ -17,19 +17,19 @@ class ProfileController extends Controller
         $userId = Auth::user()->crm_id;
         $user = $model->get('users/'.$userId);
 
-        $teste = $model->getAll('users');
+        $users = $model->getAll('users');
 
-        $desiredId = $username;
-
-        $foundItem = array_filter(json_decode($teste), function ($item) use ($desiredId) {
-            return $item->username === $desiredId;
+        $foundItem = array_filter(json_decode($users), function ($item) use ($username) {
+            return $item->username === $username;
         });
 
 
         if (!empty($foundItem)) {
+            $firstMatch = reset($foundItem);
             return view('profile/index', [
-                'profile'=> $foundItem[0],
-                'user' => $user
+                'profile'=> $firstMatch,
+                'user' => $user,
+                'activeMenu' => ''
             ]);
         } else {
             // Element with the specified id was not found

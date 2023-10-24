@@ -22,6 +22,12 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <div>
+            <x-input-label for="country" :value="__('Your Country')" />
+            <x-text-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')" required autofocus autocomplete="country" />
+            <x-input-error :messages="$errors->get('country')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />

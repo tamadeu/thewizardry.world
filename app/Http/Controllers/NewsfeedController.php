@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\DataModel;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class NewsfeedController extends Controller
 {
     public function index(DataModel $model){
         $userId = Auth::user()->crm_id;
@@ -17,13 +17,12 @@ class HomeController extends Controller
 
         if($houseId != null){
             $schools = $model->get('schools/653129a954790c5de');
-            return view('index', [
+            return view('newsfeed', [
                 'schools' => $schools,
                 'user' => $user,
-                'activeMenu' => 'home']);
+                'activeMenu' => 'feed']);
         } else {
             return redirect('/quiz');
         }
-        
     }
 }

@@ -40,4 +40,38 @@ class TestController extends Controller
             return response()->json($dados);
         }
     }
+
+    public function allUsers(DataModel $model){
+        $schools = $model->getAll('schools');
+        $country = 'England';
+    
+        $foundItem = array_filter(json_decode($schools), function ($item) use ($country) {
+            return $item->country === $country;
+        });
+    
+        if (!empty($foundItem)) {
+            $foundItem = array_values($foundItem); // Re-index the array
+            $randomKey = array_rand($foundItem);
+            $school = $foundItem[$randomKey];
+            return response()->json($school);
+        } else {
+            return response()->json(null); // No matching schools found
+        }
+        
+    }
+
+    public function specificUser(DataModel $model, $username) {
+        $users = $model->getAll('users');
+    
+        $foundItem = array_filter(json_decode($users), function ($item) use ($username) {
+            return $item->username === $username;
+        });
+    
+        if (!empty($foundItem)) {
+            $firstMatch = reset($foundItem);
+            return response()->json($firstMatch);
+        } else {
+            return response()->json(null); // No matching user found
+        }
+    }
 }

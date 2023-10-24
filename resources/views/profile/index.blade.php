@@ -1121,7 +1121,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ $profile->pictureUrl }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -1217,19 +1217,19 @@
               <!-- TAG LIST -->
               <div class="tag-list">
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Stream</a>
+                <a class="tag-item secondary" href="/feed">Stream</a>
                 <!-- /TAG ITEM -->
 
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Xenowatch</a>
+                <a class="tag-item secondary" href="/feed">Xenowatch</a>
                 <!-- /TAG ITEM -->
 
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Gaming</a>
+                <a class="tag-item secondary" href="/feed">Gaming</a>
                 <!-- /TAG ITEM -->
 
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Twitch</a>
+                <a class="tag-item secondary" href="/feed">Twitch</a>
                 <!-- /TAG ITEM -->
               </div>
               <!-- /TAG LIST -->
@@ -1659,7 +1659,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ $profile->pictureUrl }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -2107,7 +2107,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ $profile->pictureUrl }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -2183,23 +2183,23 @@
               <!-- TAG LIST -->
               <div class="tag-list">
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Cover</a>
+                <a class="tag-item secondary" href="/feed">Cover</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Preview</a>
+                <a class="tag-item secondary" href="/feed">Preview</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Art</a>
+                <a class="tag-item secondary" href="/feed">Art</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Machine</a>
+                <a class="tag-item secondary" href="/feed">Machine</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Wasteland</a>
+                <a class="tag-item secondary" href="/feed">Wasteland</a>
                 <!-- /TAG ITEM -->
               </div>
               <!-- /TAG LIST -->
@@ -3419,7 +3419,7 @@
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
                   <!-- HEXAGON -->
-                  <div class="hexagon-image-30-32" data-src="{{ $profile->pictureUrl }}"></div>
+                  <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
                   <!-- /HEXAGON -->
                 </div>
                 <!-- /USER AVATAR CONTENT -->
@@ -3548,7 +3548,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ $profile->pictureUrl }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -3638,19 +3638,19 @@
               <!-- TAG LIST -->
               <div class="tag-list">
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Stream</a>
+                <a class="tag-item secondary" href="/feed">Stream</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Youtube</a>
+                <a class="tag-item secondary" href="/feed">Youtube</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Gaming</a>
+                <a class="tag-item secondary" href="/feed">Gaming</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Retro</a>
+                <a class="tag-item secondary" href="/feed">Retro</a>
                 <!-- /TAG ITEM -->
               </div>
               <!-- /TAG LIST -->
@@ -4080,7 +4080,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ $profile->pictureUrl }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -4180,23 +4180,23 @@
               <!-- TAG LIST -->
               <div class="tag-list">
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Streamer</a>
+                <a class="tag-item secondary" href="/feed">Streamer</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Gaming</a>
+                <a class="tag-item secondary" href="/feed">Gaming</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Job</a>
+                <a class="tag-item secondary" href="/feed">Job</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Life</a>
+                <a class="tag-item secondary" href="/feed">Life</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Experience</a>
+                <a class="tag-item secondary" href="/feed">Experience</a>
                 <!-- /TAG ITEM -->
               </div>
               <!-- /TAG LIST -->
@@ -4702,7 +4702,7 @@
               <div class="picture-item">
                 <!-- PICTURE -->
                 <figure class="picture round liquid">
-                  <img src="{{ $profile->pictureUrl }}" alt="avatar-01">
+                  <img src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}" alt="avatar-01">
                 </figure>
                 <!-- /PICTURE -->
               </div>
@@ -5305,7 +5305,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="{{ $profile->pictureUrl }}"></div>
+                    <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -5371,23 +5371,23 @@
             <!-- TAG LIST -->
             <div class="tag-list">
               <!-- TAG ITEM -->
-              <a class="tag-item secondary" href="newsfeed.html">Cover</a>
+              <a class="tag-item secondary" href="/feed">Cover</a>
               <!-- /TAG ITEM -->
     
               <!-- TAG ITEM -->
-              <a class="tag-item secondary" href="newsfeed.html">Preview</a>
+              <a class="tag-item secondary" href="/feed">Preview</a>
               <!-- /TAG ITEM -->
     
               <!-- TAG ITEM -->
-              <a class="tag-item secondary" href="newsfeed.html">Art</a>
+              <a class="tag-item secondary" href="/feed">Art</a>
               <!-- /TAG ITEM -->
     
               <!-- TAG ITEM -->
-              <a class="tag-item secondary" href="newsfeed.html">Machine</a>
+              <a class="tag-item secondary" href="/feed">Machine</a>
               <!-- /TAG ITEM -->
     
               <!-- TAG ITEM -->
-              <a class="tag-item secondary" href="newsfeed.html">Wasteland</a>
+              <a class="tag-item secondary" href="/feed">Wasteland</a>
               <!-- /TAG ITEM -->
             </div>
             <!-- /TAG LIST -->
@@ -6487,7 +6487,7 @@
           <!-- USER AVATAR CONTENT -->
           <div class="user-avatar-content">
             <!-- HEXAGON -->
-            <div class="hexagon-image-30-32" data-src="{{ $profile->pictureUrl }}"></div>
+            <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
             <!-- /HEXAGON -->
           </div>
           <!-- /USER AVATAR CONTENT -->

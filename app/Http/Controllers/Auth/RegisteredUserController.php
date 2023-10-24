@@ -39,17 +39,33 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $name = substr(md5(uniqid('', true)), 0, 16);
+        $schools = $model->getAll('schools');
+
+        $country = $request->country;
+
+        $foundItem = array_filter(json_decode($schools), function ($item) use ($country) {
+            return $item->country === $country;
+        });
+
+        $foundItem = array_values($foundItem);
+        
+        $randomKey = array_rand($foundItem);
+        $school = $foundItem[$randomKey];
+
+        $id = substr(md5(uniqid('', true)), 0, 16);
 
         $body = [
-            "id" => $name,
+            "id" => $id,
             "firstName" => $request->name,
             "lastName" => $request->lastName,
             "email" => $request->email,
-            "username" => $request->username
+            "username" => $request->username,
+            "name" => $request->name . ' ' . $request->lastName,
+            "pictureUrl" => "placeholder.png",
+            "schoolId" => $school->id,
+            "schoolName" => $school->name,
+            "country" => $request->country
         ];
-
-        $model->post('users/'.$name.'', $body);
 
         $user = User::create([
             'name' => $request->name,
@@ -57,8 +73,11 @@ class RegisteredUserController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'crm_id' => $name,
+            'crm_id' => $id,
         ]);
+
+        $model->post('users/'.$id.'', $body);
+
 
         event(new Registered($user));
 

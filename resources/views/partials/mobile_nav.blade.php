@@ -14,11 +14,11 @@
       <!-- NAVIGATION WIDGET INFO -->
       <div class="navigation-widget-info">
         <!-- USER AVATAR -->
-        <a class="user-avatar small no-outline" href="profile-timeline.html">
+        <a class="user-avatar small no-outline" href="/{{ '@'.$user->username }}">
           <!-- USER AVATAR CONTENT -->
           <div class="user-avatar-content">
             <!-- HEXAGON -->
-            <div class="hexagon-image-30-32" data-src="img/avatar/01.jpg"></div>
+            <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->pictureUrl) }}"></div>
             <!-- /HEXAGON -->
           </div>
           <!-- /USER AVATAR CONTENT -->
@@ -66,7 +66,7 @@
         <!-- /USER AVATAR -->
 
         <!-- NAVIGATION WIDGET INFO TITLE -->
-        <p class="navigation-widget-info-title"><a href="profile-timeline.html">Marina Valentine</a></p>
+        <p class="navigation-widget-info-title"><a href="/{{ '@'.$user->username }}">{{ $user->name }}</a></p>
         <!-- /NAVIGATION WIDGET INFO TITLE -->
 
         <!-- NAVIGATION WIDGET INFO TEXT -->
@@ -76,7 +76,14 @@
       <!-- /NAVIGATION WIDGET INFO -->
 
       <!-- NAVIGATION WIDGET BUTTON -->
-      <p class="navigation-widget-info-button button small secondary">Logout</p>
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <x-dropdown-link :href="route('logout')"
+                onclick="event.preventDefault();
+                            this.closest('form').submit();">
+            <p class="navigation-widget-info-button button small secondary">{{ __('Log Out') }}</p>
+        </x-dropdown-link>
+      </form>
       <!-- /NAVIGATION WIDGET BUTTON -->
     </div>
     <!-- /NAVIGATION WIDGET INFO WRAP -->
@@ -87,31 +94,32 @@
 
     <!-- MENU -->
     <ul class="menu">
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link" href="newsfeed.html">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-newsfeed">
-            <use xlink:href="#svg-newsfeed"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-          Newsfeed
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
 
       <!-- MENU ITEM -->
-      <li class="menu-item active">
+      <li class="menu-item @if($activeMenu == 'home') active @endif">
         <!-- MENU ITEM LINK -->
-        <a class="menu-item-link" href="overview.html">
+        <a class="menu-item-link" href="/">
           <!-- MENU ITEM LINK ICON -->
           <svg class="menu-item-link-icon icon-overview">
             <use xlink:href="#svg-overview"></use>
           </svg>
           <!-- /MENU ITEM LINK ICON -->
           Overview
+        </a>
+        <!-- /MENU ITEM LINK -->
+      </li>
+      <!-- /MENU ITEM -->
+
+      <!-- MENU ITEM -->
+      <li class="menu-item @if($activeMenu == 'feed') active @endif">
+        <!-- MENU ITEM LINK -->
+        <a class="menu-item-link" href="/feed">
+          <!-- MENU ITEM LINK ICON -->
+          <svg class="menu-item-link-icon icon-newsfeed">
+            <use xlink:href="#svg-newsfeed"></use>
+          </svg>
+          <!-- /MENU ITEM LINK ICON -->
+          Newsfeed
         </a>
         <!-- /MENU ITEM LINK -->
       </li>

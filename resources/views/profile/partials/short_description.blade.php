@@ -12,7 +12,7 @@
       <!-- USER AVATAR CONTENT -->
       <div class="user-avatar-content">
         <!-- HEXAGON -->
-        <div class="hexagon-image-100-110" data-src="{{ $profile->pictureUrl }}"></div>
+        <div class="hexagon-image-100-110" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
         <!-- /HEXAGON -->
       </div>
       <!-- /USER AVATAR CONTENT -->
@@ -72,7 +72,7 @@
       <!-- USER AVATAR CONTENT -->
       <div class="user-avatar-content">
         <!-- HEXAGON -->
-        <div class="hexagon-image-82-90" data-src="{{ $profile->pictureUrl }}"></div>
+        <div class="hexagon-image-82-90" data-src="{{ asset('storage/img/profile/' . $profile->pictureUrl) }}"></div>
         <!-- /HEXAGON -->
       </div>
       <!-- /USER AVATAR CONTENT -->
@@ -124,6 +124,6 @@
     <!-- /USER SHORT DESCRIPTION TITLE -->
 
     <!-- USER SHORT DESCRIPTION TEXT -->
-    <p class="user-short-description-text"><a href="#">{{ $profile->houseName }}</a></p>
+    <p class="user-short-description-text"><a href="#">@if(isset($profile->houseName)) {{ $profile->houseName}} @endif</a></p>
     <!-- /USER SHORT DESCRIPTION TEXT -->
   </div>

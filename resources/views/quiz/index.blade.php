@@ -32,7 +32,7 @@ input.invalid {
   display: none;
 }
 
-button {
+.prevBtn, .nextBtn {
   background-color: #04AA6D;
   color: #ffffff;
   border: none;
@@ -43,7 +43,7 @@ button {
 
 }
 
-button:hover {
+.prevBtn:hover, .nextBtn:hover {
   opacity: 0.8;
 }
 
@@ -73,7 +73,7 @@ button:hover {
   background-color: #04AA6D;
 }
 
-form {
+.formQuiz {
   --background: #ffffff;
   --text: #414856;
   --radio: #7C96B2;
@@ -90,10 +90,10 @@ form {
   grid-template-columns: auto var(--radio-size);
   align-items: center;
 }
-form label {
+.formQuiz label {
   cursor: pointer;
 }
-form input[type=radio] {
+.formQuiz input[type=radio] {
   -webkit-appearance: none;
   -moz-appearance: none;
   position: relative;
@@ -112,13 +112,13 @@ form input[type=radio] {
   overflow: hidden;
   transition: border 0.5s ease;
 }
-form input[type=radio]::before, form input[type=radio]::after {
+.formQuiz input[type=radio]::before, form input[type=radio]::after {
   content: "";
   display: flex;
   justify-self: center;
   border-radius: 50%;
 }
-form input[type=radio]::before {
+.formQuiz input[type=radio]::before {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -126,7 +126,7 @@ form input[type=radio]::before {
   z-index: 1;
   opacity: var(--opacity, 1);
 }
-form input[type=radio]::after {
+.formQuiz input[type=radio]::after {
   position: relative;
   width: calc(100% /2);
   height: calc(100% /2);
@@ -134,21 +134,21 @@ form input[type=radio]::after {
   top: var(--y, 100%);
   transition: top 0.5s cubic-bezier(0.48, 1.97, 0.5, 0.63);
 }
-form input[type=radio]:checked {
+.formQuiz input[type=radio]:checked {
   --radio: var(--radio-checked);
 }
-form input[type=radio]:checked::after {
+.formQuiz input[type=radio]:checked::after {
   --y: 0%;
   -webkit-animation: stretch-animate 0.3s ease-out 0.17s;
           animation: stretch-animate 0.3s ease-out 0.17s;
 }
-form input[type=radio]:checked::before {
+.formQuiz input[type=radio]:checked::before {
   --opacity: 0;
 }
-form input[type=radio]:checked ~ input[type=radio]::after {
+.formQuiz input[type=radio]:checked ~ input[type=radio]::after {
   --y: -100%;
 }
-form input[type=radio]:not(:checked)::before {
+.formQuiz input[type=radio]:not(:checked)::before {
   --opacity: 1;
   transition: opacity 0s linear 0.5s;
 }
@@ -186,203 +186,7 @@ form input[type=radio]:not(:checked)::before {
 </style>
 
   <!-- NAVIGATION WIDGET -->
-  <nav id="navigation-widget-small" class="navigation-widget navigation-widget-desktop closed sidebar left delayed">
-    <!-- USER AVATAR -->
-    <a class="user-avatar small no-outline online" href="profile-timeline.html">
-      <!-- USER AVATAR CONTENT -->
-      <div class="user-avatar-content">
-        <!-- HEXAGON -->
-        <div class="hexagon-image-30-32" data-src="img/avatar/01.jpg"></div>
-        <!-- /HEXAGON -->
-      </div>
-      <!-- /USER AVATAR CONTENT -->
-  
-      <!-- USER AVATAR PROGRESS -->
-      <div class="user-avatar-progress">
-        <!-- HEXAGON -->
-        <div class="hexagon-progress-40-44"></div>
-        <!-- /HEXAGON -->
-      </div>
-      <!-- /USER AVATAR PROGRESS -->
-  
-      <!-- USER AVATAR PROGRESS BORDER -->
-      <div class="user-avatar-progress-border">
-        <!-- HEXAGON -->
-        <div class="hexagon-border-40-44"></div>
-        <!-- /HEXAGON -->
-      </div>
-      <!-- /USER AVATAR PROGRESS BORDER -->
-  
-      <!-- USER AVATAR BADGE -->
-      <div class="user-avatar-badge">
-        <!-- USER AVATAR BADGE BORDER -->
-        <div class="user-avatar-badge-border">
-          <!-- HEXAGON -->
-          <div class="hexagon-22-24"></div>
-          <!-- /HEXAGON -->
-        </div>
-        <!-- /USER AVATAR BADGE BORDER -->
-  
-        <!-- USER AVATAR BADGE CONTENT -->
-        <div class="user-avatar-badge-content">
-          <!-- HEXAGON -->
-          <div class="hexagon-dark-16-18"></div>
-          <!-- /HEXAGON -->
-        </div>
-        <!-- /USER AVATAR BADGE CONTENT -->
-  
-        <!-- USER AVATAR BADGE TEXT -->
-        <p class="user-avatar-badge-text">24</p>
-        <!-- /USER AVATAR BADGE TEXT -->
-      </div>
-      <!-- /USER AVATAR BADGE -->
-    </a>
-    <!-- /USER AVATAR -->
-
-    <!-- MENU -->
-    <ul class="menu small">
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="newsfeed.html" data-title="Newsfeed">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-newsfeed">
-            <use xlink:href="#svg-newsfeed"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-
-      <!-- MENU ITEM -->
-      <li class="menu-item active">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="overview.html" data-title="Overview">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-overview">
-            <use xlink:href="#svg-overview"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="groups.html" data-title="Groups">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-group">
-            <use xlink:href="#svg-group"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="members.html" data-title="Members">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-members">
-            <use xlink:href="#svg-members"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="badges.html" data-title="Badges">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-badges">
-            <use xlink:href="#svg-badges"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="quests.html" data-title="Quests">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-quests">
-            <use xlink:href="#svg-quests"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="streams.html" data-title="Streams">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-streams">
-            <use xlink:href="#svg-streams"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="events.html" data-title="Events">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-events">
-            <use xlink:href="#svg-events"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="forums.html" data-title="Forums">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-forums">
-            <use xlink:href="#svg-forums"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link text-tooltip-tfr" href="marketplace.html" data-title="Marketplace">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-marketplace">
-            <use xlink:href="#svg-marketplace"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
-    </ul>
-    <!-- /MENU -->
-  </nav>
+  @include('partials/sidebar_mini')
   <!-- /NAVIGATION WIDGET -->
 
   <!-- NAVIGATION WIDGET -->
@@ -427,42 +231,24 @@ form input[type=radio]:not(:checked)::before {
     </div>
     <!-- /SECTION BANNER -->
 
-    <form id="regForm" method="POST" action="/sendQuiz">
+    <form id="regForm" method="POST" class="formQuiz" action="/sendQuiz">
       @csrf
-      
-      <!-- One "tab" for each step in the form: -->
-      @foreach($questions->list as $question)
+
       <div class="tab">
         <div class="widget-box" style="background-color: transparent; box-shadow: none;">
           <!-- WIDGET BOX TITLE -->
-          <h3>{{ $question->name }}</h3>
+          <h1>Congratulations!</h1>
           <!-- /WIDGET BOX TITLE -->
 
           <!-- WIDGET BOX CONTENT -->
           <div class="widget-box-content">
             <!-- SWITCH OPTION LIST -->
-            <div class="switch-option-list">
+            <div class="switch-option-list" style="width:80%">
 
-              @foreach($answers->list as $answer)
-                <!-- SWITCH OPTION -->
-                @if($question->id == $answer->quizzQuestionId)
-                  <div class="switch-option">
-                    <div class="row">
-                      <div class="col-1">
-                        <!-- FORM SWITCH -->
-                        <input id="{{ $answer->id }}" type="radio" name="{{ $question->id }}" value="{{ $answer->houseId }}">
-                        <!-- /FORM SWITCH -->
-                      </div>
-                      <div class="col-11">
-                        <!-- SWITCH OPTION TEXT -->
-                        <p class="switch-option-text">{{$answer->name}}</p>
-                        <!-- /SWITCH OPTION TEXT -->
-                      </div>
-                    </div>
-                  </div>
-                @endif
-                <!-- /SWITCH OPTION -->
-              @endforeach
+              <h3>Your application was accepted in the <span style="color: #615dfa">{{ $user->schoolName }}</span>!!</h3></br>
+
+              <p>Now we will conduct a quick test to assign you to your House.</p></br>
+              <p>It is extremelly important that you answer all questions with all your heart. The selected house will be your future house in the The Wizardry World.</p>
 
             </div>
             <!-- /SWITCH OPTION LIST -->
@@ -470,18 +256,60 @@ form input[type=radio]:not(:checked)::before {
           <!-- WIDGET BOX CONTENT -->
         </div>
       </div>
+      
+      
+      <!-- One "tab" for each step in the form: -->
+      @foreach($questions->list as $question)
+        <div class="tab">
+          <div class="widget-box" style="background-color: transparent; box-shadow: none;">
+            <!-- WIDGET BOX TITLE -->
+            <h3>{{ $question->name }}</h3>
+            <!-- /WIDGET BOX TITLE -->
 
+            <!-- WIDGET BOX CONTENT -->
+            <div class="widget-box-content">
+              <!-- SWITCH OPTION LIST -->
+              <div class="switch-option-list">
+
+                @foreach($answers->list as $answer)
+                  <!-- SWITCH OPTION -->
+                  @if($question->id == $answer->quizzQuestionId)
+                    <div class="switch-option">
+                      <div class="row">
+                        <div class="col-1">
+                          <!-- FORM SWITCH -->
+                          <input id="{{ $answer->id }}" type="radio" name="{{ $question->id }}" value="{{ $answer->houseId }}">
+                          <!-- /FORM SWITCH -->
+                        </div>
+                        <div class="col-11">
+                          <!-- SWITCH OPTION TEXT -->
+                          <p class="switch-option-text">{{$answer->name}}</p>
+                          <!-- /SWITCH OPTION TEXT -->
+                        </div>
+                      </div>
+                    </div>
+                  @endif
+                  <!-- /SWITCH OPTION -->
+                @endforeach
+
+              </div>
+              <!-- /SWITCH OPTION LIST -->
+            </div>
+            <!-- WIDGET BOX CONTENT -->
+          </div>
+        </div>
       @endforeach
 
       <div style="z-index: 99;">
         <div style="float:right;">
-          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button type="button" class="prevBtn" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
           
-          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          <button type="button" class="nextBtn" id="nextBtn" onclick="nextPrev(1)">Next</button>
         </div>
       </div>
       <!-- Circles which indicates the steps of the form: -->
       <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
         @foreach($questions->list as $question)
           <span class="step"></span>
         @endforeach

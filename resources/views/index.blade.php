@@ -66,161 +66,6 @@
 
     <!-- GRID -->
     <div class="grid">
-      <!-- GRID -->
-      <div class="grid grid-3-3-3-3 centered">
-        <!-- STATS BOX -->
-        <div class="stats-box small stat-profile-views">
-          <!-- STATS BOX VALUE WRAP -->
-          <div class="stats-box-value-wrap">
-            <!-- STATS BOX VALUE -->
-            <p class="stats-box-value">87.365</p>
-            <!-- /STATS BOX VALUE -->
-      
-            <!-- STATS BOX DIFF -->
-            <div class="stats-box-diff">
-              <!-- STATS BOX DIFF ICON -->
-              <div class="stats-box-diff-icon positive">
-                <!-- ICON PLUS SMALL -->
-                <svg class="icon-plus-small">
-                  <use xlink:href="#svg-plus-small"></use>
-                </svg>
-                <!-- /ICON PLUS SMALL -->
-              </div>
-              <!-- /STATS BOX DIFF ICON -->
-      
-              <!-- STATS BOX DIFF VALUE -->
-              <p class="stats-box-diff-value">3.2%</p>
-              <!-- /STATS BOX DIFF VALUE -->
-            </div>
-            <!-- /STATS BOX DIFF -->
-          </div>
-          <!-- /STATS BOX VALUE WRAP -->
-      
-          <!-- STATS BOX TITLE -->
-          <p class="stats-box-title">Profile Views</p>
-          <!-- /STATS BOX TITLE -->
-      
-          <!-- STATS BOX TEXT -->
-          <p class="stats-box-text">In the last month</p>
-          <!-- /STATS BOX TEXT -->
-        </div>
-        <!-- /STATS BOX -->
-
-        <!-- STATS BOX -->
-        <div class="stats-box small stat-posts-created">
-          <!-- STATS BOX VALUE WRAP -->
-          <div class="stats-box-value-wrap">
-            <!-- STATS BOX VALUE -->
-            <p class="stats-box-value">294</p>
-            <!-- /STATS BOX VALUE -->
-      
-            <!-- STATS BOX DIFF -->
-            <div class="stats-box-diff">
-              <!-- STATS BOX DIFF ICON -->
-              <div class="stats-box-diff-icon positive">
-                <!-- ICON PLUS SMALL -->
-                <svg class="icon-plus-small">
-                  <use xlink:href="#svg-plus-small"></use>
-                </svg>
-                <!-- /ICON PLUS SMALL -->
-              </div>
-              <!-- /STATS BOX DIFF ICON -->
-      
-              <!-- STATS BOX DIFF VALUE -->
-              <p class="stats-box-diff-value">0.4%</p>
-              <!-- /STATS BOX DIFF VALUE -->
-            </div>
-            <!-- /STATS BOX DIFF -->
-          </div>
-          <!-- /STATS BOX VALUE WRAP -->
-      
-          <!-- STATS BOX TITLE -->
-          <p class="stats-box-title">Posts Created</p>
-          <!-- /STATS BOX TITLE -->
-      
-          <!-- STATS BOX TEXT -->
-          <p class="stats-box-text">In the last month</p>
-          <!-- /STATS BOX TEXT -->
-        </div>
-        <!-- /STATS BOX -->
-
-        <!-- STATS BOX -->
-        <div class="stats-box small stat-reactions-received">
-          <!-- STATS BOX VALUE WRAP -->
-          <div class="stats-box-value-wrap">
-            <!-- STATS BOX VALUE -->
-            <p class="stats-box-value">2.560</p>
-            <!-- /STATS BOX VALUE -->
-      
-            <!-- STATS BOX DIFF -->
-            <div class="stats-box-diff">
-              <!-- STATS BOX DIFF ICON -->
-              <div class="stats-box-diff-icon negative">
-                <!-- ICON MINUS SMALL -->
-                <svg class="icon-minus-small">
-                  <use xlink:href="#svg-minus-small"></use>
-                </svg>
-                <!-- /ICON MINUS SMALL -->
-              </div>
-              <!-- /STATS BOX DIFF ICON -->
-      
-              <!-- STATS BOX DIFF VALUE -->
-              <p class="stats-box-diff-value">1.8%</p>
-              <!-- /STATS BOX DIFF VALUE -->
-            </div>
-            <!-- /STATS BOX DIFF -->
-          </div>
-          <!-- /STATS BOX VALUE WRAP -->
-      
-          <!-- STATS BOX TITLE -->
-          <p class="stats-box-title">Reactions Received</p>
-          <!-- /STATS BOX TITLE -->
-      
-          <!-- STATS BOX TEXT -->
-          <p class="stats-box-text">In the last month</p>
-          <!-- /STATS BOX TEXT -->
-        </div>
-        <!-- /STATS BOX -->
-
-        <!-- STATS BOX -->
-        <div class="stats-box small stat-comments-received">
-          <!-- STATS BOX VALUE WRAP -->
-          <div class="stats-box-value-wrap">
-            <!-- STATS BOX VALUE -->
-            <p class="stats-box-value">947</p>
-            <!-- /STATS BOX VALUE -->
-      
-            <!-- STATS BOX DIFF -->
-            <div class="stats-box-diff">
-              <!-- STATS BOX DIFF ICON -->
-              <div class="stats-box-diff-icon positive">
-                <!-- ICON PLUS SMALL -->
-                <svg class="icon-plus-small">
-                  <use xlink:href="#svg-plus-small"></use>
-                </svg>
-                <!-- /ICON PLUS SMALL -->
-              </div>
-              <!-- /STATS BOX DIFF ICON -->
-      
-              <!-- STATS BOX DIFF VALUE -->
-              <p class="stats-box-diff-value">4.5%</p>
-              <!-- /STATS BOX DIFF VALUE -->
-            </div>
-            <!-- /STATS BOX DIFF -->
-          </div>
-          <!-- /STATS BOX VALUE WRAP -->
-      
-          <!-- STATS BOX TITLE -->
-          <p class="stats-box-title">Comments Received</p>
-          <!-- /STATS BOX TITLE -->
-      
-          <!-- STATS BOX TEXT -->
-          <p class="stats-box-text">In the last month</p>
-          <!-- /STATS BOX TEXT -->
-        </div>
-        <!-- /STATS BOX -->
-      </div>
-      <!-- /GRID -->
 
       <!-- GRID -->
       <div class="grid grid-layout-1">
@@ -255,7 +100,7 @@
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
                   <!-- HEXAGON -->
-                  <div class="hexagon-image-82-90" data-src="{{ $user->pictureUrl }}"></div>
+                  <div class="hexagon-image-82-90" data-src="{{ asset('storage/img/profile/' . $user->pictureUrl) }}"></div>
                   <!-- /HEXAGON -->
                 </div>
                 <!-- /USER AVATAR CONTENT -->
@@ -1145,6 +990,162 @@
         <!-- /GRID COLUMN -->
       </div>
       <!-- /GRID -->
+      
+      <!-- GRID -->
+      <div class="grid grid-3-3-3-3 centered">
+        <!-- STATS BOX -->
+        <div class="stats-box small stat-profile-views">
+          <!-- STATS BOX VALUE WRAP -->
+          <div class="stats-box-value-wrap">
+            <!-- STATS BOX VALUE -->
+            <p class="stats-box-value">87.365</p>
+            <!-- /STATS BOX VALUE -->
+      
+            <!-- STATS BOX DIFF -->
+            <div class="stats-box-diff">
+              <!-- STATS BOX DIFF ICON -->
+              <div class="stats-box-diff-icon positive">
+                <!-- ICON PLUS SMALL -->
+                <svg class="icon-plus-small">
+                  <use xlink:href="#svg-plus-small"></use>
+                </svg>
+                <!-- /ICON PLUS SMALL -->
+              </div>
+              <!-- /STATS BOX DIFF ICON -->
+      
+              <!-- STATS BOX DIFF VALUE -->
+              <p class="stats-box-diff-value">3.2%</p>
+              <!-- /STATS BOX DIFF VALUE -->
+            </div>
+            <!-- /STATS BOX DIFF -->
+          </div>
+          <!-- /STATS BOX VALUE WRAP -->
+      
+          <!-- STATS BOX TITLE -->
+          <p class="stats-box-title">Profile Views</p>
+          <!-- /STATS BOX TITLE -->
+      
+          <!-- STATS BOX TEXT -->
+          <p class="stats-box-text">In the last month</p>
+          <!-- /STATS BOX TEXT -->
+        </div>
+        <!-- /STATS BOX -->
+
+        <!-- STATS BOX -->
+        <div class="stats-box small stat-posts-created">
+          <!-- STATS BOX VALUE WRAP -->
+          <div class="stats-box-value-wrap">
+            <!-- STATS BOX VALUE -->
+            <p class="stats-box-value">294</p>
+            <!-- /STATS BOX VALUE -->
+      
+            <!-- STATS BOX DIFF -->
+            <div class="stats-box-diff">
+              <!-- STATS BOX DIFF ICON -->
+              <div class="stats-box-diff-icon positive">
+                <!-- ICON PLUS SMALL -->
+                <svg class="icon-plus-small">
+                  <use xlink:href="#svg-plus-small"></use>
+                </svg>
+                <!-- /ICON PLUS SMALL -->
+              </div>
+              <!-- /STATS BOX DIFF ICON -->
+      
+              <!-- STATS BOX DIFF VALUE -->
+              <p class="stats-box-diff-value">0.4%</p>
+              <!-- /STATS BOX DIFF VALUE -->
+            </div>
+            <!-- /STATS BOX DIFF -->
+          </div>
+          <!-- /STATS BOX VALUE WRAP -->
+      
+          <!-- STATS BOX TITLE -->
+          <p class="stats-box-title">Posts Created</p>
+          <!-- /STATS BOX TITLE -->
+      
+          <!-- STATS BOX TEXT -->
+          <p class="stats-box-text">In the last month</p>
+          <!-- /STATS BOX TEXT -->
+        </div>
+        <!-- /STATS BOX -->
+
+        <!-- STATS BOX -->
+        <div class="stats-box small stat-reactions-received">
+          <!-- STATS BOX VALUE WRAP -->
+          <div class="stats-box-value-wrap">
+            <!-- STATS BOX VALUE -->
+            <p class="stats-box-value">2.560</p>
+            <!-- /STATS BOX VALUE -->
+      
+            <!-- STATS BOX DIFF -->
+            <div class="stats-box-diff">
+              <!-- STATS BOX DIFF ICON -->
+              <div class="stats-box-diff-icon negative">
+                <!-- ICON MINUS SMALL -->
+                <svg class="icon-minus-small">
+                  <use xlink:href="#svg-minus-small"></use>
+                </svg>
+                <!-- /ICON MINUS SMALL -->
+              </div>
+              <!-- /STATS BOX DIFF ICON -->
+      
+              <!-- STATS BOX DIFF VALUE -->
+              <p class="stats-box-diff-value">1.8%</p>
+              <!-- /STATS BOX DIFF VALUE -->
+            </div>
+            <!-- /STATS BOX DIFF -->
+          </div>
+          <!-- /STATS BOX VALUE WRAP -->
+      
+          <!-- STATS BOX TITLE -->
+          <p class="stats-box-title">Reactions Received</p>
+          <!-- /STATS BOX TITLE -->
+      
+          <!-- STATS BOX TEXT -->
+          <p class="stats-box-text">In the last month</p>
+          <!-- /STATS BOX TEXT -->
+        </div>
+        <!-- /STATS BOX -->
+
+        <!-- STATS BOX -->
+        <div class="stats-box small stat-comments-received">
+          <!-- STATS BOX VALUE WRAP -->
+          <div class="stats-box-value-wrap">
+            <!-- STATS BOX VALUE -->
+            <p class="stats-box-value">947</p>
+            <!-- /STATS BOX VALUE -->
+      
+            <!-- STATS BOX DIFF -->
+            <div class="stats-box-diff">
+              <!-- STATS BOX DIFF ICON -->
+              <div class="stats-box-diff-icon positive">
+                <!-- ICON PLUS SMALL -->
+                <svg class="icon-plus-small">
+                  <use xlink:href="#svg-plus-small"></use>
+                </svg>
+                <!-- /ICON PLUS SMALL -->
+              </div>
+              <!-- /STATS BOX DIFF ICON -->
+      
+              <!-- STATS BOX DIFF VALUE -->
+              <p class="stats-box-diff-value">4.5%</p>
+              <!-- /STATS BOX DIFF VALUE -->
+            </div>
+            <!-- /STATS BOX DIFF -->
+          </div>
+          <!-- /STATS BOX VALUE WRAP -->
+      
+          <!-- STATS BOX TITLE -->
+          <p class="stats-box-title">Comments Received</p>
+          <!-- /STATS BOX TITLE -->
+      
+          <!-- STATS BOX TEXT -->
+          <p class="stats-box-text">In the last month</p>
+          <!-- /STATS BOX TEXT -->
+        </div>
+        <!-- /STATS BOX -->
+      </div>
+      <!-- /GRID -->
 
       <!-- SLIDER LINE -->
       <div class="slider-line medium">
@@ -1783,7 +1784,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ $user->pictureUrl }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->pictureUrl) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -1873,19 +1874,19 @@
               <!-- TAG LIST -->
               <div class="tag-list">
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Stream</a>
+                <a class="tag-item secondary" href="/feed">Stream</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Youtube</a>
+                <a class="tag-item secondary" href="/feed">Youtube</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Gaming</a>
+                <a class="tag-item secondary" href="/feed">Gaming</a>
                 <!-- /TAG ITEM -->
       
                 <!-- TAG ITEM -->
-                <a class="tag-item secondary" href="newsfeed.html">Retro</a>
+                <a class="tag-item secondary" href="/feed">Retro</a>
                 <!-- /TAG ITEM -->
               </div>
               <!-- /TAG LIST -->

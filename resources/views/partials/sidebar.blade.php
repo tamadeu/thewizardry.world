@@ -20,7 +20,7 @@
         <!-- USER AVATAR CONTENT -->
         <div class="user-avatar-content">
           <!-- HEXAGON -->
-          <div class="hexagon-image-82-90" data-src="{{ $user->pictureUrl }}"></div>
+          <div class="hexagon-image-82-90" data-src="{{ asset('storage/img/profile/' . $user->pictureUrl) }}"></div>
           <!-- /HEXAGON -->
         </div>
         <!-- /USER AVATAR CONTENT -->
@@ -156,25 +156,11 @@
 
     <!-- MENU -->
     <ul class="menu">
-      <!-- MENU ITEM -->
-      <li class="menu-item">
-        <!-- MENU ITEM LINK -->
-        <a class="menu-item-link" href="newsfeed.html">
-          <!-- MENU ITEM LINK ICON -->
-          <svg class="menu-item-link-icon icon-newsfeed">
-            <use xlink:href="#svg-newsfeed"></use>
-          </svg>
-          <!-- /MENU ITEM LINK ICON -->
-          Newsfeed
-        </a>
-        <!-- /MENU ITEM LINK -->
-      </li>
-      <!-- /MENU ITEM -->
 
-      <!-- MENU ITEM -->
-      <li class="menu-item active">
+      <!-- MENU ITEM OVERVIEW -->
+      <li class="menu-item @if($activeMenu == 'home') active @endif">
         <!-- MENU ITEM LINK -->
-        <a class="menu-item-link" href="overview.html">
+        <a class="menu-item-link" href="/">
           <!-- MENU ITEM LINK ICON -->
           <svg class="menu-item-link-icon icon-overview">
             <use xlink:href="#svg-overview"></use>
@@ -186,7 +172,22 @@
       </li>
       <!-- /MENU ITEM -->
 
-      <!-- MENU ITEM -->
+      <!-- MENU ITEM NEWSFEED -->
+      <li class="menu-item @if($activeMenu == 'feed') active @endif">
+        <!-- MENU ITEM LINK -->
+        <a class="menu-item-link" href="/feed">
+          <!-- MENU ITEM LINK ICON -->
+          <svg class="menu-item-link-icon icon-newsfeed">
+            <use xlink:href="#svg-newsfeed"></use>
+          </svg>
+          <!-- /MENU ITEM LINK ICON -->
+          Newsfeed
+        </a>
+        <!-- /MENU ITEM LINK -->
+      </li>
+      <!-- /MENU ITEM -->
+
+      <!-- MENU ITEM GROUPS -->
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="groups.html">
@@ -201,7 +202,7 @@
       </li>
       <!-- /MENU ITEM -->
 
-      <!-- MENU ITEM -->
+      <!-- MENU ITEM MEMBERS -->
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="members.html">
@@ -216,7 +217,7 @@
       </li>
       <!-- /MENU ITEM -->
 
-      <!-- MENU ITEM -->
+      <!-- MENU ITEM BADGES -->
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="badges.html">
@@ -231,7 +232,7 @@
       </li>
       <!-- /MENU ITEM -->
 
-      <!-- MENU ITEM -->
+      <!-- MENU ITEM QUESTS -->
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="quests.html">
@@ -246,7 +247,7 @@
       </li>
       <!-- /MENU ITEM -->
 
-      <!-- MENU ITEM -->
+      <!-- MENU ITEM STREAMS -->
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="streams.html">
@@ -261,7 +262,7 @@
       </li>
       <!-- /MENU ITEM -->
 
-      <!-- MENU ITEM -->
+      <!-- MENU ITEM EVENTS -->
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="events.html">
@@ -276,7 +277,7 @@
       </li>
       <!-- /MENU ITEM -->
 
-      <!-- MENU ITEM -->
+      <!-- MENU ITEM FORUMS -->
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="forums.html">
@@ -291,7 +292,7 @@
       </li>
       <!-- /MENU ITEM -->
 
-      <!-- MENU ITEM -->
+      <!-- MENU ITEM MARKETPLACE -->
       <li class="menu-item">
         <!-- MENU ITEM LINK -->
         <a class="menu-item-link" href="marketplace.html">

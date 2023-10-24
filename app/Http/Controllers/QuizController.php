@@ -25,7 +25,8 @@ class QuizController extends Controller
             return view('quiz/index', [
                 'questions' => $questions,
                 'answers' => $answers,
-                'user' => $user
+                'user' => $user,
+                'activeMenu' => ''
             ]);
         } else {
             return redirect('/');
