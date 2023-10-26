@@ -52,10 +52,29 @@ class RegisteredUserController extends Controller
         $randomKey = array_rand($foundItem);
         $school = $foundItem[$randomKey];
 
-        $id = substr(md5(uniqid('', true)), 0, 16);
+        $currentYear = date('Y');
+        $currentMonth = date('m');
+        $words = explode(" ", $school->name); // Split the string into words
+
+        $initials = '';
+        foreach ($words as $word) {
+            $initials .= $word[0]; // Get the first letter of each word and append it to the initials string
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'lastName' => $request->lastName,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'type' => 2
+        ]);
+
+        event(new Registered($user));
+
+        $studentCode = $initials.$currentYear.$currentMonth.$user->id;
 
         $body = [
-            "id" => $id,
             "firstName" => $request->name,
             "lastName" => $request->lastName,
             "email" => $request->email,
@@ -64,23 +83,20 @@ class RegisteredUserController extends Controller
             "pictureUrl" => "placeholder.png",
             "schoolId" => $school->id,
             "schoolName" => $school->name,
-            "country" => $request->country
+            "country" => $request->country,
+            "dateOfBirth" => null,
+            "studentCode" => $studentCode,
+            "houseId" => null,
+            "houseName" => null,
+            "type" => "regular",
+            "level" => 1
         ];
 
-        $user = User::create([
-            'name' => $request->name,
-            'lastName' => $request->lastName,
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'crm_id' => $id,
-            'type' => 2
-        ]);
+        $newUser = $model->post('users/', $body);
 
-        $model->post('users/'.$id.'', $body);
+        $user->crm_id = $newUser['id'];
+        $user->save();
 
-
-        event(new Registered($user));
 
         Auth::login($user);
 

@@ -42,21 +42,9 @@ class TestController extends Controller
     }
 
     public function allUsers(DataModel $model){
-        $schools = $model->getAll('schools');
-        $country = 'England';
-    
-        $foundItem = array_filter(json_decode($schools), function ($item) use ($country) {
-            return $item->country === $country;
-        });
-    
-        if (!empty($foundItem)) {
-            $foundItem = array_values($foundItem); // Re-index the array
-            $randomKey = array_rand($foundItem);
-            $school = $foundItem[$randomKey];
-            return response()->json($school);
-        } else {
-            return response()->json(null); // No matching schools found
-        }
+        $users = $model->getAll('users');
+
+        return response()->json(json_decode($users));
         
     }
 

@@ -18,19 +18,19 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'verified', 'quiz'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/quiz', [QuizController::class, 'index'])->middleware(['auth', 'verified'])->name('quiz');
-Route::post('/sendQuiz', [QuizController::class, 'sendQuiz'])->middleware(['auth', 'verified'])->name('sendQuiz');
-Route::get('/resultQuiz', [QuizController::class, 'result'])->middleware(['auth', 'verified'])->name('resultQuiz');
+Route::get('/quiz', [QuizController::class, 'index'])->middleware(['auth', 'verified', 'quiz'])->name('quiz');
+Route::post('/sendQuiz', [QuizController::class, 'sendQuiz'])->middleware(['auth', 'verified', 'quiz'])->name('sendQuiz');
+Route::get('/resultQuiz', [QuizController::class, 'result'])->middleware(['auth', 'verified', 'quiz'])->name('resultQuiz');
 
-Route::get('/@{username}', [ProfileController::class, 'timeline'])->middleware(['auth', 'verified']);
+Route::get('/@{username}', [ProfileController::class, 'timeline'])->middleware(['auth', 'verified', 'quiz']);
 
-Route::get('/feed', [NewsfeedController::class, 'index'])->middleware(['auth', 'verified']);
+Route::get('/feed', [NewsfeedController::class, 'index'])->middleware(['auth', 'verified', 'quiz']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,21 +40,21 @@ Route::middleware('auth')->group(function () {
 
 
 Route::prefix('wwadmin')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin');
     Route::get('/students/view', [AdminController::class, 'studentsView']);
 
     Route::prefix('students')->group(function () {
-        Route::get('/', [AdminController::class, 'students']);
+        Route::get('/', [AdminController::class, 'students'])->name('students');
 
         Route::get('/new', [AdminController::class, 'newStudent']);
         Route::get('/{id}', [AdminController::class, 'viewStudent']);
-        Route::get('/{quiz_id}/delete', [AdminController::class,'deleteStudent']);
+        Route::get('/{id}/delete', [AdminController::class,'deleteStudent']);
 
     });
 
 
     Route::prefix('schools')->group(function () {
-        Route::get('/', [AdminController::class, 'schools']);
+        Route::get('/', [AdminController::class, 'schools'])->name('schools');
 
         Route::get('/new', [AdminController::class, 'newSchool']);
         Route::get('/{id}', [AdminController::class, 'viewSchool']);
@@ -65,7 +65,7 @@ Route::prefix('wwadmin')->middleware(['auth', 'admin'])->group(function () {
     });
 
     Route::prefix('quiz')->group(function () {
-        Route::get('/', [AdminController::class, 'quiz']);
+        Route::get('/', [AdminController::class, 'quiz'])->name('quiz');
 
         /* quiz */
         Route::get('/new', [AdminController::class, 'newQuiz']);
@@ -84,6 +84,11 @@ Route::prefix('wwadmin')->middleware(['auth', 'admin'])->group(function () {
     
     });
 
+    Route::prefix('settings')->group(function () {
+        Route::get('/', [AdminController::class, 'settings'])->name('settings');
+
+    });
+
     Route::post('/add_quiz', [AdminController::class, 'addQuiz']);
     Route::post('/add_answer', [AdminController::class, 'addAnswer']);
     Route::post('/add_question', [AdminController::class, 'addQuestion']);
@@ -93,6 +98,7 @@ Route::prefix('wwadmin')->middleware(['auth', 'admin'])->group(function () {
     Route::post('/updateQuestion', [AdminController::class,'updateQuestion']);
     Route::post('/updateAnswer', [AdminController::class,'updateAnswer']);
     Route::post('/updateSchool', [AdminController::class,'updateSchool']);
+    Route::post('/updateStudent', [AdminController::class,'updateStudent']);
 });
 
 require __DIR__.'/auth.php';

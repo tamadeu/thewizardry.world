@@ -153,69 +153,62 @@
                     <h5 class="title">Update Student</h5>
                     <ul class="nk-nav nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#personal-01">Personal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#address">Address</a>
+                            <a class="nav-link" data-bs-toggle="tab">Personal</a>
                         </li>
                     </ul><!-- .nav-tabs -->
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="personal-01">
+                        <form method="POST" action="/wwadmin/updateStudent">
+                            @csrf
                             <div class="row gy-4">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="full-name">First Name</label>
-                                        <input type="text" class="form-control" id="full-name" value="Abu Bin Ishtiyak" placeholder="Enter Full name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="display-name">Last Name</label>
-                                        <input type="text" class="form-control" id="display-name" value="Ishtiyak" placeholder="Enter display name">
-                                    </div>
-                                </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="form-label">Course to Enrol</label>
-                                        <div class="form-control-wrap">
-                                            <select class="form-select js-select2" data-placeholder="Select multiple options">
-                                                <option value="default_option">UI/UX Design with Adobe XD</option>
-                                                <option value="option_select_name">Front-end Web Development with React</option>
-                                                <option value="option_select_name">Learn Android Development with project</option>
-                                                <option value="option_select_name">Learn PHP Basic to Advance</option>
-                                                <option value="option_select_name">Learn Android Development with project</option>
-                                            </select>
-                                        </div>
+                                        <label class="form-label" for="firstName">User Type</label>
+                                        <select class="form-control" name="type">
+                                            <option value="admin" @if($student->type == "admin") selected @endif>Admin</option>
+                                            <option value="regular" @if($student->type == "regular") selected @endif>Regular User</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" value="{{ $student->firstName }}" placeholder="Enter first name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="lastName">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" value="{{ $student->lastName }}" placeholder="Enter last name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="email">Email Address</label>
-                                        <input type="email" class="form-control" id="email" value="Email" placeholder="Email Address">
+                                        <input type="email" class="form-control" id="email" name="email" value="{{ $student->email }}" placeholder="Email Address">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="phone-no">Phone Number</label>
-                                        <input type="text" class="form-control" id="phone-no" value="+880" placeholder="Phone Number">
+                                        <label class="form-label" for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="{{ $student->username }}" placeholder="Phone Number">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="birth-day">Date of Birth</label>
-                                        <input type="text" class="form-control date-picker" id="birth-day" placeholder="Date of Birth">
+                                        <label class="form-label" for="dateOfBirth">Date of Birth</label>
+                                        <input type="text" class="form-control date-picker" id="dateOfBirth" name="dateOfBirth" placeholder="Date of Birth">
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="latest-sale">
-                                        <label class="custom-control-label" for="latest-sale">Use full name to display </label>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="country">Country</label>
+                                        <input type="text" class="form-control" id="country" name="country" value="{{ $student->country }}" placeholder="Phone Number">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
                                         <li>
-                                            <a href="#" class="btn btn-primary">Update Student</a>
+                                            <input type="hidden" name="id" value="{{ $student->id }}" />
+                                            <button type="submit" href="#" class="btn btn-primary">Update Student</button>
                                         </li>
                                         <li>
                                             <a href="#" data-bs-dismiss="modal" class="link link-light">Cancel</a>
@@ -223,53 +216,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div><!-- .tab-pane -->
-                        <div class="tab-pane" id="address">
-                            <div class="row gy-4">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="address-l1">Address Line 1</label>
-                                        <input type="text" class="form-control" id="address-l1" value="2337 Kildeer Drive">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="address-l2">Address Line 2</label>
-                                        <input type="text" class="form-control" id="address-l2" value="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="address-st">State</label>
-                                        <input type="text" class="form-control" id="address-st" value="Kentucky">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="address-county">Country</label>
-                                        <select class="form-select js-select2" id="address-county" data-ui="lg">
-                                            <option>Canada</option>
-                                            <option>United State</option>
-                                            <option>United Kindom</option>
-                                            <option>Australia</option>
-                                            <option>India</option>
-                                            <option>Bangladesh</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
-                                        <li>
-                                            <a href="#" class="btn btn-primary">Update Address</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" data-bs-dismiss="modal" class="link link-light">Cancel</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!-- .tab-pane -->
-                    </div><!-- .tab-content -->
+                        </form>
                 </div><!-- .modal-body -->
             </div><!-- .modal-content -->
         </div><!-- .modal-dialog -->

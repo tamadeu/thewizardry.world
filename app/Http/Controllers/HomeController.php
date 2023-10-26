@@ -13,17 +13,13 @@ class HomeController extends Controller
 
         $user = $model->get('users/'.$userId);
 
-        $houseId = $user->houseId;
 
-        if($houseId != null){
             $schools = $model->get('schools/653129a954790c5de');
             return view('index', [
                 'schools' => $schools,
                 'user' => $user,
                 'activeMenu' => 'home']);
-        } else {
-            return redirect('/quiz');
-        }
+        
         
     }
 }

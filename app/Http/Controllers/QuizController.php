@@ -14,9 +14,8 @@ class QuizController extends Controller
 
         $user = $model->get('users/'.Auth::user()->crm_id);
 
-        $houseId = $user->houseId;
 
-        if($houseId == null){
+        if($user->houseId == null){
             $quizzes = $model->getAll('quiz');
 
             $schoolId = $user->schoolId;

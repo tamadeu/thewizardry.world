@@ -1971,7 +1971,7 @@
                     <!-- /USER AVATAR BADGE CONTENT -->
               
                     <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text">24</p>
+                    <p class="user-avatar-badge-text">{{ $user->level }}</p>
                     <!-- /USER AVATAR BADGE TEXT -->
                   </div>
                   <!-- /USER AVATAR BADGE -->

@@ -40,13 +40,42 @@ class AdminController extends Controller
             $initials .= $word[0]; // Get the first letter of each word and append it to the initials string
         }
 
-
-
         return view('admin/students/view', [
             'student'=> $student,
             'initials' => $initials,
             'activeMenu' => 'users'
         ]);
+    }
+
+    public function updateStudent(DataModel $model, Request $request){
+
+        $data = $request->all();
+
+        $body = array(
+            'firstName' => $data['firstName'],
+            'lastName' => $data['lastName'],
+            'name' => $data['firstName'] . ' ' . $data['lastName'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'dateOfBirth' => $data['dateOfBirth'],
+            'country' => $data['country'],
+            'type' => $data['type'],
+        );
+
+        $user = $model->get('users/'.$data['id']);
+
+        if($user->type != $data['type'] || $user->username != $data['username'] || $user->email != $data['email']){
+            $dbUser = User::where('crm_id', $data['id'])->first();
+            $dbUser->type = ($data['type'] == "admin") ? 1 : 2;
+            $dbUser->username = $data['username'];
+            $dbUser->email = $data['email'];
+            $dbUser->save();
+        }
+
+        $model->put('users/'. $data['id'], $body);
+
+        return redirect('wwadmin/students/'.$data['id']);
+
     }
 
     public function schools(DataModel $model){
@@ -516,6 +545,16 @@ class AdminController extends Controller
             // Handle error: Quiz not found
             return response()->json(['error' => 'Quiz not found'], 404);
         }
+    }
+
+    public function settings(DataModel $model){
+
+        $users = $model->getAll('users');
+
+        return view('admin/settings/index', [
+            'users'=> json_decode($users),
+            'activeMenu' => 'dashboard'
+        ]);
     }
     
 }

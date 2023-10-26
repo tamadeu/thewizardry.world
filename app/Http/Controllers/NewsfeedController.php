@@ -15,14 +15,12 @@ class NewsfeedController extends Controller
 
         $houseId = Auth::user()->houseId;
 
-        if($houseId != null){
             $schools = $model->get('schools/653129a954790c5de');
             return view('newsfeed', [
                 'schools' => $schools,
                 'user' => $user,
-                'activeMenu' => 'feed']);
-        } else {
-            return redirect('/quiz');
-        }
+                'activeMenu' => 'feed'
+            ]);
+
     }
 }
