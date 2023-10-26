@@ -14,20 +14,35 @@ class QuizController extends Controller
 
         $user = $model->get('users/'.Auth::user()->crm_id);
 
-        $houseId = Auth::user()->houseId;
+        $houseId = $user->houseId;
 
         if($houseId == null){
+            $quizzes = $model->getAll('quiz');
 
-            $questions = $crm->get('QuizzQuestion');
-            $answers = $crm->get('QuizzAnswer');
+            $schoolId = $user->schoolId;
+
+            $foundItem = array_filter(json_decode($quizzes), function ($item) use ($schoolId) {
+                return $item->schoolId === $schoolId;
+            });
+
+            if (!empty($foundItem)) {
+                $firstMatch = reset($foundItem);
+
+                $questions = $firstMatch->questions;
+                $answers = $crm->get('QuizzAnswer');
 
 
-            return view('quiz/index', [
-                'questions' => $questions,
-                'answers' => $answers,
-                'user' => $user,
-                'activeMenu' => ''
-            ]);
+                return view('quiz/index', [
+                    'test' => $questions,
+                    'questions' => $questions,
+                    'answers' => $answers,
+                    'user' => $user,
+                    'activeMenu' => ''
+                ]);
+            } else {
+                echo $quizzes;
+            }
+
         } else {
             return redirect('/');
         }
@@ -64,7 +79,8 @@ class QuizController extends Controller
 
         return view('quiz/result', [
             'user' => $user,
-            'house' => $house
+            'house' => $house,
+            'activeMenu' => ''
         ]);
     }
 }

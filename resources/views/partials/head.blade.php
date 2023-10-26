@@ -12,7 +12,7 @@
   <!-- tiny-slider styles -->
   <link rel="stylesheet" href="css/vendor/tiny-slider.css">
   <!-- favicon -->
-  <link rel="icon" href="img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
   <title>The Wizardry World</title>
 </head>
 <body>

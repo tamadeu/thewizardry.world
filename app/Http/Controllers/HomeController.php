@@ -13,7 +13,7 @@ class HomeController extends Controller
 
         $user = $model->get('users/'.$userId);
 
-        $houseId = Auth::user()->houseId;
+        $houseId = $user->houseId;
 
         if($houseId != null){
             $schools = $model->get('schools/653129a954790c5de');

@@ -14,19 +14,24 @@ class DataModel extends Model
 
     public function post($nome, $dados)
     {
-        $caminho = $this->getStoragePath() . $nome . '.json';
+        $id = substr(md5(uniqid('', true)), 0, 16);
+
+        $caminho = $this->getStoragePath() . $nome .'/'. $id . '.json';
 
         $array = array();
 
         $array = array_merge(
             $dados,
             array(
+                "id" => $id,
                 "created_at" => date("Y-m-d H:i:s"),
                 "updated_at" => date("Y-m-d H:i:s")
             )
         );
 
         file_put_contents($caminho, json_encode($array, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+
+        return $array;
     }
 
     public function put($nome, $payload)
@@ -62,6 +67,23 @@ class DataModel extends Model
             return json_decode(file_get_contents($caminho));
         }
         return null;
+    }
+
+    public function del($nome)
+    {
+        $caminho = $this->getStoragePath() . $nome . '.json';
+
+        // Check if the file exists
+        if (file_exists($caminho)) {
+            // Attempt to delete the file
+            if (unlink($caminho)) {
+                return true; // File successfully deleted
+            } else {
+                return false; // Failed to delete the file
+            }
+        }
+
+        return false; // File doesn't exist
     }
 
     public function getAll($endpoint){

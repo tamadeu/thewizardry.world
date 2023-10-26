@@ -5,7 +5,6 @@ use App\Http\Controllers\NewsfeedController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -39,20 +38,61 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::post('/criarTeste', [TestController::class, 'criarArquivoJSON']);
-Route::get('/getTeste/{id}', [TestController::class, 'lerArquivoJSON']);
-Route::put('/putTeste/{id}', [TestController::class, 'atualizarArquivoJSON']);
-Route::get('getUsers', [TestController::class,'allUsers']);
-Route::get('getUsers/{username}', [TestController::class,'specificUser']);
 
+Route::prefix('wwadmin')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/students/view', [AdminController::class, 'studentsView']);
 
-Route::get('/admin/logout-all', [AdminController::class, 'logoutAllUsers'])->middleware('auth'); // Add any required middleware
+    Route::prefix('students')->group(function () {
+        Route::get('/', [AdminController::class, 'students']);
 
-Route::prefix('admin')->group(function () {
-    Route::get('/users', function () {
-        // Matches The "/admin/users" URL
+        Route::get('/new', [AdminController::class, 'newStudent']);
+        Route::get('/{id}', [AdminController::class, 'viewStudent']);
+        Route::get('/{quiz_id}/delete', [AdminController::class,'deleteStudent']);
+
     });
-});
 
+
+    Route::prefix('schools')->group(function () {
+        Route::get('/', [AdminController::class, 'schools']);
+
+        Route::get('/new', [AdminController::class, 'newSchool']);
+        Route::get('/{id}', [AdminController::class, 'viewSchool']);
+        Route::get('/{school_id}/delete', [AdminController::class,'deleteSchool']);
+
+        Route::get('/{school_id}/{house_id}/delete', [AdminController::class,'deleteHouse']);
+
+    });
+
+    Route::prefix('quiz')->group(function () {
+        Route::get('/', [AdminController::class, 'quiz']);
+
+        /* quiz */
+        Route::get('/new', [AdminController::class, 'newQuiz']);
+        Route::get('/{id}', [AdminController::class, 'editQuiz']);
+        Route::get('/{quiz_id}/delete', [AdminController::class,'deleteQuiz']);
+
+        /* questions */
+        Route::get('/{quiz_id}/new', [AdminController::class, 'newQuestion']);
+        Route::get('/{quiz_id}/{id}', [AdminController::class, 'editQuestions']);  
+        Route::get('/{quiz_id}/{id}/delete', [AdminController::class, 'deleteQuestion']);  
+        
+        /* answers */
+        Route::get('/{quiz_id}/{question_id}/new', [AdminController::class, 'newAnswer']);
+        Route::get('/{quiz_id}/{question_id}/{id}', [AdminController::class, 'editAnswer']);
+        Route::get('/{quiz_id}/{question_id}/{id}/delete', [AdminController::class, 'deleteAnswer']);
+    
+    });
+
+    Route::post('/add_quiz', [AdminController::class, 'addQuiz']);
+    Route::post('/add_answer', [AdminController::class, 'addAnswer']);
+    Route::post('/add_question', [AdminController::class, 'addQuestion']);
+    Route::post('/add_school', [AdminController::class, 'addSchool']);
+    Route::post('/add_house', [AdminController::class, 'addHouse']);
+    Route::post('/updateQuiz', [AdminController::class,'updateQuiz']);
+    Route::post('/updateQuestion', [AdminController::class,'updateQuestion']);
+    Route::post('/updateAnswer', [AdminController::class,'updateAnswer']);
+    Route::post('/updateSchool', [AdminController::class,'updateSchool']);
+});
 
 require __DIR__.'/auth.php';

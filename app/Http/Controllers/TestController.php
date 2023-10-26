@@ -74,4 +74,16 @@ class TestController extends Controller
             return response()->json(null); // No matching user found
         }
     }
+
+    public function school(DataModel $model, $id){
+        $students = $model->getAll('students');
+
+        $foundStudents = array_filter(json_decode($students), function ($item) use ($id) {
+            return $item->schoolId === $id;
+        });
+
+        $firstMatchStudents = array_values($foundStudents);
+
+        return response()->json($firstMatchStudents);
+    }
 }

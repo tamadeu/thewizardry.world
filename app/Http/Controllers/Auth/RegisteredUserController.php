@@ -74,6 +74,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'crm_id' => $id,
+            'type' => 2
         ]);
 
         $model->post('users/'.$id.'', $body);

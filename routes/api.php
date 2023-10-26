@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/criarTeste', [TestController::class, 'criarArquivoJSON']);
+Route::get('/getTeste/{id}', [TestController::class, 'lerArquivoJSON']);
+Route::put('/putTeste/{id}', [TestController::class, 'atualizarArquivoJSON']);
+Route::get('getUsers', [TestController::class,'allUsers']);
+Route::get('getUsers/{username}', [TestController::class,'specificUser']);
+Route::get('school/{id}', [TestController::class,'school']);

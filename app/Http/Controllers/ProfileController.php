@@ -8,12 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use App\Http\Controllers\CrmController;
 use App\Models\DataModel;
 
 class ProfileController extends Controller
 {
-    public function timeline(Request $request, $username, CrmController $crm, DataModel $model){
+    public function timeline(Request $request, $username, DataModel $model){
         $userId = Auth::user()->crm_id;
         $user = $model->get('users/'.$userId);
 
