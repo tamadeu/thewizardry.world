@@ -41,6 +41,12 @@
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
+                        <a href="{{ route('gamification') }}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-star-round"></em></span>
+                            <span class="nk-menu-text">Gamification</span>
+                        </a>
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item">
                         <a href="{{ route('settings') }}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting-alt-fill"></em></span>
                             <span class="nk-menu-text">Settings</span>

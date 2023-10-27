@@ -128,10 +128,10 @@
                                                     </div><!-- .card-inner -->
                                                     <div class="card-inner">
                                                         <div class="user-account-info py-0">
-                                                            <h6 class="overline-title-alt">Last Login</h6>
-                                                            <p>06-29-2020 02:39pm</p>
-                                                            <h6 class="overline-title-alt">Login IP</h6>
-                                                            <p>192.129.243.28</p>
+                                                            <h6 class="overline-title-alt">Level</h6>
+                                                            <p>{{ $student->level }}</p>
+                                                            <h6 class="overline-title-alt">Points</h6>
+                                                            <p>{{ $student->points }}</p>
                                                         </div>
                                                     </div><!-- .card-inner -->
                                                 </div><!-- .card-inner-group -->

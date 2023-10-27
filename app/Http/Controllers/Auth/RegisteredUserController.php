@@ -89,7 +89,8 @@ class RegisteredUserController extends Controller
             "houseId" => null,
             "houseName" => null,
             "type" => "regular",
-            "level" => 1
+            "level" => 1,
+            "points" => 10
         ];
 
         $newUser = $model->post('users/', $body);

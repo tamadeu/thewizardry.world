@@ -552,9 +552,31 @@ class AdminController extends Controller
         $users = $model->getAll('users');
 
         return view('admin/settings/index', [
-            'users'=> json_decode($users),
-            'activeMenu' => 'dashboard'
+            'users'=> json_decode($users)
         ]);
     }
+
+    public function gamification(DataModel $model){
+        $levels = $model->getAll('levels');
+
+        return view('admin/gamification/index', [
+            'levels'=> json_decode($levels)
+        ]);
+    }
+
+    public function addLevel(Request $request, DataModel $model){
+        $data = $request->all();
+
+        $body = array(
+            'name' => $data['name'],
+            'points' => $data['points'],
+        );
+
+        $model->post('levels/', $body);
+
+        return redirect('wwadmin/gamification/');
+    }
+
+
     
 }

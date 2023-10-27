@@ -43,6 +43,8 @@ Route::prefix('wwadmin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin');
     Route::get('/students/view', [AdminController::class, 'studentsView']);
 
+    Route::get('/gamification', [AdminController::class, 'gamification'])->name('gamification');
+
     Route::prefix('students')->group(function () {
         Route::get('/', [AdminController::class, 'students'])->name('students');
 
@@ -94,6 +96,7 @@ Route::prefix('wwadmin')->middleware(['auth', 'admin'])->group(function () {
     Route::post('/add_question', [AdminController::class, 'addQuestion']);
     Route::post('/add_school', [AdminController::class, 'addSchool']);
     Route::post('/add_house', [AdminController::class, 'addHouse']);
+    Route::post('/add_level', [AdminController::class, 'addLevel']);
     Route::post('/updateQuiz', [AdminController::class,'updateQuiz']);
     Route::post('/updateQuestion', [AdminController::class,'updateQuestion']);
     Route::post('/updateAnswer', [AdminController::class,'updateAnswer']);
