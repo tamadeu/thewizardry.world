@@ -29,6 +29,29 @@ class AdminController extends Controller
         ]);
     }
 
+
+    public function pointsToNextLevel($currentLevel, $nextLevel, $currentPoints){
+        $model = new DataModel();
+        $levels = json_decode($model->getAll('levels'));
+        $level = $model->get('levels/'.$nextLevel);
+
+        $targetName = $currentLevel + 1; // Próximo "name" que você deseja alcançar
+        $pointsNeeded = 0;
+        
+        foreach ($levels as $item) {
+            if ($item->name > $currentLevel && $item->name <= $targetName) {
+                $pointsNeeded += $item->points;
+                if ($item->name == $targetName) {
+                    break; // Saia do loop quando atingir o "name" desejado
+                }
+            }
+        }
+        
+        $pointsNeeded -= $currentPoints;
+
+        return $pointsNeeded;
+    }
+
     public function viewStudent($id, DataModel $model){
 
         $student = $model->get('users/'.$id);
@@ -40,10 +63,15 @@ class AdminController extends Controller
             $initials .= $word[0]; // Get the first letter of each word and append it to the initials string
         }
 
+        $level = $model->get('levels/'.$student->levelId);
+
+        $nextLevel = $level->points - $student->points;
+
         return view('admin/students/view', [
             'student'=> $student,
             'initials' => $initials,
-            'activeMenu' => 'users'
+            'activeMenu' => 'users',
+            'points' => $nextLevel
         ]);
     }
 
@@ -82,9 +110,11 @@ class AdminController extends Controller
 
         $schools = $model->getAll('schools');
 
+        $students = $model->getAll('users');
+
         return view('admin/schools/index', [
             'schools'=> json_decode($schools),
-            'activeMenu' => 'schools'
+            'students' => json_decode($students)
         ]);
     }
 
@@ -112,8 +142,7 @@ class AdminController extends Controller
         return view('admin/schools/view', [
             'school'=> $school,
             'houses' => $firstMatchHouses,
-            'students' => $firstMatchStudents,
-            'activeMenu' => 'schools'
+            'students' => $firstMatchStudents
         ]);
     }
 
@@ -467,7 +496,7 @@ class AdminController extends Controller
         }
     }
 
-    public function deleteQuiz($id, Request $request, DataModel $model){
+    public function deleteQuiz($id, DataModel $model){
         $model->del('quiz/'. $id);
         return redirect('wwadmin/quiz');
     }
@@ -568,13 +597,18 @@ class AdminController extends Controller
         $data = $request->all();
 
         $body = array(
-            'name' => $data['name'],
-            'points' => $data['points'],
+            'name' => (int) $data['name'],
+            'points' => (int) $data['points'],
         );
 
         $model->post('levels/', $body);
 
         return redirect('wwadmin/gamification/');
+    }
+
+    public function removeLevel($id, DataModel $model){
+        $model->del('levels/'. $id);
+        return redirect('wwadmin/gamification');
     }
 
 

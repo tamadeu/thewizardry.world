@@ -44,6 +44,7 @@ Route::prefix('wwadmin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/students/view', [AdminController::class, 'studentsView']);
 
     Route::get('/gamification', [AdminController::class, 'gamification'])->name('gamification');
+    Route::get('/gamification/{id}/delete', [AdminController::class, 'removeLevel']);
 
     Route::prefix('students')->group(function () {
         Route::get('/', [AdminController::class, 'students'])->name('students');

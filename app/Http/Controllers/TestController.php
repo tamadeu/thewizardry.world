@@ -74,4 +74,32 @@ class TestController extends Controller
 
         return response()->json($firstMatchStudents);
     }
+
+    public function levels(){
+        function pointsToNextLevel($currentLevel, $currentPoints){
+            $model = new DataModel();
+            $levels = json_decode($model->getAll('levels'));
+
+            $targetName = $currentLevel + 1; // Próximo "name" que você deseja alcançar
+            $pointsNeeded = 0;
+            
+            foreach ($levels as $item) {
+                if ($item->name > $currentLevel && $item->name <= $targetName) {
+                    $pointsNeeded += $item->points;
+                    if ($item->name == $targetName) {
+                        break; // Saia do loop quando atingir o "name" desejado
+                    }
+                }
+            }
+            
+            $pointsNeeded -= $currentPoints;
+
+            return $pointsNeeded;
+        }
+        
+        $points = pointsToNextLevel(1, 10);
+        
+        echo "Faltam $points pontos para atingir próximo nível";
+
+    }
 }

@@ -105,24 +105,6 @@ app.plugins.createProgressBar({
   height: 6,
   lineColor: '#e7e8ee'
 });
-
-app.plugins.createProgressBar({
-  container: '#exp-to-next-level',
-  height: 6,
-  gradient: {
-    colors: ['#615dfa', '#41efff']
-  },
-  scale: {
-    start: 0,
-    end: 200,
-    stop: 162
-  },
-  linkText: true,
-  linkUnits: 'exp',
-  invertedProgress: true,
-  animateOnScroll: true
-});
-
 /*----------------
     BADGE ITEM
 ----------------*/

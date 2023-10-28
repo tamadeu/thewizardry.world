@@ -49,6 +49,7 @@
                                                         </th>
                                                         <th class="nk-tb-col"><span class="sub-text">School</span></th>
                                                         <th class="nk-tb-col tb-col-mb"><span class="sub-text">Country</span></th>
+                                                        <th class="nk-tb-col tb-col-mb"><span class="sub-text">#Students</span></th>
                                                         <th class="nk-tb-col nk-tb-col-tools text-end">
                                                         </th>
                                                     </tr>
@@ -83,8 +84,22 @@
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td class="nk-tb-col tb-col-mb" data-order="35040.34">
+                                                        <td class="nk-tb-col tb-col-mb">
                                                             <span class="tb-amount">{{ $school->country }} <span class="currency"></span></span>
+                                                        </td>
+                                                            @php
+                                                                $schoolId = $school->id;
+                                                                
+                                                                // Use Laravel's collection method to filter students by schoolId
+                                                                $foundStudents = array_filter($students, function ($item) use ($schoolId) {
+                                                                    return $item->schoolId === $schoolId;
+                                                                });
+
+                                                                $firstMatchStudents = array_values($foundStudents);
+                                                                $qttyStd = count($firstMatchStudents);
+                                                            @endphp
+                                                        <td class="nk-tb-col tb-col-mb">
+                                                            <span class="tb-amount"><a href="/wwadmin/schools/{{ $school->id }}#students">{{ (($qttyStd) > 1) ? $qttyStd." Students" : $qttyStd." Student" }} <span class="currency"></span></a></span>
                                                         </td>
                                                         <td class="nk-tb-col nk-tb-col-tools">
                                                             <ul class="nk-tb-actions gx-1">

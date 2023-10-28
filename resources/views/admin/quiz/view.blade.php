@@ -96,7 +96,7 @@
                                                                 <div class="nk-tb-col"> {{ $index + 1 }} </div>
                                                                 <div class="nk-tb-col"> {{ $question->question }} </div>
                                                                 <div class="nk-tb-col">
-                                                                    {{ count($question->answers) }}
+                                                                    <a href="/wwadmin/quiz/{{ $quiz->id }}/{{ $index }}#answers">{{ count($question->answers) }} <span class="currency">{{ (count($question->answers) == 1) ? "answer" : "answers"  }}</span></a>
                                                                 </div>
                                                                 <div class="nk-tb-col nk-tb-col-tools">
                                                                     <ul class="nk-tb-actions gx-1">

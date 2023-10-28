@@ -13,13 +13,17 @@ class HomeController extends Controller
 
         $user = $model->get('users/'.$userId);
 
+        $level = $model->get('levels/'.$user->levelId);
 
-            $schools = $model->get('schools/653129a954790c5de');
-            return view('index', [
-                'schools' => $schools,
-                'user' => $user,
-                'activeMenu' => 'home']);
-        
-        
+        $nextLevel = ($user->points / $level->points) * 100;
+
+        $schools = $model->get('schools/653129a954790c5de');
+        return view('index', [
+            'schools' => $schools,
+            'user' => $user,
+            'activeMenu' => 'home',
+            'level' => $level,
+            'nextLevel' => $nextLevel
+        ]);
     }
 }

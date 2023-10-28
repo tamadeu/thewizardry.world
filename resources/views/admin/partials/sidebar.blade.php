@@ -1,7 +1,7 @@
 <div class="nk-sidebar nk-sidebar-fixed is-light " data-content="sidebarMenu">
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand">
-            <a href="{{ route('admin') }}" class="logo-link nk-sidebar-logo">
+            <a href="{{ route('home') }}" target="_blank" class="logo-link nk-sidebar-logo">
                 <img class="logo-light logo-img" src="/admin/images/logo.png" srcset="/admin/images/logo2x.png 2x" alt="logo">
                 <img class="logo-dark logo-img" src="/admin/images/logo-dark.png" srcset="/admin/images/logo-dark2x.png 2x" alt="logo-dark">
                 <img class="logo-small logo-img logo-img-small" src="/admin/images/logo-small.png" srcset="/admin/images/logo-small2x.png 2x" alt="logo-small">

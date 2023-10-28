@@ -108,6 +108,9 @@
                                                             <div class="nk-tb-col">
                                                                 <span class="lead-text d-none d-sm-inline">Founding Wizard</span>
                                                             </div>
+                                                            <div class="nk-tb-col">
+                                                                <span class="lead-text d-none d-sm-inline">School Year's Points</span>
+                                                            </div>
                                                             <div class="nk-tb-col nk-tb-col-tools">
                                                                 <span class="lead-text">&nbsp;</span>
                                                             </div>
@@ -118,6 +121,27 @@
                                                                 <div class="nk-tb-col"> {{ $house->name }} </div>
                                                                 <div class="nk-tb-col">
                                                                     {{ $house->foundingWizardName }}
+                                                                </div>
+                                                                <div class="nk-tb-col">
+                                                                @php
+                                                                    $houseId = $house->id;
+                                                                    
+                                                                    // Use Laravel's collection method to filter students by houseId
+                                                                    $foundStudents = array_filter($students, function ($item) use ($houseId) {
+                                                                        return $item->houseId === $houseId;
+                                                                    });
+
+                                                                    $firstMatchStudents = array_values($foundStudents);
+
+                                                                    $housePoints = 0;
+                                                                    
+                                                                    // Calculate the sum of points for the filtered students
+                                                                    foreach($firstMatchStudents as $points){
+                                                                        $housePoints += $points->points;
+                                                                    }
+                                                                @endphp
+                                                                
+                                                                    {{ $housePoints }}
                                                                 </div>
                                                                 <div class="nk-tb-col nk-tb-col-tools">
                                                                     <ul class="nk-tb-actions gx-1">

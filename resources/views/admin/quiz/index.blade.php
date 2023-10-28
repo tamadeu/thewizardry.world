@@ -105,7 +105,7 @@
                                                             </div>
                                                         </td>
                                                         <td class="nk-tb-col tb-col-mb" data-order="35040.34">
-                                                            <span class="tb-amount">{{ count($quiz->questions) }} <span class="currency">{{ (count($quiz->questions) == 1) ? "question" : "questions"  }}</span></span>
+                                                            <span class="tb-amount"><a href="/wwadmin/quiz/{{ $quiz->id }}#questions">{{ count($quiz->questions) }} <span class="currency">{{ (count($quiz->questions) == 1) ? "question" : "questions"  }}</span></a></span>
                                                         </td>
                                                         <td class="nk-tb-col nk-tb-col-tools">
                                                             <ul class="nk-tb-actions gx-1">

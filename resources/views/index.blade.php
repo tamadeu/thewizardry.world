@@ -2906,13 +2906,15 @@
                 <!-- /BAR PROGRESS INFO -->
           
                 <!-- PROGRESS STAT INFO -->
-                <p class="progress-stat-info">13.625 total exp points received</p>
+                <p class="progress-stat-info">{{ $user->points }} total exp points received</p>
                 <!-- /PROGRESS STAT INFO -->
               </div>
               <!-- /BAR PROGRESS WRAP -->
           
               <!-- PROGRESS STAT BAR -->
               <div id="exp-to-next-level" class="progress-stat-bar"></div>
+
+
               <!-- /PROGRESS STAT BAR -->
             </div>
             <!-- /PROGRESS STAT -->
@@ -4693,3 +4695,25 @@
   <!-- /CONTENT GRID -->
 
 @include('partials/footer')
+
+<script>
+
+  app.plugins.createProgressBar({
+    container: '#exp-to-next-level',
+    height: 6,
+    gradient: {
+      colors: ['#615dfa', '#41efff']
+    },
+    scale: {
+      start: 0,
+      end: 100,
+      stop: {{ $nextLevel }}
+    },
+    linkText: true,
+    linkUnits: 'exp',
+    invertedProgress: true,
+    animateOnScroll: true
+  });
+  
+  
+</script>

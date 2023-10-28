@@ -21,3 +21,4 @@ Route::put('/putTeste/{id}', [TestController::class, 'atualizarArquivoJSON']);
 Route::get('/getUsers', [TestController::class,'allUsers']);
 Route::get('getUsers/{username}', [TestController::class,'specificUser']);
 Route::get('school/{id}', [TestController::class,'school']);
+Route::get('/levels', [TestController::class,'levels']);

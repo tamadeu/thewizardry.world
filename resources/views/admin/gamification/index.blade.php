@@ -43,7 +43,7 @@
                                                     <tr class="nk-tb-item nk-tb-head">
  
                                                         <th class="nk-tb-col"><span class="sub-text">Level</span></th>
-                                                        <th class="nk-tb-col tb-col-mb"><span class="sub-text">Points</span></th>
+                                                        <th class="nk-tb-col tb-col-mb"><span class="sub-text">Minimum Points</span></th>
                                                         <th class="nk-tb-col nk-tb-col-tools text-end">
                                                         </th>
                                                     </tr>
@@ -69,7 +69,7 @@
                                                                         <div class="dropdown-menu dropdown-menu-end">
                                                                             <ul class="link-list-opt no-bdr">
                                                                                 <li><a href="levels/{{ $level->id }}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a href="levels/{{ $level->id }}/delete" onclick="return confirm('Do you really wish to delete {{ $level->name }}?')"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
+                                                                                <li><a href="gamification/{{ $level->id }}/delete" onclick="return confirm('Do you really wish to delete {{ $level->name }}?')"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -106,8 +106,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label" for="points">Points to next level</label>
-                                        <input type="text" class="form-control" id="points" name="points" placeholder="Points to next level">
+                                        <label class="form-label" for="points">Minimum points</label>
+                                        <input type="text" class="form-control" id="points" name="points" placeholder="Minimum points">
                                     </div>
                                 </div>
                                 <div class="col-md-12">

@@ -132,6 +132,8 @@
                                                             <p>{{ $student->level }}</p>
                                                             <h6 class="overline-title-alt">Points</h6>
                                                             <p>{{ $student->points }}</p>
+                                                            <h6 class="overline-title-alt">To Next Level</h6>
+                                                            <p>{{ $points }}</p>
                                                         </div>
                                                     </div><!-- .card-inner -->
                                                 </div><!-- .card-inner-group -->
