@@ -12,7 +12,7 @@
       <!-- USER AVATAR CONTENT -->
       <div class="user-avatar-content">
         <!-- HEXAGON -->
-        <div class="hexagon-image-100-110" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+        <div class="hexagon-image-100-110" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
         <!-- /HEXAGON -->
       </div>
       <!-- /USER AVATAR CONTENT -->
@@ -72,7 +72,7 @@
       <!-- USER AVATAR CONTENT -->
       <div class="user-avatar-content">
         <!-- HEXAGON -->
-        <div class="hexagon-image-82-90" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+        <div class="hexagon-image-82-90" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
         <!-- /HEXAGON -->
       </div>
       <!-- /USER AVATAR CONTENT -->

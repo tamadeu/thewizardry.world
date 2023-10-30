@@ -20,7 +20,7 @@
             <!-- USER AVATAR CONTENT -->
             <div class="user-avatar-content">
               <!-- HEXAGON -->
-              <div class="hexagon-image-30-32" data-src="img/avatar/03.jpg"></div>
+              <div class="hexagon-image-30-32" data-src="/img/avatar/03.jpg"></div>
               <!-- /HEXAGON -->
             </div>
             <!-- /USER AVATAR CONTENT -->
@@ -92,7 +92,7 @@
             <!-- USER AVATAR CONTENT -->
             <div class="user-avatar-content">
               <!-- HEXAGON -->
-              <div class="hexagon-image-24-26" data-src="img/avatar/03.jpg"></div>
+              <div class="hexagon-image-24-26" data-src="/img/avatar/03.jpg"></div>
               <!-- /HEXAGON -->
             </div>
             <!-- /USER AVATAR CONTENT -->
@@ -136,7 +136,7 @@
             <!-- USER AVATAR CONTENT -->
             <div class="user-avatar-content">
               <!-- HEXAGON -->
-              <div class="hexagon-image-24-26" data-src="img/avatar/03.jpg"></div>
+              <div class="hexagon-image-24-26" data-src="/img/avatar/03.jpg"></div>
               <!-- /HEXAGON -->
             </div>
             <!-- /USER AVATAR CONTENT -->

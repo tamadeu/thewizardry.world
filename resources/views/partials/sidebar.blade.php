@@ -1,7 +1,7 @@
 <nav id="navigation-widget" class="navigation-widget navigation-widget-desktop sidebar left hidden" data-simplebar>
     <!-- NAVIGATION WIDGET COVER -->
     <figure class="navigation-widget-cover liquid">
-      <img src="img/cover/01.jpg" alt="cover-01">
+      <img src="/img/cover/01.jpg" alt="cover-01">
     </figure>
     <!-- /NAVIGATION WIDGET COVER -->
 
@@ -20,7 +20,7 @@
         <!-- USER AVATAR CONTENT -->
         <div class="user-avatar-content">
           <!-- HEXAGON -->
-          <div class="hexagon-image-82-90" data-src="{{ asset('storage/img/profile/' . $user->pictureName) }}"></div>
+          <div class="hexagon-image-82-90" data-src="{{ asset('storage/img/profile/' . $user->avatar) }}"></div>
           <!-- /HEXAGON -->
         </div>
         <!-- /USER AVATAR CONTENT -->
@@ -81,31 +81,31 @@
     <div class="badge-list small">
       <!-- BADGE ITEM -->
       <div class="badge-item">
-        <img src="img/badge/gold-s.png" alt="badge-gold-s">
+        <img src="/img/badge/gold-s.png" alt="badge-gold-s">
       </div>
       <!-- /BADGE ITEM -->
 
       <!-- BADGE ITEM -->
       <div class="badge-item">
-        <img src="img/badge/age-s.png" alt="badge-age-s">
+        <img src="/img/badge/age-s.png" alt="badge-age-s">
       </div>
       <!-- /BADGE ITEM -->
 
       <!-- BADGE ITEM -->
       <div class="badge-item">
-        <img src="img/badge/caffeinated-s.png" alt="badge-caffeinated-s">
+        <img src="/img/badge/caffeinated-s.png" alt="badge-caffeinated-s">
       </div>
       <!-- /BADGE ITEM -->
 
       <!-- BADGE ITEM -->
       <div class="badge-item">
-        <img src="img/badge/warrior-s.png" alt="badge-warrior-s">
+        <img src="/img/badge/warrior-s.png" alt="badge-warrior-s">
       </div>
       <!-- /BADGE ITEM -->
 
       <!-- BADGE ITEM -->
       <a class="badge-item" href="profile-badges.html">
-        <img src="img/badge/blank-s.png" alt="badge-blank-s">
+        <img src="/img/badge/blank-s.png" alt="badge-blank-s">
         <!-- BADGE ITEM TEXT -->
         <p class="badge-item-text">+9</p>
         <!-- /BADGE ITEM TEXT -->

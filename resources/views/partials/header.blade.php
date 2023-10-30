@@ -105,7 +105,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="img/avatar/05.jpg"></div>
+                    <div class="hexagon-image-30-32" data-src="/img/avatar/05.jpg"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -187,7 +187,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="img/avatar/15.jpg"></div>
+                    <div class="hexagon-image-30-32" data-src="/img/avatar/15.jpg"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -281,7 +281,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-40-44" data-src="img/avatar/24.jpg"></div>
+                    <div class="hexagon-image-40-44" data-src="/img/avatar/24.jpg"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -332,7 +332,7 @@
               <div class="user-status-avatar">
                 <!-- PICTURE -->
                 <figure class="picture small round liquid">
-                  <img src="img/marketplace/items/07.jpg" alt="item-07">
+                  <img src="/img/marketplace/items/07.jpg" alt="item-07">
                 </figure>
                 <!-- /PICTURE -->
               </div>
@@ -422,7 +422,7 @@
                   <a class="cart-item-preview-image" href="marketplace-product.html">
                     <!-- PICTURE -->
                     <figure class="picture medium round liquid">
-                      <img src="img/marketplace/items/01.jpg" alt="item-01">
+                      <img src="/img/marketplace/items/01.jpg" alt="item-01">
                     </figure>
                     <!-- /PICTURE -->
                   </a>
@@ -462,7 +462,7 @@
                   <a class="cart-item-preview-image" href="marketplace-product.html">
                     <!-- PICTURE -->
                     <figure class="picture medium round liquid">
-                      <img src="img/marketplace/items/11.jpg" alt="item-11">
+                      <img src="/img/marketplace/items/11.jpg" alt="item-11">
                     </figure>
                     <!-- /PICTURE -->
                   </a>
@@ -502,7 +502,7 @@
                   <a class="cart-item-preview-image" href="marketplace-product.html">
                     <!-- PICTURE -->
                     <figure class="picture medium round liquid">
-                      <img src="img/marketplace/items/10.jpg" alt="item-10">
+                      <img src="/img/marketplace/items/10.jpg" alt="item-10">
                     </figure>
                     <!-- /PICTURE -->
                   </a>
@@ -542,7 +542,7 @@
                   <a class="cart-item-preview-image" href="marketplace-product.html">
                     <!-- PICTURE -->
                     <figure class="picture medium round liquid">
-                      <img src="img/marketplace/items/04.jpg" alt="item-04">
+                      <img src="/img/marketplace/items/04.jpg" alt="item-04">
                     </figure>
                     <!-- /PICTURE -->
                   </a>
@@ -659,7 +659,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/16.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/16.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -755,7 +755,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/14.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/14.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -851,7 +851,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/11.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/11.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -993,7 +993,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/04.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/04.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1069,7 +1069,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/05.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/05.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1145,7 +1145,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/03.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/03.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1221,7 +1221,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/07.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/07.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1297,7 +1297,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/12.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/12.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1373,7 +1373,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/10.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/10.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1495,7 +1495,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/03.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/03.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1577,7 +1577,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/07.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/07.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1627,7 +1627,7 @@
                   <!-- /USER STATUS AVATAR -->
               
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><a class="bold" href="profile-timeline.html">Sarah Diamond</a> left a like <img class="reaction" src="img/reaction/like.png" alt="reaction-like"> reaction on your <a class="highlighted" href="profile-timeline.html">status update</a></p>
+                  <p class="user-status-title"><a class="bold" href="profile-timeline.html">Sarah Diamond</a> left a like <img class="reaction" src="/img/reaction/like.png" alt="reaction-like"> reaction on your <a class="highlighted" href="profile-timeline.html">status update</a></p>
                   <!-- /USER STATUS TITLE -->
               
                   <!-- USER STATUS TIMESTAMP -->
@@ -1659,7 +1659,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/02.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/02.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1741,7 +1741,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/10.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/10.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1791,7 +1791,7 @@
                   <!-- /USER STATUS AVATAR -->
         
                   <!-- USER STATUS TITLE -->
-                  <p class="user-status-title"><a class="bold" href="profile-timeline.html">The Green Goo</a> left a love <img class="reaction" src="img/reaction/love.png" alt="reaction-love"> reaction on your <a class="highlighted" href="profile-timeline.html">status update</a></p>
+                  <p class="user-status-title"><a class="bold" href="profile-timeline.html">The Green Goo</a> left a love <img class="reaction" src="/img/reaction/love.png" alt="reaction-love"> reaction on your <a class="highlighted" href="profile-timeline.html">status update</a></p>
                   <!-- /USER STATUS TITLE -->
         
                   <!-- USER STATUS TIMESTAMP -->
@@ -1823,7 +1823,7 @@
                       <!-- USER AVATAR CONTENT -->
                       <div class="user-avatar-content">
                         <!-- HEXAGON -->
-                        <div class="hexagon-image-30-32" data-src="img/avatar/05.jpg"></div>
+                        <div class="hexagon-image-30-32" data-src="/img/avatar/05.jpg"></div>
                         <!-- /HEXAGON -->
                       </div>
                       <!-- /USER AVATAR CONTENT -->
@@ -1931,7 +1931,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->pictureName) }}"></div>
+                    <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->avatar) }}"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -1997,23 +1997,23 @@
           <!-- /DROPDOWN NAVIGATION CATEGORY -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-profile-info.html">Profile Info</a>
+          <a class="dropdown-navigation-link" href="{{ route('profile.info') }}">Profile Info</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-profile-social.html">Social &amp; Stream</a>
+          <a class="dropdown-navigation-link" href="{{ route('profile.social') }}">Social &amp; Stream</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-profile-notifications.html">Notifications</a>
+          <a class="dropdown-navigation-link" href="{{ route('profile.notifications') }}">Notifications</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-profile-messages.html">Messages</a>
+          <a class="dropdown-navigation-link" href="{{ route('profile.messages') }}">Messages</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-profile-requests.html">Friend Requests</a>
+          <a class="dropdown-navigation-link" href="{{ route('profile.requests') }}">Friend Requests</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION CATEGORY -->
@@ -2021,15 +2021,15 @@
           <!-- /DROPDOWN NAVIGATION CATEGORY -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-account-info.html">Account Info</a>
+          <a class="dropdown-navigation-link" href="{{ route('account.info') }}">Account Info</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-account-password.html">Change Password</a>
+          <a class="dropdown-navigation-link" href="{{ route('account.password') }}">Change Password</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-account-settings.html">General Settings</a>
+          <a class="dropdown-navigation-link" href="{{ route('account.settings') }}">General Settings</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION CATEGORY -->
@@ -2037,11 +2037,11 @@
           <!-- /DROPDOWN NAVIGATION CATEGORY -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-group-management.html">Manage Groups</a>
+          <a class="dropdown-navigation-link" href="{{ route('groups.manage') }}">Manage Groups</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-group-invitations.html">Invitations</a>
+          <a class="dropdown-navigation-link" href="{{ route('groups.invitations') }}">Invitations</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION CATEGORY -->
@@ -2049,19 +2049,19 @@
           <!-- /DROPDOWN NAVIGATION CATEGORY -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-store-account.html">My Account <span class="highlighted">$250,32</span></a>
+          <a class="dropdown-navigation-link" href="{{ route('store.account') }}">My Account <span class="highlighted">$250,32</span></a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-store-statement.html">Sales Statement</a>
+          <a class="dropdown-navigation-link" href="{{ route('store.statement') }}">Sales Statement</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-store-items.html">Manage Items</a>
+          <a class="dropdown-navigation-link" href="{{ route('store.items') }}">Manage Items</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" href="hub-store-downloads.html">Downloads</a>
+          <a class="dropdown-navigation-link" href="{{ route('store.downloads') }}">Downloads</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
       
           <!-- DROPDOWN NAVIGATION BUTTON -->

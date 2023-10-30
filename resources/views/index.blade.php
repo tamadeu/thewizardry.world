@@ -57,6 +57,449 @@
         <!-- /SECTION PRETITLE -->
   
         <!-- SECTION TITLE -->
+        <h2 class="section-title">Gamification</h2>
+        <!-- /SECTION TITLE -->
+      </div>
+      <!-- /SECTION HEADER INFO -->
+    </div>
+    <!-- /SECTION HEADER -->
+
+    <!-- GRID -->
+    <div class="grid">
+      <!-- GRID -->
+      <div class="grid grid-half change-on-desktop">
+        <!-- ACHIEVEMENT BOX -->
+        <div class="achievement-box secondary">
+          <!-- ACHIEVEMENT BOX INFO WRAP -->
+          <div class="achievement-box-info-wrap">
+            <!-- ACHIEVEMENT BOX IMAGE -->
+            <img class="achievement-box-image" src="img/badge/caffeinated-b.png" alt="badge-caffeinated-b">
+            <!-- /ACHIEVEMENT BOX IMAGE -->
+      
+            <!-- ACHIEVEMENT BOX INFO -->
+            <div class="achievement-box-info">
+              <!-- ACHIEVEMENT BOX TITLE -->
+              <p class="achievement-box-title">Last Badge Unlocked</p>
+              <!-- /ACHIEVEMENT BOX TITLE -->
+      
+              <!-- ACHIEVEMENT BOX TEXT -->
+              <p class="achievement-box-text"><span class="bold">Caffeinated</span> 2 days ago</p>
+              <!-- /ACHIEVEMENT BOX TEXT -->
+            </div>
+            <!-- /ACHIEVEMENT BOX INFO -->
+          </div>
+          <!-- /ACHIEVEMENT BOX INFO WRAP -->
+      
+          <!-- BUTTON -->
+          <a class="button white-solid" href="badges.html">Browse All</a>
+          <!-- /BUTTON -->
+        </div>
+        <!-- /ACHIEVEMENT BOX -->
+      
+        <!-- ACHIEVEMENT BOX -->
+        <div class="achievement-box primary">
+          <!-- ACHIEVEMENT BOX INFO WRAP -->
+          <div class="achievement-box-info-wrap">
+            <!-- ACHIEVEMENT BOX IMAGE -->
+            <img class="achievement-box-image" src="img/quest/completedq-l.png" alt="quest-completedq-l">
+            <!-- /ACHIEVEMENT BOX IMAGE -->
+      
+            <!-- ACHIEVEMENT BOX INFO -->
+            <div class="achievement-box-info">
+              <!-- ACHIEVEMENT BOX TITLE -->
+              <p class="achievement-box-title">Last Completed Quest</p>
+              <!-- /ACHIEVEMENT BOX TITLE -->
+      
+              <!-- ACHIEVEMENT BOX TEXT -->
+              <p class="achievement-box-text"><span class="bold">Nothing to Hide</span> 7 hours ago</p>
+              <!-- /ACHIEVEMENT BOX TEXT -->
+            </div>
+            <!-- /ACHIEVEMENT BOX INFO -->
+          </div>
+          <!-- /ACHIEVEMENT BOX INFO WRAP -->
+      
+          <!-- BUTTON -->
+          <a class="button white-solid" href="quests.html">Browse All</a>
+          <!-- /BUTTON -->
+        </div>
+        <!-- /ACHIEVEMENT BOX -->
+      </div>
+      <!-- /GRID -->
+
+      <!-- GRID -->
+      <div class="grid grid-3-9">
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+          <!-- WIDGET BOX -->
+          <div class="widget-box">
+            <!-- PROGRESS ARC SUMMARY -->
+            <div class="progress-arc-summary">
+              <!-- PROGRESS ARC WRAP -->
+              <div class="progress-arc-wrap">
+                <!-- PROGRESS ARC -->
+                <div class="progress-arc">
+                  <canvas id="profile-completion-chart"></canvas>
+                </div>
+                <!-- PROGRESS ARC -->
+          
+                <!-- PROGRESS ARC INFO -->
+                <div class="progress-arc-info">
+                  <!-- PROGRESS ARC TITLE -->
+                  <p class="progress-arc-title">59%</p>
+                  <!-- /PROGRESS ARC TITLE -->
+                </div>
+                <!-- /PROGRESS ARC INFO -->
+              </div>
+              <!-- /PROGRESS ARC WRAP -->
+          
+              <!-- PROGRESS ARC SUMMARY INFO -->
+              <div class="progress-arc-summary-info">
+                <!-- PROGRESS ARC SUMMARY TITLE -->
+                <p class="progress-arc-summary-title">Profile Completion</p>
+                <!-- /PROGRESS ARC SUMMARY TITLE -->
+          
+                <!-- PROGRESS ARC SUMMARY TITLE -->
+                <p class="progress-arc-summary-subtitle">{{ $user->name }}</p>
+                <!-- /PROGRESS ARC SUMMARY TITLE -->
+          
+                <!-- PROGRESS ARC SUMMARY TITLE -->
+                <p class="progress-arc-summary-text">Complete your profile by filling profile info fields, completing quests &amp; unlocking badges</p>
+                <!-- /PROGRESS ARC SUMMARY TITLE -->
+              </div>
+              <!-- /PROGRESS ARC SUMMARY INFO -->
+            </div>
+            <!-- /PROGRESS ARC SUMMARY -->
+
+            <!-- ACHIEVEMENT STATUS LIST -->
+            <div class="achievement-status-list">
+              <!-- ACHIEVEMENT STATUS -->
+              <div class="achievement-status">
+                <!-- ACHIEVEMENT STATUS PROGRESS -->
+                <p class="achievement-status-progress">11/30</p>
+                <!-- /ACHIEVEMENT STATUS PROGRESS -->
+
+                <!-- ACHIEVEMENT STATUS INFO -->
+                <div class="achievement-status-info">
+                  <!-- ACHIEVEMENT STATUS TITLE -->
+                  <p class="achievement-status-title">Quests</p>
+                  <!-- /ACHIEVEMENT STATUS TITLE -->
+                  
+                  <!-- ACHIEVEMENT STATUS TEXT -->
+                  <p class="achievement-status-text">Completed</p>
+                  <!-- /ACHIEVEMENT STATUS TEXT -->
+                </div>
+                <!-- /ACHIEVEMENT STATUS INFO -->
+
+                <!-- ACHIEVEMENT STATUS IMAGE -->
+                <img class="achievement-status-image" src="img/badge/completedq-s.png" alt="bdage-completedq-s">
+                <!-- /ACHIEVEMENT STATUS IMAGE -->
+              </div>
+              <!-- /ACHIEVEMENT STATUS -->
+
+              <!-- ACHIEVEMENT STATUS -->
+              <div class="achievement-status">
+                <!-- ACHIEVEMENT STATUS PROGRESS -->
+                <p class="achievement-status-progress">22/46</p>
+                <!-- /ACHIEVEMENT STATUS PROGRESS -->
+
+                <!-- ACHIEVEMENT STATUS INFO -->
+                <div class="achievement-status-info">
+                  <!-- ACHIEVEMENT STATUS TITLE -->
+                  <p class="achievement-status-title">Badges</p>
+                  <!-- /ACHIEVEMENT STATUS TITLE -->
+                  
+                  <!-- ACHIEVEMENT STATUS TEXT -->
+                  <p class="achievement-status-text">Unlocked</p>
+                  <!-- /ACHIEVEMENT STATUS TEXT -->
+                </div>
+                <!-- /ACHIEVEMENT STATUS INFO -->
+
+                <!-- ACHIEVEMENT STATUS IMAGE -->
+                <img class="achievement-status-image" src="img/badge/unlocked-badge.png" alt="bdage-unlocked-badge">
+                <!-- /ACHIEVEMENT STATUS IMAGE -->
+              </div>
+              <!-- /ACHIEVEMENT STATUS -->
+            </div>
+            <!-- /ACHIEVEMENT STATUS LIST -->
+          </div>
+          <!-- /WIDGET BOX -->
+        </div>
+        <!-- /GRID COLUMN -->
+
+        <!-- GRID COLUMN -->
+        <div class="grid-column">
+          <!-- LEVEL PROGRESS BOX -->
+          <div class="level-progress-box">
+            <!-- LEVEL PROGRESS BADGE -->
+            <div class="level-progress-badge">
+              <!-- LEVEL PROGRESS BADGE TITLE -->
+              <p class="level-progress-badge-title">Level</p>
+              <!-- /LEVEL PROGRESS BADGE TITLE -->
+        
+              <!-- LEVEL PROGRESS BADGE TEXT -->
+              <p class="level-progress-badge-text">{{ $user->currentLevel }}</p>
+              <!-- /LEVEL PROGRESS BADGE TEXT -->
+            </div>
+            <!-- /LEVEL PROGRESS BADGE -->
+        
+            <!-- PROGRESS STAT -->
+            <div class="progress-stat">
+              <!-- BAR PROGRESS WRAP -->
+              <div class="bar-progress-wrap big">
+                <!-- BAR PROGRESS INFO -->
+                <p class="bar-progress-info start negative progress-with-text">+<span class="bar-progress-text"></span><span class="light">to reach the next level</span></p>
+                <!-- /BAR PROGRESS INFO -->
+          
+                <!-- PROGRESS STAT INFO -->
+                <p class="progress-stat-info">{{ $user->points }} total exp points received</p>
+                <!-- /PROGRESS STAT INFO -->
+              </div>
+              <!-- /BAR PROGRESS WRAP -->
+          
+              <!-- PROGRESS STAT BAR -->
+              <div id="exp-to-next-level" class="progress-stat-bar"></div>
+
+
+              <!-- /PROGRESS STAT BAR -->
+            </div>
+            <!-- /PROGRESS STAT -->
+          </div>
+          <!-- /LEVEL PROGRESS BOX -->
+
+          <!-- WIDGET BOX -->
+          <div class="widget-box no-padding">
+            <!-- WIDGET BOX TITLE -->
+            <p class="widget-box-title">Experience History</p>
+            <!-- /WIDGET BOX TITLE -->
+        
+            <!-- WIDGET BOX CONTENT -->
+            <div class="widget-box-content small-margin-top padded-for-scroll small" data-simplebar>
+              <!-- EXP LINE LIST -->
+              <div class="exp-line-list scroll-content">
+                <!-- EXP LINE -->
+                <div class="exp-line">
+                  <!-- EXP LINE ICON -->
+                  <svg class="exp-line-icon icon-badges">
+                    <use xlink:href="#svg-badges"></use>
+                  </svg>
+                  <!-- /EXP LINE ICON -->
+        
+                  <!-- TEXT STICKER -->
+                  <p class="text-sticker small-text">
+                    <!-- TEXT STICKER ICON -->
+                    <svg class="text-sticker-icon icon-plus-small">
+                      <use xlink:href="#svg-plus-small"></use>
+                    </svg>
+                    <!-- TEXT STICKER ICON -->
+                    80 EXP
+                  </p>
+                  <!-- /TEXT STICKER -->
+        
+                  <!-- EXP LINE TEXT -->
+                  <p class="exp-line-text">Keep it up! You reached tier II of the "The Warrior" badge</p>
+                  <!-- /EXP LINE TEXT -->
+        
+                  <!-- EXP LINE TIMESTAMP -->
+                  <p class="exp-line-timestamp">29 minutes ago</p>
+                  <!-- /EXP LINE TIMESTAMP -->
+                </div>
+                <!-- /EXP LINE -->
+        
+                <!-- EXP LINE -->
+                <div class="exp-line">
+                  <!-- EXP LINE ICON -->
+                  <svg class="exp-line-icon icon-quests">
+                    <use xlink:href="#svg-quests"></use>
+                  </svg>
+                  <!-- /EXP LINE ICON -->
+        
+                  <!-- TEXT STICKER -->
+                  <p class="text-sticker small-text">
+                    <!-- TEXT STICKER ICON -->
+                    <svg class="text-sticker-icon icon-plus-small">
+                      <use xlink:href="#svg-plus-small"></use>
+                    </svg>
+                    <!-- TEXT STICKER ICON -->
+                    65 EXP
+                  </p>
+                  <!-- /TEXT STICKER -->
+        
+                  <!-- EXP LINE TEXT -->
+                  <p class="exp-line-text">Congratz! You have completed the "Nothing to Hide" quest</p>
+                  <!-- /EXP LINE TEXT -->
+        
+                  <!-- EXP LINE TIMESTAMP -->
+                  <p class="exp-line-timestamp">7 hours ago</p>
+                  <!-- /EXP LINE TIMESTAMP -->
+                </div>
+                <!-- /EXP LINE -->
+        
+                <!-- EXP LINE -->
+                <div class="exp-line">
+                  <!-- EXP LINE ICON -->
+                  <svg class="exp-line-icon icon-badges">
+                    <use xlink:href="#svg-badges"></use>
+                  </svg>
+                  <!-- /EXP LINE ICON -->
+        
+                  <!-- TEXT STICKER -->
+                  <p class="text-sticker small-text">
+                    <!-- TEXT STICKER ICON -->
+                    <svg class="text-sticker-icon icon-plus-small">
+                      <use xlink:href="#svg-plus-small"></use>
+                    </svg>
+                    <!-- TEXT STICKER ICON -->
+                    40 EXP
+                  </p>
+                  <!-- /TEXT STICKER -->
+        
+                  <!-- EXP LINE TEXT -->
+                  <p class="exp-line-text">Great job! You just unlocked the "Caffeinated" badge</p>
+                  <!-- /EXP LINE TEXT -->
+        
+                  <!-- EXP LINE TIMESTAMP -->
+                  <p class="exp-line-timestamp">2 days ago</p>
+                  <!-- /EXP LINE TIMESTAMP -->
+                </div>
+                <!-- /EXP LINE -->
+        
+                <!-- EXP LINE -->
+                <div class="exp-line">
+                  <!-- EXP LINE ICON -->
+                  <svg class="exp-line-icon icon-badges">
+                    <use xlink:href="#svg-badges"></use>
+                  </svg>
+                  <!-- /EXP LINE ICON -->
+        
+                  <!-- TEXT STICKER -->
+                  <p class="text-sticker small-text">
+                    <!-- TEXT STICKER ICON -->
+                    <svg class="text-sticker-icon icon-plus-small">
+                      <use xlink:href="#svg-plus-small"></use>
+                    </svg>
+                    <!-- TEXT STICKER ICON -->
+                    100 EXP
+                  </p>
+                  <!-- /TEXT STICKER -->
+        
+                  <!-- EXP LINE TEXT -->
+                  <p class="exp-line-text">Amazing! You just unlocked the "Gold User" badge</p>
+                  <!-- /EXP LINE TEXT -->
+        
+                  <!-- EXP LINE TIMESTAMP -->
+                  <p class="exp-line-timestamp">5 days ago</p>
+                  <!-- /EXP LINE TIMESTAMP -->
+                </div>
+                <!-- /EXP LINE -->
+        
+                <!-- EXP LINE -->
+                <div class="exp-line">
+                  <!-- EXP LINE ICON -->
+                  <svg class="exp-line-icon icon-badges">
+                    <use xlink:href="#svg-badges"></use>
+                  </svg>
+                  <!-- /EXP LINE ICON -->
+        
+                  <!-- TEXT STICKER -->
+                  <p class="text-sticker small-text">
+                    <!-- TEXT STICKER ICON -->
+                    <svg class="text-sticker-icon icon-plus-small">
+                      <use xlink:href="#svg-plus-small"></use>
+                    </svg>
+                    <!-- TEXT STICKER ICON -->
+                    40 EXP
+                  </p>
+                  <!-- /TEXT STICKER -->
+        
+                  <!-- EXP LINE TEXT -->
+                  <p class="exp-line-text">Great job! You just unlocked the "Crazy Scientist" badge</p>
+                  <!-- /EXP LINE TEXT -->
+        
+                  <!-- EXP LINE TIMESTAMP -->
+                  <p class="exp-line-timestamp">1 week ago</p>
+                  <!-- /EXP LINE TIMESTAMP -->
+                </div>
+                <!-- /EXP LINE -->
+        
+                <!-- EXP LINE -->
+                <div class="exp-line">
+                  <!-- EXP LINE ICON -->
+                  <svg class="exp-line-icon icon-quests">
+                    <use xlink:href="#svg-quests"></use>
+                  </svg>
+                  <!-- /EXP LINE ICON -->
+        
+                  <!-- TEXT STICKER -->
+                  <p class="text-sticker small-text">
+                    <!-- TEXT STICKER ICON -->
+                    <svg class="text-sticker-icon icon-plus-small">
+                      <use xlink:href="#svg-plus-small"></use>
+                    </svg>
+                    <!-- TEXT STICKER ICON -->
+                    20 EXP
+                  </p>
+                  <!-- /TEXT STICKER -->
+        
+                  <!-- EXP LINE TEXT -->
+                  <p class="exp-line-text">Congratz! You have completed the "Press Start" quest</p>
+                  <!-- /EXP LINE TEXT -->
+        
+                  <!-- EXP LINE TIMESTAMP -->
+                  <p class="exp-line-timestamp">2 weeks ago</p>
+                  <!-- /EXP LINE TIMESTAMP -->
+                </div>
+                <!-- /EXP LINE -->
+        
+                <!-- EXP LINE -->
+                <div class="exp-line">
+                  <!-- EXP LINE ICON -->
+                  <svg class="exp-line-icon icon-quests">
+                    <use xlink:href="#svg-quests"></use>
+                  </svg>
+                  <!-- /EXP LINE ICON -->
+        
+                  <!-- TEXT STICKER -->
+                  <p class="text-sticker small-text">
+                    <!-- TEXT STICKER ICON -->
+                    <svg class="text-sticker-icon icon-plus-small">
+                      <use xlink:href="#svg-plus-small"></use>
+                    </svg>
+                    <!-- TEXT STICKER ICON -->
+                    60 EXP
+                  </p>
+                  <!-- /TEXT STICKER -->
+        
+                  <!-- EXP LINE TEXT -->
+                  <p class="exp-line-text">Congratz! You have completed the "Social King" quest</p>
+                  <!-- /EXP LINE TEXT -->
+        
+                  <!-- EXP LINE TIMESTAMP -->
+                  <p class="exp-line-timestamp">3 weeks ago</p>
+                  <!-- /EXP LINE TIMESTAMP -->
+                </div>
+                <!-- /EXP LINE -->
+              </div>
+              <!-- /EXP LINE LIST -->
+            </div>
+            <!-- WIDGET BOX CONTENT -->
+          </div>
+          <!-- /WIDGET BOX -->
+        </div>
+        <!-- /GRID COLUMN -->
+      </div>
+      <!-- /GRID -->
+    </div>
+    <!-- /GRID -->
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+      <!-- SECTION HEADER INFO -->
+      <div class="section-header-info">
+        <!-- SECTION PRETITLE -->
+        <p class="section-pretitle">Overview</p>
+        <!-- /SECTION PRETITLE -->
+  
+        <!-- SECTION TITLE -->
         <h2 class="section-title">My Profile</h2>
         <!-- /SECTION TITLE -->
       </div>
@@ -74,7 +517,7 @@
           <!-- PROFILE STATS -->
           <div class="profile-stats fixed-height">
             <!-- PROFILE STATS COVER -->
-            <div class="profile-stats-cover">
+            <div class="profile-stats-cover" style="background: url({{ asset('storage/img/cover/' . $user->cover) }}) no-repeat 50%">
               <!-- PROFILE STATS COVER TITLE -->
               <p class="profile-stats-cover-title">Welcome Back!</p>
               <!-- /PROFILE STATS COVER TITLE -->
@@ -100,7 +543,7 @@
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
                   <!-- HEXAGON -->
-                  <div class="hexagon-image-82-90" data-src="{{ asset('storage/img/profile/' . $user->pictureName) }}"></div>
+                  <div class="hexagon-image-82-90" data-src="{{ asset('storage/img/profile/' . $user->avatar) }}"></div>
                   <!-- /HEXAGON -->
                 </div>
                 <!-- /USER AVATAR CONTENT -->
@@ -1784,7 +2227,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->pictureName) }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->avatar) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -2700,449 +3143,6 @@
         <!-- /SLIDER SLIDES -->
       </div>
       <!-- /SLIDER LINE -->
-    </div>
-    <!-- /GRID -->
-
-    <!-- SECTION HEADER -->
-    <div class="section-header">
-      <!-- SECTION HEADER INFO -->
-      <div class="section-header-info">
-        <!-- SECTION PRETITLE -->
-        <p class="section-pretitle">Overview</p>
-        <!-- /SECTION PRETITLE -->
-  
-        <!-- SECTION TITLE -->
-        <h2 class="section-title">Gamification</h2>
-        <!-- /SECTION TITLE -->
-      </div>
-      <!-- /SECTION HEADER INFO -->
-    </div>
-    <!-- /SECTION HEADER -->
-
-    <!-- GRID -->
-    <div class="grid">
-      <!-- GRID -->
-      <div class="grid grid-half change-on-desktop">
-        <!-- ACHIEVEMENT BOX -->
-        <div class="achievement-box secondary">
-          <!-- ACHIEVEMENT BOX INFO WRAP -->
-          <div class="achievement-box-info-wrap">
-            <!-- ACHIEVEMENT BOX IMAGE -->
-            <img class="achievement-box-image" src="img/badge/caffeinated-b.png" alt="badge-caffeinated-b">
-            <!-- /ACHIEVEMENT BOX IMAGE -->
-      
-            <!-- ACHIEVEMENT BOX INFO -->
-            <div class="achievement-box-info">
-              <!-- ACHIEVEMENT BOX TITLE -->
-              <p class="achievement-box-title">Last Badge Unlocked</p>
-              <!-- /ACHIEVEMENT BOX TITLE -->
-      
-              <!-- ACHIEVEMENT BOX TEXT -->
-              <p class="achievement-box-text"><span class="bold">Caffeinated</span> 2 days ago</p>
-              <!-- /ACHIEVEMENT BOX TEXT -->
-            </div>
-            <!-- /ACHIEVEMENT BOX INFO -->
-          </div>
-          <!-- /ACHIEVEMENT BOX INFO WRAP -->
-      
-          <!-- BUTTON -->
-          <a class="button white-solid" href="badges.html">Browse All</a>
-          <!-- /BUTTON -->
-        </div>
-        <!-- /ACHIEVEMENT BOX -->
-      
-        <!-- ACHIEVEMENT BOX -->
-        <div class="achievement-box primary">
-          <!-- ACHIEVEMENT BOX INFO WRAP -->
-          <div class="achievement-box-info-wrap">
-            <!-- ACHIEVEMENT BOX IMAGE -->
-            <img class="achievement-box-image" src="img/quest/completedq-l.png" alt="quest-completedq-l">
-            <!-- /ACHIEVEMENT BOX IMAGE -->
-      
-            <!-- ACHIEVEMENT BOX INFO -->
-            <div class="achievement-box-info">
-              <!-- ACHIEVEMENT BOX TITLE -->
-              <p class="achievement-box-title">Last Completed Quest</p>
-              <!-- /ACHIEVEMENT BOX TITLE -->
-      
-              <!-- ACHIEVEMENT BOX TEXT -->
-              <p class="achievement-box-text"><span class="bold">Nothing to Hide</span> 7 hours ago</p>
-              <!-- /ACHIEVEMENT BOX TEXT -->
-            </div>
-            <!-- /ACHIEVEMENT BOX INFO -->
-          </div>
-          <!-- /ACHIEVEMENT BOX INFO WRAP -->
-      
-          <!-- BUTTON -->
-          <a class="button white-solid" href="quests.html">Browse All</a>
-          <!-- /BUTTON -->
-        </div>
-        <!-- /ACHIEVEMENT BOX -->
-      </div>
-      <!-- /GRID -->
-
-      <!-- GRID -->
-      <div class="grid grid-3-9">
-        <!-- GRID COLUMN -->
-        <div class="grid-column">
-          <!-- WIDGET BOX -->
-          <div class="widget-box">
-            <!-- PROGRESS ARC SUMMARY -->
-            <div class="progress-arc-summary">
-              <!-- PROGRESS ARC WRAP -->
-              <div class="progress-arc-wrap">
-                <!-- PROGRESS ARC -->
-                <div class="progress-arc">
-                  <canvas id="profile-completion-chart"></canvas>
-                </div>
-                <!-- PROGRESS ARC -->
-          
-                <!-- PROGRESS ARC INFO -->
-                <div class="progress-arc-info">
-                  <!-- PROGRESS ARC TITLE -->
-                  <p class="progress-arc-title">59%</p>
-                  <!-- /PROGRESS ARC TITLE -->
-                </div>
-                <!-- /PROGRESS ARC INFO -->
-              </div>
-              <!-- /PROGRESS ARC WRAP -->
-          
-              <!-- PROGRESS ARC SUMMARY INFO -->
-              <div class="progress-arc-summary-info">
-                <!-- PROGRESS ARC SUMMARY TITLE -->
-                <p class="progress-arc-summary-title">Profile Completion</p>
-                <!-- /PROGRESS ARC SUMMARY TITLE -->
-          
-                <!-- PROGRESS ARC SUMMARY TITLE -->
-                <p class="progress-arc-summary-subtitle">{{ $user->name }}</p>
-                <!-- /PROGRESS ARC SUMMARY TITLE -->
-          
-                <!-- PROGRESS ARC SUMMARY TITLE -->
-                <p class="progress-arc-summary-text">Complete your profile by filling profile info fields, completing quests &amp; unlocking badges</p>
-                <!-- /PROGRESS ARC SUMMARY TITLE -->
-              </div>
-              <!-- /PROGRESS ARC SUMMARY INFO -->
-            </div>
-            <!-- /PROGRESS ARC SUMMARY -->
-
-            <!-- ACHIEVEMENT STATUS LIST -->
-            <div class="achievement-status-list">
-              <!-- ACHIEVEMENT STATUS -->
-              <div class="achievement-status">
-                <!-- ACHIEVEMENT STATUS PROGRESS -->
-                <p class="achievement-status-progress">11/30</p>
-                <!-- /ACHIEVEMENT STATUS PROGRESS -->
-
-                <!-- ACHIEVEMENT STATUS INFO -->
-                <div class="achievement-status-info">
-                  <!-- ACHIEVEMENT STATUS TITLE -->
-                  <p class="achievement-status-title">Quests</p>
-                  <!-- /ACHIEVEMENT STATUS TITLE -->
-                  
-                  <!-- ACHIEVEMENT STATUS TEXT -->
-                  <p class="achievement-status-text">Completed</p>
-                  <!-- /ACHIEVEMENT STATUS TEXT -->
-                </div>
-                <!-- /ACHIEVEMENT STATUS INFO -->
-
-                <!-- ACHIEVEMENT STATUS IMAGE -->
-                <img class="achievement-status-image" src="img/badge/completedq-s.png" alt="bdage-completedq-s">
-                <!-- /ACHIEVEMENT STATUS IMAGE -->
-              </div>
-              <!-- /ACHIEVEMENT STATUS -->
-
-              <!-- ACHIEVEMENT STATUS -->
-              <div class="achievement-status">
-                <!-- ACHIEVEMENT STATUS PROGRESS -->
-                <p class="achievement-status-progress">22/46</p>
-                <!-- /ACHIEVEMENT STATUS PROGRESS -->
-
-                <!-- ACHIEVEMENT STATUS INFO -->
-                <div class="achievement-status-info">
-                  <!-- ACHIEVEMENT STATUS TITLE -->
-                  <p class="achievement-status-title">Badges</p>
-                  <!-- /ACHIEVEMENT STATUS TITLE -->
-                  
-                  <!-- ACHIEVEMENT STATUS TEXT -->
-                  <p class="achievement-status-text">Unlocked</p>
-                  <!-- /ACHIEVEMENT STATUS TEXT -->
-                </div>
-                <!-- /ACHIEVEMENT STATUS INFO -->
-
-                <!-- ACHIEVEMENT STATUS IMAGE -->
-                <img class="achievement-status-image" src="img/badge/unlocked-badge.png" alt="bdage-unlocked-badge">
-                <!-- /ACHIEVEMENT STATUS IMAGE -->
-              </div>
-              <!-- /ACHIEVEMENT STATUS -->
-            </div>
-            <!-- /ACHIEVEMENT STATUS LIST -->
-          </div>
-          <!-- /WIDGET BOX -->
-        </div>
-        <!-- /GRID COLUMN -->
-
-        <!-- GRID COLUMN -->
-        <div class="grid-column">
-          <!-- LEVEL PROGRESS BOX -->
-          <div class="level-progress-box">
-            <!-- LEVEL PROGRESS BADGE -->
-            <div class="level-progress-badge">
-              <!-- LEVEL PROGRESS BADGE TITLE -->
-              <p class="level-progress-badge-title">Level</p>
-              <!-- /LEVEL PROGRESS BADGE TITLE -->
-        
-              <!-- LEVEL PROGRESS BADGE TEXT -->
-              <p class="level-progress-badge-text">{{ $user->currentLevel }}</p>
-              <!-- /LEVEL PROGRESS BADGE TEXT -->
-            </div>
-            <!-- /LEVEL PROGRESS BADGE -->
-        
-            <!-- PROGRESS STAT -->
-            <div class="progress-stat">
-              <!-- BAR PROGRESS WRAP -->
-              <div class="bar-progress-wrap big">
-                <!-- BAR PROGRESS INFO -->
-                <p class="bar-progress-info start negative progress-with-text">+<span class="bar-progress-text"></span><span class="light">to reach the next level</span></p>
-                <!-- /BAR PROGRESS INFO -->
-          
-                <!-- PROGRESS STAT INFO -->
-                <p class="progress-stat-info">{{ $user->points }} total exp points received</p>
-                <!-- /PROGRESS STAT INFO -->
-              </div>
-              <!-- /BAR PROGRESS WRAP -->
-          
-              <!-- PROGRESS STAT BAR -->
-              <div id="exp-to-next-level" class="progress-stat-bar"></div>
-
-
-              <!-- /PROGRESS STAT BAR -->
-            </div>
-            <!-- /PROGRESS STAT -->
-          </div>
-          <!-- /LEVEL PROGRESS BOX -->
-
-          <!-- WIDGET BOX -->
-          <div class="widget-box no-padding">
-            <!-- WIDGET BOX TITLE -->
-            <p class="widget-box-title">Experience History</p>
-            <!-- /WIDGET BOX TITLE -->
-        
-            <!-- WIDGET BOX CONTENT -->
-            <div class="widget-box-content small-margin-top padded-for-scroll small" data-simplebar>
-              <!-- EXP LINE LIST -->
-              <div class="exp-line-list scroll-content">
-                <!-- EXP LINE -->
-                <div class="exp-line">
-                  <!-- EXP LINE ICON -->
-                  <svg class="exp-line-icon icon-badges">
-                    <use xlink:href="#svg-badges"></use>
-                  </svg>
-                  <!-- /EXP LINE ICON -->
-        
-                  <!-- TEXT STICKER -->
-                  <p class="text-sticker small-text">
-                    <!-- TEXT STICKER ICON -->
-                    <svg class="text-sticker-icon icon-plus-small">
-                      <use xlink:href="#svg-plus-small"></use>
-                    </svg>
-                    <!-- TEXT STICKER ICON -->
-                    80 EXP
-                  </p>
-                  <!-- /TEXT STICKER -->
-        
-                  <!-- EXP LINE TEXT -->
-                  <p class="exp-line-text">Keep it up! You reached tier II of the "The Warrior" badge</p>
-                  <!-- /EXP LINE TEXT -->
-        
-                  <!-- EXP LINE TIMESTAMP -->
-                  <p class="exp-line-timestamp">29 minutes ago</p>
-                  <!-- /EXP LINE TIMESTAMP -->
-                </div>
-                <!-- /EXP LINE -->
-        
-                <!-- EXP LINE -->
-                <div class="exp-line">
-                  <!-- EXP LINE ICON -->
-                  <svg class="exp-line-icon icon-quests">
-                    <use xlink:href="#svg-quests"></use>
-                  </svg>
-                  <!-- /EXP LINE ICON -->
-        
-                  <!-- TEXT STICKER -->
-                  <p class="text-sticker small-text">
-                    <!-- TEXT STICKER ICON -->
-                    <svg class="text-sticker-icon icon-plus-small">
-                      <use xlink:href="#svg-plus-small"></use>
-                    </svg>
-                    <!-- TEXT STICKER ICON -->
-                    65 EXP
-                  </p>
-                  <!-- /TEXT STICKER -->
-        
-                  <!-- EXP LINE TEXT -->
-                  <p class="exp-line-text">Congratz! You have completed the "Nothing to Hide" quest</p>
-                  <!-- /EXP LINE TEXT -->
-        
-                  <!-- EXP LINE TIMESTAMP -->
-                  <p class="exp-line-timestamp">7 hours ago</p>
-                  <!-- /EXP LINE TIMESTAMP -->
-                </div>
-                <!-- /EXP LINE -->
-        
-                <!-- EXP LINE -->
-                <div class="exp-line">
-                  <!-- EXP LINE ICON -->
-                  <svg class="exp-line-icon icon-badges">
-                    <use xlink:href="#svg-badges"></use>
-                  </svg>
-                  <!-- /EXP LINE ICON -->
-        
-                  <!-- TEXT STICKER -->
-                  <p class="text-sticker small-text">
-                    <!-- TEXT STICKER ICON -->
-                    <svg class="text-sticker-icon icon-plus-small">
-                      <use xlink:href="#svg-plus-small"></use>
-                    </svg>
-                    <!-- TEXT STICKER ICON -->
-                    40 EXP
-                  </p>
-                  <!-- /TEXT STICKER -->
-        
-                  <!-- EXP LINE TEXT -->
-                  <p class="exp-line-text">Great job! You just unlocked the "Caffeinated" badge</p>
-                  <!-- /EXP LINE TEXT -->
-        
-                  <!-- EXP LINE TIMESTAMP -->
-                  <p class="exp-line-timestamp">2 days ago</p>
-                  <!-- /EXP LINE TIMESTAMP -->
-                </div>
-                <!-- /EXP LINE -->
-        
-                <!-- EXP LINE -->
-                <div class="exp-line">
-                  <!-- EXP LINE ICON -->
-                  <svg class="exp-line-icon icon-badges">
-                    <use xlink:href="#svg-badges"></use>
-                  </svg>
-                  <!-- /EXP LINE ICON -->
-        
-                  <!-- TEXT STICKER -->
-                  <p class="text-sticker small-text">
-                    <!-- TEXT STICKER ICON -->
-                    <svg class="text-sticker-icon icon-plus-small">
-                      <use xlink:href="#svg-plus-small"></use>
-                    </svg>
-                    <!-- TEXT STICKER ICON -->
-                    100 EXP
-                  </p>
-                  <!-- /TEXT STICKER -->
-        
-                  <!-- EXP LINE TEXT -->
-                  <p class="exp-line-text">Amazing! You just unlocked the "Gold User" badge</p>
-                  <!-- /EXP LINE TEXT -->
-        
-                  <!-- EXP LINE TIMESTAMP -->
-                  <p class="exp-line-timestamp">5 days ago</p>
-                  <!-- /EXP LINE TIMESTAMP -->
-                </div>
-                <!-- /EXP LINE -->
-        
-                <!-- EXP LINE -->
-                <div class="exp-line">
-                  <!-- EXP LINE ICON -->
-                  <svg class="exp-line-icon icon-badges">
-                    <use xlink:href="#svg-badges"></use>
-                  </svg>
-                  <!-- /EXP LINE ICON -->
-        
-                  <!-- TEXT STICKER -->
-                  <p class="text-sticker small-text">
-                    <!-- TEXT STICKER ICON -->
-                    <svg class="text-sticker-icon icon-plus-small">
-                      <use xlink:href="#svg-plus-small"></use>
-                    </svg>
-                    <!-- TEXT STICKER ICON -->
-                    40 EXP
-                  </p>
-                  <!-- /TEXT STICKER -->
-        
-                  <!-- EXP LINE TEXT -->
-                  <p class="exp-line-text">Great job! You just unlocked the "Crazy Scientist" badge</p>
-                  <!-- /EXP LINE TEXT -->
-        
-                  <!-- EXP LINE TIMESTAMP -->
-                  <p class="exp-line-timestamp">1 week ago</p>
-                  <!-- /EXP LINE TIMESTAMP -->
-                </div>
-                <!-- /EXP LINE -->
-        
-                <!-- EXP LINE -->
-                <div class="exp-line">
-                  <!-- EXP LINE ICON -->
-                  <svg class="exp-line-icon icon-quests">
-                    <use xlink:href="#svg-quests"></use>
-                  </svg>
-                  <!-- /EXP LINE ICON -->
-        
-                  <!-- TEXT STICKER -->
-                  <p class="text-sticker small-text">
-                    <!-- TEXT STICKER ICON -->
-                    <svg class="text-sticker-icon icon-plus-small">
-                      <use xlink:href="#svg-plus-small"></use>
-                    </svg>
-                    <!-- TEXT STICKER ICON -->
-                    20 EXP
-                  </p>
-                  <!-- /TEXT STICKER -->
-        
-                  <!-- EXP LINE TEXT -->
-                  <p class="exp-line-text">Congratz! You have completed the "Press Start" quest</p>
-                  <!-- /EXP LINE TEXT -->
-        
-                  <!-- EXP LINE TIMESTAMP -->
-                  <p class="exp-line-timestamp">2 weeks ago</p>
-                  <!-- /EXP LINE TIMESTAMP -->
-                </div>
-                <!-- /EXP LINE -->
-        
-                <!-- EXP LINE -->
-                <div class="exp-line">
-                  <!-- EXP LINE ICON -->
-                  <svg class="exp-line-icon icon-quests">
-                    <use xlink:href="#svg-quests"></use>
-                  </svg>
-                  <!-- /EXP LINE ICON -->
-        
-                  <!-- TEXT STICKER -->
-                  <p class="text-sticker small-text">
-                    <!-- TEXT STICKER ICON -->
-                    <svg class="text-sticker-icon icon-plus-small">
-                      <use xlink:href="#svg-plus-small"></use>
-                    </svg>
-                    <!-- TEXT STICKER ICON -->
-                    60 EXP
-                  </p>
-                  <!-- /TEXT STICKER -->
-        
-                  <!-- EXP LINE TEXT -->
-                  <p class="exp-line-text">Congratz! You have completed the "Social King" quest</p>
-                  <!-- /EXP LINE TEXT -->
-        
-                  <!-- EXP LINE TIMESTAMP -->
-                  <p class="exp-line-timestamp">3 weeks ago</p>
-                  <!-- /EXP LINE TIMESTAMP -->
-                </div>
-                <!-- /EXP LINE -->
-              </div>
-              <!-- /EXP LINE LIST -->
-            </div>
-            <!-- WIDGET BOX CONTENT -->
-          </div>
-          <!-- /WIDGET BOX -->
-        </div>
-        <!-- /GRID COLUMN -->
-      </div>
-      <!-- /GRID -->
     </div>
     <!-- /GRID -->
 

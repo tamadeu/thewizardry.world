@@ -5,7 +5,7 @@ use App\Http\Controllers\NewsfeedController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
@@ -40,71 +40,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::prefix('account')->middleware(['auth', 'admin', 'quiz'])->group(function () {
+    Route::get('/profile', [AccountController::class, 'profile_info'])->name('profile.info');
+    Route::get('/social', [AccountController::class, 'profile_social'])->name('profile.social');
+    Route::get('/notifications', [AccountController::class, 'profile_notifications'])->name('profile.notifications');
+    Route::get('/messages', [AccountController::class, 'profile_messages'])->name('profile.messages');
+    Route::get('/requests', [AccountController::class, 'profile_requests'])->name('profile.requests');
 
-Route::prefix('wwadmin')->middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin');
-    Route::get('/students/view', [AdminController::class, 'studentsView']);
+    Route::get('/info', [AccountController::class, 'account_info'])->name('account.info');
+    Route::get('/password', [AccountController::class, 'account_password'])->name('account.password');
+    Route::get('/settings', [AccountController::class, 'account_settings'])->name('account.settings');
 
-    Route::get('/gamification', [AdminController::class, 'gamification'])->name('gamification');
-    Route::get('/gamification/{id}/delete', [AdminController::class, 'removeLevel']);
+    Route::get('/groups', [AccountController::class, 'groups_manage'])->name('groups.manage');
+    Route::get('/invitations', [AccountController::class, 'groups_invitations'])->name('groups.invitations');
 
-    Route::prefix('students')->group(function () {
-        Route::get('/', [AdminController::class, 'students'])->name('students');
+    Route::get('/store', [AccountController::class, 'store_account'])->name('store.account');
+    Route::get('/statement', [AccountController::class, 'store_statement'])->name('store.statement');
+    Route::get('/items', [AccountController::class, 'store_items'])->name('store.items');
+    Route::get('/downloads', [AccountController::class, 'store_downloads'])->name('store.downloads');
 
-        Route::get('/new', [AdminController::class, 'newStudent']);
-        Route::get('/{id}', [AdminController::class, 'viewStudent']);
-        Route::get('/{id}/delete', [AdminController::class,'deleteStudent']);
-
-    });
-
-
-    Route::prefix('schools')->group(function () {
-        Route::get('/', [AdminController::class, 'schools'])->name('schools');
-
-        Route::get('/new', [AdminController::class, 'newSchool']);
-        Route::get('/{id}', [AdminController::class, 'viewSchool']);
-        Route::get('/{school_id}/delete', [AdminController::class,'deleteSchool']);
-
-        Route::get('/{school_id}/{house_id}/delete', [AdminController::class,'deleteHouse']);
-
-    });
-
-    Route::prefix('quiz')->group(function () {
-        Route::get('/', [AdminController::class, 'quiz'])->name('quiz');
-
-        /* quiz */
-        Route::get('/new', [AdminController::class, 'newQuiz']);
-        Route::get('/{id}', [AdminController::class, 'editQuiz']);
-        Route::get('/{quiz_id}/delete', [AdminController::class,'deleteQuiz']);
-
-        /* questions */
-        Route::get('/{quiz_id}/new', [AdminController::class, 'newQuestion']);
-        Route::get('/{quiz_id}/{id}', [AdminController::class, 'editQuestions']);  
-        Route::get('/{quiz_id}/{id}/delete', [AdminController::class, 'deleteQuestion']);  
-        
-        /* answers */
-        Route::get('/{quiz_id}/{question_id}/new', [AdminController::class, 'newAnswer']);
-        Route::get('/{quiz_id}/{question_id}/{id}', [AdminController::class, 'editAnswer']);
-        Route::get('/{quiz_id}/{question_id}/{id}/delete', [AdminController::class, 'deleteAnswer']);
-    
-    });
-
-    Route::prefix('settings')->group(function () {
-        Route::get('/', [AdminController::class, 'settings'])->name('settings');
-
-    });
-
-    Route::post('/add_quiz', [AdminController::class, 'addQuiz']);
-    Route::post('/add_answer', [AdminController::class, 'addAnswer']);
-    Route::post('/add_question', [AdminController::class, 'addQuestion']);
-    Route::post('/add_school', [AdminController::class, 'addSchool']);
-    Route::post('/add_house', [AdminController::class, 'addHouse']);
-    Route::post('/add_level', [AdminController::class, 'addLevel']);
-    Route::post('/updateQuiz', [AdminController::class,'updateQuiz']);
-    Route::post('/updateQuestion', [AdminController::class,'updateQuestion']);
-    Route::post('/updateAnswer', [AdminController::class,'updateAnswer']);
-    Route::post('/updateSchool', [AdminController::class,'updateSchool']);
-    Route::post('/updateStudent', [AdminController::class,'updateStudent']);
+    Route::post('updateAvatar', [AccountController::class,'updateAvatar'])->name('updateAvatar');
+    Route::post('updateCover', [AccountController::class,'updateCover'])->name('updateCover');
 });
+
 
 require __DIR__.'/auth.php';

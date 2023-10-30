@@ -4,7 +4,7 @@
       <!-- USER AVATAR CONTENT -->
       <div class="user-avatar-content">
         <!-- HEXAGON -->
-        <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->pictureName) }}"></div>
+        <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->avatar) }}"></div>
         <!-- /HEXAGON -->
       </div>
       <!-- /USER AVATAR CONTENT -->

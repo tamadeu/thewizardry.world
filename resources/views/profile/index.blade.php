@@ -34,7 +34,7 @@
     <div class="profile-header">
       <!-- PROFILE HEADER COVER -->
       <figure class="profile-header-cover liquid">
-        <img src="img/cover/01.jpg" alt="cover-01">
+        <img src="{{ asset('storage/img/cover/' . $profile->cover) }}" alt="cover-01">
       </figure>
       <!-- /PROFILE HEADER COVER -->
   
@@ -1121,7 +1121,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -1659,7 +1659,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -2107,7 +2107,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -3419,7 +3419,7 @@
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
                   <!-- HEXAGON -->
-                  <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+                  <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
                   <!-- /HEXAGON -->
                 </div>
                 <!-- /USER AVATAR CONTENT -->
@@ -3548,7 +3548,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -4080,7 +4080,7 @@
                     <!-- USER AVATAR CONTENT -->
                     <div class="user-avatar-content">
                       <!-- HEXAGON -->
-                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+                      <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
                       <!-- /HEXAGON -->
                     </div>
                     <!-- /USER AVATAR CONTENT -->
@@ -4702,7 +4702,7 @@
               <div class="picture-item">
                 <!-- PICTURE -->
                 <figure class="picture round liquid">
-                  <img src="{{ asset('storage/img/profile/' . $profile->pictureName) }}" alt="avatar-01">
+                  <img src="{{ asset('storage/img/profile/' . $profile->avatar) }}" alt="avatar-01">
                 </figure>
                 <!-- /PICTURE -->
               </div>
@@ -5305,7 +5305,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+                    <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -6487,7 +6487,7 @@
           <!-- USER AVATAR CONTENT -->
           <div class="user-avatar-content">
             <!-- HEXAGON -->
-            <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->pictureName) }}"></div>
+            <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $profile->avatar) }}"></div>
             <!-- /HEXAGON -->
           </div>
           <!-- /USER AVATAR CONTENT -->
