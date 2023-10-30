@@ -6,7 +6,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +31,8 @@ Route::get('/resultQuiz', [QuizController::class, 'result'])->middleware(['auth'
 Route::get('/@{username}', [ProfileController::class, 'timeline'])->middleware(['auth', 'verified', 'quiz']);
 
 Route::get('/feed', [NewsfeedController::class, 'index'])->middleware(['auth', 'verified', 'quiz']);
+
+Route::get('/test', [TestController::class, 'testBlade'])->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

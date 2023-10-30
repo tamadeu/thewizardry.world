@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\DataModel;
+use App\Models\Crm;
+use Illuminate\Support\Facades\Auth;
 
 class TestController extends Controller
 {
@@ -101,5 +104,16 @@ class TestController extends Controller
         
         echo "Faltam $points pontos para atingir próximo nível";
 
+    }
+
+    public function testBlade(User $user){
+
+        $user = $user->crmUser();
+
+        return view('test', [
+            "user"=> $user,
+            "activeMenu" => "home",
+            "test" => $user
+        ]);
     }
 }

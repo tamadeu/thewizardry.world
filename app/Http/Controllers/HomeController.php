@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Crm;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\DataModel;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index(DataModel $model){
-        $userId = Auth::user()->crm_id;
+    public function index(Crm $crm, User $user){
 
-        $user = $model->get('users/'.$userId);
+        $user = $user->crmUser();
 
-        $level = $model->get('levels/'.$user->levelId);
+        $level = $crm->get('Level/653eff4d2edfce303');
+        $userPoints = $user->points;
+        $levelPoints = $level->points;
 
         $nextLevel = ($user->points / $level->points) * 100;
 
-        $schools = $model->get('schools/653129a954790c5de');
         return view('index', [
-            'schools' => $schools,
             'user' => $user,
             'activeMenu' => 'home',
             'level' => $level,

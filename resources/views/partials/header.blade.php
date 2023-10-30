@@ -1931,7 +1931,7 @@
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->pictureUrl) }}"></div>
+                    <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $user->pictureName) }}"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -1971,7 +1971,7 @@
                     <!-- /USER AVATAR BADGE CONTENT -->
               
                     <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text">{{ $user->level }}</p>
+                    <p class="user-avatar-badge-text">{{ $user->currentLevel }}</p>
                     <!-- /USER AVATAR BADGE TEXT -->
                   </div>
                   <!-- /USER AVATAR BADGE -->

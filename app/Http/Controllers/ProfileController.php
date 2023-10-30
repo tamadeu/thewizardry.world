@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Crm;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,27 +14,23 @@ use App\Models\DataModel;
 
 class ProfileController extends Controller
 {
-    public function timeline(Request $request, $username, DataModel $model){
-        $userId = Auth::user()->crm_id;
-        $user = $model->get('users/'.$userId);
+    public function timeline($username, User $user, Crm $crm){
+        $user = $user->crmUser();
 
-        $users = $model->getAll('users');
+        $profile = $crm->get('Student','?where[0][type]=equals&where[0][field]=username&where[0][value]='.$username);
 
-        $foundItem = array_filter(json_decode($users), function ($item) use ($username) {
-            return $item->username === $username;
-        });
-
-
-        if (!empty($foundItem)) {
-            $firstMatch = reset($foundItem);
+        if($profile->total > 0) {
             return view('profile/index', [
-                'profile'=> $firstMatch,
+                'profile'=> $profile->list[0],
                 'user' => $user,
                 'activeMenu' => ''
             ]);
         } else {
             // Element with the specified id was not found
-            echo "Element not found";
+            return view('profile/error', [
+                'user' => $user,
+                'activeMenu' => ''
+            ]);
         }
 
     }
