@@ -118,7 +118,7 @@ input[type=file]::file-selector-button:hover {
       <!-- /GRID COLUMN -->
 
       <!-- GRID COLUMN -->
-      <div class="account-hub-content">
+      <div class="account-hub-content" id="content">
         <!-- SECTION HEADER -->
         <div class="section-header">
           <!-- SECTION HEADER INFO -->
@@ -133,16 +133,16 @@ input[type=file]::file-selector-button:hover {
           </div>
 
           @if (session('success'))
-          <div class="alert alert-success">
-              {{ session('success') }}
-          </div>
-      @endif
+              <div class="alert alert-success">
+                  {{ session('success') }}
+              </div>
+          @endif
 
-      @if (session('error'))
-          <div class="alert alert-danger">
-              {{ session('error') }}
-          </div>
-      @endif
+          @if (session('error'))
+              <div class="alert alert-danger">
+                  {{ session('error') }}
+              </div>
+          @endif
           <!-- /SECTION HEADER INFO -->
         </div>
         <!-- /SECTION HEADER -->

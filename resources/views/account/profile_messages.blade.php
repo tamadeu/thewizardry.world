@@ -57,7 +57,7 @@
       <!-- /GRID COLUMN -->
 
       <!-- GRID COLUMN -->
-      <div class="account-hub-content">
+      <div class="account-hub-content" id="content">
         <!-- SECTION HEADER -->
         <div class="section-header">
           <!-- SECTION HEADER INFO -->

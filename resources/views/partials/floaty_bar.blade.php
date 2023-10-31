@@ -34,7 +34,7 @@
         <!-- /ACTION LIST ITEM -->
 
         <!-- ACTION LIST ITEM -->
-        <a class="action-list-item" href="hub-profile-requests.html">
+        <a class="action-list-item" href="{{ route('profile.requests') }}#content">
           <!-- ACTION LIST ITEM ICON -->
           <svg class="action-list-item-icon icon-friend">
             <use xlink:href="#svg-friend"></use>
@@ -44,7 +44,7 @@
         <!-- /ACTION LIST ITEM -->
 
         <!-- ACTION LIST ITEM -->
-        <a class="action-list-item" href="hub-profile-messages.html">
+        <a class="action-list-item" href="{{ route('profile.messages') }}#content">
           <!-- ACTION LIST ITEM ICON -->
           <svg class="action-list-item-icon icon-messages">
             <use xlink:href="#svg-messages"></use>
@@ -54,7 +54,7 @@
         <!-- /ACTION LIST ITEM -->
 
         <!-- ACTION LIST ITEM -->
-        <a class="action-list-item unread" href="hub-profile-notifications.html">
+        <a class="action-list-item unread" href="{{ route('profile.notifications') }}#content">
           <!-- ACTION LIST ITEM ICON -->
           <svg class="action-list-item-icon icon-notification">
             <use xlink:href="#svg-notification"></use>
@@ -66,7 +66,7 @@
       <!-- /ACTION LIST -->
 
       <!-- ACTION ITEM WRAP -->
-      <a class="action-item-wrap" href="hub-profile-info.html">
+      <a class="action-item-wrap" href="{{ route('profile.info') }}#content">
         <!-- ACTION ITEM -->
         <div class="action-item dark">
           <!-- ACTION ITEM ICON -->

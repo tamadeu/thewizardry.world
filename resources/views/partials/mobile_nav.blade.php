@@ -252,23 +252,23 @@
     <!-- /NAVIGATION WIDGET SECTION TITLE -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-profile-info.html">Profile Info</a>
+    <a class="navigation-widget-section-link" href="{{ route('profile.info') }}">Profile Info</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-profile-social.html">Social &amp; Stream</a>
+    <a class="navigation-widget-section-link" href="{{ route('profile.social') }}">Social &amp; Stream</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-profile-notifications.html">Notifications</a>
+    <a class="navigation-widget-section-link" href="{{ route('profile.notifications') }}">Notifications</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-profile-messages.html">Messages</a>
+    <a class="navigation-widget-section-link" href="{{ route('profile.notifications') }}">Messages</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-profile-requests.html">Friend Requests</a>
+    <a class="navigation-widget-section-link" href="{{ route('profile.requests') }}">Friend Requests</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION TITLE -->
@@ -276,15 +276,15 @@
     <!-- /NAVIGATION WIDGET SECTION TITLE -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-account-info.html">Account Info</a>
+    <a class="navigation-widget-section-link" href="{{ route('account.info') }}">Account Info</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-account-password.html">Change Password</a>
+    <a class="navigation-widget-section-link" href="{{ route('account.password') }}">Change Password</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-account-settings.html">General Settings</a>
+    <a class="navigation-widget-section-link" href="{{ route('account.settings') }}">General Settings</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION TITLE -->
@@ -292,11 +292,11 @@
     <!-- /NAVIGATION WIDGET SECTION TITLE -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-group-management.html">Manage Groups</a>
+    <a class="navigation-widget-section-link" href="{{ route('groups.manage') }}">Manage Groups</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-group-invitations.html">Invitations</a>
+    <a class="navigation-widget-section-link" href="{{ route('groups.invitations') }}">Invitations</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION TITLE -->
@@ -304,19 +304,19 @@
     <!-- /NAVIGATION WIDGET SECTION TITLE -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-store-account.html">My Account <span class="highlighted">$250,32</span></a>
+    <a class="navigation-widget-section-link" href="{{ route('store.account') }}">My Account <span class="highlighted">$250,32</span></a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-store-statement.html">Sales Statement</a>
+    <a class="navigation-widget-section-link" href="{{ route('store.statement') }}">Sales Statement</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-store-items.html">Manage Items</a>
+    <a class="navigation-widget-section-link" href="{{ route('store.items') }}">Manage Items</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION LINK -->
-    <a class="navigation-widget-section-link" href="hub-store-downloads.html">Downloads</a>
+    <a class="navigation-widget-section-link" href="{{ route('store.downloads') }}">Downloads</a>
     <!-- /NAVIGATION WIDGET SECTION LINK -->
 
     <!-- NAVIGATION WIDGET SECTION TITLE -->

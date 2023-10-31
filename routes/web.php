@@ -64,4 +64,7 @@ Route::prefix('account')->middleware(['auth', 'admin', 'quiz'])->group(function 
 });
 
 
+Route::post('/post', [NewsfeedController::class,'postContent'])->name('post');
+Route::post('/react', [NewsfeedController::class,'react'])->name('react');
+
 require __DIR__.'/auth.php';

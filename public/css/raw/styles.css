@@ -4096,6 +4096,11 @@ figure > img {
   margin-right: 0;
 }
 
+.post-option.active, .post-option .active {
+  background-color: #fff;
+  box-shadow: 3px 5px 20px 0 rgba(94, 92, 154, 0.1);
+}
+
 .post-option.active, .post-option:hover {
   background-color: #fff;
   box-shadow: 3px 5px 20px 0 rgba(94, 92, 154, 0.1);
