@@ -24,10 +24,10 @@
       <!-- ACTION LIST -->
       <div class="action-list dark">
         <!-- ACTION LIST ITEM -->
-        <a class="action-list-item" href="marketplace-cart.html">
+        <a class="action-list-item" href="{{ route('home') }}">
           <!-- ACTION LIST ITEM ICON -->
-          <svg class="action-list-item-icon icon-shopping-bag">
-            <use xlink:href="#svg-shopping-bag"></use>
+          <svg class="action-list-item-icon icon-overview">
+            <use xlink:href="#svg-overview"></use>
           </svg>
           <!-- /ACTION LIST ITEM ICON -->
         </a>
