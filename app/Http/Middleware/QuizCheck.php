@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Crm;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,12 +18,10 @@ class QuizCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        $model = new DataModel();
-
-
+        $crm = new Crm();
         $userId = Auth::user()->crm_id;
     
-        $user = $model->get('users/' . $userId);
+        $user = $crm->get('Student/' . $userId);
     
         if ($user->houseId === null && !$request->is('quiz')) {
             // User doesn't have a houseId and is not trying to access /quiz, redirect them to /quiz

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Crm;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CrmController;
@@ -10,10 +11,12 @@ use App\Models\DataModel;
 
 class QuizController extends Controller
 {
-    public function index(Request $request, CrmController $crm, DataModel $model){
+    public function index(Request $request, Crm $crm, DataModel $model){
 
-        $user = $model->get('users/'.Auth::user()->crm_id);
-
+        $userId = Auth::user()->crm_id;
+    
+        $user = $crm->get('Student/' . $userId);
+    
 
         if($user->houseId == null){
             $quizzes = $model->getAll('quiz');

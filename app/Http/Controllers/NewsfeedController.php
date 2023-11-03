@@ -13,11 +13,20 @@ class NewsfeedController extends Controller
 
         $posts = $crm->get("Post");
         $reactions = $crm->get("Reaction");
+        $reactionTypes = $crm->get("ReactionType?orderBy=createdAt&order=asc");
+
+        $foundLikes = array_filter($reactions->list, function ($item) {
+            return $item->reactionTypeName === 'Like';
+        });
+
+        $likes = array_values($foundLikes);
 
             return view('newsfeed', [
                 'posts' => $posts,
                 'user' => $user,
                 'reactions' => $reactions,
+                'reactionTypes' => $reactionTypes,
+                'likes' => $likes,
                 'activeMenu' => 'feed'
             ]);
     }
@@ -42,7 +51,7 @@ class NewsfeedController extends Controller
         $user = $user->crmUser();
 
         $data = array(
-            'type' => $request->input('type'),
+            'reactionTypeId' => $request->input('reactionTypeId'),
             'postId' => $request->input('postId'),
             'givingUserId' => $user->id,
             'receivingUserId' => $request->input('receivingUser')

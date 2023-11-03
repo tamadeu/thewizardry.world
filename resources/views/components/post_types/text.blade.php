@@ -102,213 +102,61 @@
             <div class="meta-line">
               <!-- META LINE LIST -->
               <div class="meta-line-list reaction-item-list">
-                <!-- REACTION ITEM -->
-                <div class="reaction-item">
-                  <!-- REACTION IMAGE -->
-                  <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/dislike.png" alt="reaction-dislike">
-                  <!-- /REACTION IMAGE -->
-      
-                  <!-- SIMPLE DROPDOWN -->
-                  <div class="simple-dropdown padded reaction-item-dropdown">
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/dislike.png" alt="reaction-dislike"> <span class="bold">Dislike</span></p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                  
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Matt Parker</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
 
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Destroy Dex</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
+                @php
+                  $postId = $post->id;
+                  $postReactionsFound = array_filter($reactions->list, function ($item) use ($postId) {
+                    return $item->postId === $postId;
+                  });
 
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">The Green Goo</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                  </div>
-                  <!-- /SIMPLE DROPDOWN -->
-                </div>
-                <!-- /REACTION ITEM -->
+                $postReactions = array_values($postReactionsFound)
+                @endphp
 
-                <!-- REACTION ITEM -->
-                <div class="reaction-item">
-                  <!-- REACTION IMAGE -->
-                  <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/love.png" alt="reaction-love">
-                  <!-- /REACTION IMAGE -->
-      
-                  <!-- SIMPLE DROPDOWN -->
-                  <div class="simple-dropdown padded reaction-item-dropdown">
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/love.png" alt="reaction-love"> <span class="bold">Love</span></p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                  
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Sandra Strange</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
+                @foreach($reactionTypes->list as $reactionType)
 
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Jane Rodgers</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                  </div>
-                  <!-- /SIMPLE DROPDOWN -->
-                </div>
-                <!-- /REACTION ITEM -->
+                  @foreach($postReactions as $postReaction)
+                    @if($postReaction->reactionTypeId == $reactionType->id)
+                      <!-- REACTION ITEM -->
+                      <div class="reaction-item">
+                        <!-- REACTION IMAGE -->
+                        <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/{{ $reactionType->alt }}.png" alt="reaction-{{ $reactionType->alt }}">
+                        <!-- /REACTION IMAGE -->
+            
+                        <!-- SIMPLE DROPDOWN -->
+                        <div class="simple-dropdown padded reaction-item-dropdown">
+                          <!-- SIMPLE DROPDOWN TEXT -->
+                          <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/{{ $reactionType->alt }}.png" alt="reaction-{{ $reactionType->alt }}"> <span class="bold">{{ $reactionType->name }}</span></p>
+                          <!-- /SIMPLE DROPDOWN TEXT -->
+                          @foreach($postReactions as $postReaction)
+                            @if($postReaction->reactionTypeId == $reactionType->id)
+                              <!-- SIMPLE DROPDOWN TEXT -->
+                              <p class="simple-dropdown-text">{{ $postReaction->givingUserName }}</p>
+                              <!-- /SIMPLE DROPDOWN TEXT -->
+                            @endif
+                          @endforeach
+                        </div>
+                        <!-- /SIMPLE DROPDOWN -->
+                      </div>
+                      <!-- /REACTION ITEM -->
+                    @endif
+                  @endforeach
+                
 
-                <!-- REACTION ITEM -->
-                <div class="reaction-item">
-                  <!-- REACTION IMAGE -->
-                  <img class="reaction-image reaction-item-dropdown-trigger" src="img/reaction/like.png" alt="reaction-like">
-                  <!-- /REACTION IMAGE -->
-      
-                  <!-- SIMPLE DROPDOWN -->
-                  <div class="simple-dropdown padded reaction-item-dropdown">
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text"><img class="reaction" src="img/reaction/like.png" alt="reaction-like"> <span class="bold">Like</span></p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                  
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Neko Bebop</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
 
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Nick Grissom</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
+                @endforeach
 
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Sarah Diamond</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text">Jett Spiegel</p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-
-                    <!-- SIMPLE DROPDOWN TEXT -->
-                    <p class="simple-dropdown-text"><span class="bold">and 2 more...</span></p>
-                    <!-- /SIMPLE DROPDOWN TEXT -->
-                  </div>
-                  <!-- /SIMPLE DROPDOWN -->
-                </div>
-                <!-- /REACTION ITEM -->
               </div>
               <!-- /META LINE LIST -->
       
+              @php
+                $countReactions = count($postReactions);
+              @endphp
               <!-- META LINE TEXT -->
-              <p class="meta-line-text">11</p>
+              <p class="meta-line-text">{{ $countReactions }}</p>
               <!-- /META LINE TEXT -->
             </div>
             <!-- /META LINE -->
-      
-            <!-- META LINE -->
-            <div class="meta-line">
-              <!-- META LINE LIST -->
-              <div class="meta-line-list user-avatar-list">
-                <!-- USER AVATAR -->
-                <div class="user-avatar micro no-stats">
-                  <!-- USER AVATAR BORDER -->
-                  <div class="user-avatar-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-22-24"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR BORDER -->
-              
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-18-20" data-src="img/avatar/08.jpg"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-                </div>
-                <!-- /USER AVATAR -->
-      
-                <!-- USER AVATAR -->
-                <div class="user-avatar micro no-stats">
-                  <!-- USER AVATAR BORDER -->
-                  <div class="user-avatar-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-22-24"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR BORDER -->
-              
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-18-20" data-src="img/avatar/11.jpg"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-                </div>
-                <!-- /USER AVATAR -->
-      
-                <!-- USER AVATAR -->
-                <div class="user-avatar micro no-stats">
-                  <!-- USER AVATAR BORDER -->
-                  <div class="user-avatar-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-22-24"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR BORDER -->
-              
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-18-20" data-src="img/avatar/06.jpg"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-                </div>
-                <!-- /USER AVATAR -->
-      
-                <!-- USER AVATAR -->
-                <div class="user-avatar micro no-stats">
-                  <!-- USER AVATAR BORDER -->
-                  <div class="user-avatar-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-22-24"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR BORDER -->
-              
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-18-20" data-src="img/avatar/07.jpg"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-                </div>
-                <!-- /USER AVATAR -->
-      
-                <!-- USER AVATAR -->
-                <div class="user-avatar micro no-stats">
-                  <!-- USER AVATAR BORDER -->
-                  <div class="user-avatar-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-22-24"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR BORDER -->
-              
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-18-20" data-src="img/avatar/10.jpg"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-                </div>
-                <!-- /USER AVATAR -->
-              </div>
-              <!-- /META LINE LIST -->
-      
-              <!-- META LINE TEXT -->
-              <p class="meta-line-text">18 Participants</p>
-              <!-- /META LINE TEXT -->
-            </div>
-            <!-- /META LINE -->
+
           </div>
           <!-- /CONTENT ACTION -->
       
@@ -344,20 +192,32 @@
       <div class="post-option-wrap">
         <!-- POST OPTION -->
 
-        @foreach($reactions->list as $reaction)
-            @if($reaction->postId == $post->id && $reaction->givingUserId == $user->id)
-              <div class="post-option reaction-options-dropdown-trigger">
-                <!-- POST OPTION ICON -->
-                <svg class="post-option-icon icon-thumbs-up">
-                  <use xlink:href="#svg-thumbs-up"></use>
-                </svg>
-                <!-- /POST OPTION ICON -->
+        @php
+          $userId = $user->id;
+          $userPostReactionsFound = array_filter($reactions->list, function ($item) use ($postId, $userId) {
+            return $item->postId === $postId && $item->givingUserId == $userId;
+          });
 
-                <!-- POST OPTION TEXT -->
-                    <p class="post-option-text active">{{ $reaction->type }}</p>
-                <!-- /POST OPTION TEXT -->
-              </div>
-            @else
+          if (!empty($userPostReactionsFound)) {
+            $reaction = reset($userPostReactionsFound);
+          } else {
+            $reaction = null;
+          }
+        @endphp
+
+          @if($reaction)
+            <div class="post-option reaction-options-dropdown-trigger">
+              <!-- POST OPTION ICON -->
+              <svg class="post-option-icon icon-thumbs-up">
+                <use xlink:href="#svg-thumbs-up"></use>
+              </svg>
+              <!-- /POST OPTION ICON -->
+
+              <!-- POST OPTION TEXT -->
+                  <p class="post-option-text active">{{ $reaction->verb }}</p>
+              <!-- /POST OPTION TEXT -->
+            </div>
+          @else
             <div class="post-option reaction-options-dropdown-trigger">
               <!-- POST OPTION ICON -->
               <svg class="post-option-icon icon-thumbs-up">
@@ -369,79 +229,61 @@
                   <p class="post-option-text">React!</p>
               <!-- /POST OPTION TEXT -->
             </div>
-            @endif
-          @endforeach
+          @endif
 
         <!-- /POST OPTION -->
 
-        <!-- REACTION OPTIONS -->
+        
         <div class="reaction-options reaction-options-dropdown">
-          <!-- REACTION OPTION -->
-          <div class="reaction-option text-tooltip-tft" data-title="Like">
-            <!-- REACTION OPTION IMAGE -->
-            <form id="like_{{ $post->id }}">
-              @csrf
-              <img class="reaction-option-image" src="img/reaction/like.png" id="reaction-like_{{ $post->id }}" alt="reaction-like">
-            </form>
-            <!-- /REACTION OPTION IMAGE -->
-          </div>
-          <!-- /REACTION OPTION -->
+          @foreach($reactionTypes->list as $reactionType)
+            <!-- REACTION OPTION -->
+            <div class="reaction-option text-tooltip-tft" data-title="{{ $reactionType->name }}">
+              <!-- REACTION OPTION IMAGE -->
+              <form id="{{ $reactionType->alt }}_{{ $post->id }}">
+                @csrf
+                <img class="reaction-option-image" src="img/reaction/{{ $reactionType->alt }}.png" id="reaction-{{ $reactionType->alt }}_{{ $post->id }}" alt="reaction-{{ $reactionType->alt }}">
+              </form>
+              <!-- /REACTION OPTION IMAGE -->
+            </div>
+            <!-- /REACTION OPTION -->
+            <script>
+              // Get the image element by its id
+              const image{{ $reactionType->name }}_{{ $post->id }} = document.getElementById('reaction-{{ $reactionType->alt }}_{{$post->id}}');
+          
+              const {{ $reactionType->alt }}Form_{{ $post->id }} = document.getElementById('{{ $reactionType->alt }}_{{$post->id}}');
+          
+            
+              // Get the CSRF token from the page
+              const csrfToken_{{ $reactionType->alt }}_{{ $post->id }} = {{ $reactionType->alt }}Form_{{ $post->id }}.querySelector('input[name="_token"]').value;
+            
+              // Add a click event listener to the image
+              image{{ $reactionType->name }}_{{ $post->id }}.addEventListener('click', () => {
+                // Define the data you want to send in the POST request
+                var myHeaders = new Headers();
+                myHeaders.append('Content-Type', 'application/json');
+                myHeaders.append('X-CSRF-TOKEN', csrfToken_{{ $reactionType->alt }}_{{ $post->id }});
+          
+                var raw = JSON.stringify({
+                  "reactionTypeId": "{{ $reactionType->id }}",
+                  "postId": "{{ $post->id }}",
+                  "receivingUser": "{{ $post->studentId }}"
+                });
+          
+                var requestOptions = {
+                  method: 'POST',
+                  headers: myHeaders,
+                  body: raw,
+                  redirect: 'follow'
+                };
+          
+                fetch("{{ route('react') }}", requestOptions)
+                  .then(response => response.text())
+                  .then(result => console.log(result))
+                  .catch(error => console.log('error', error)); 
+              });
+            </script>
+          @endforeach
 
-          <!-- REACTION OPTION -->
-          <div class="reaction-option text-tooltip-tft" data-title="Love">
-            <!-- REACTION OPTION IMAGE -->
-            <img class="reaction-option-image" src="img/reaction/love.png" alt="reaction-love">
-            <!-- /REACTION OPTION IMAGE -->
-          </div>
-          <!-- /REACTION OPTION -->
-
-          <!-- REACTION OPTION -->
-          <div class="reaction-option text-tooltip-tft" data-title="Dislike">
-            <!-- REACTION OPTION IMAGE -->
-            <img class="reaction-option-image" src="img/reaction/dislike.png" alt="reaction-dislike">
-            <!-- /REACTION OPTION IMAGE -->
-          </div>
-          <!-- /REACTION OPTION -->
-
-          <!-- REACTION OPTION -->
-          <div class="reaction-option text-tooltip-tft" data-title="Happy">
-            <!-- REACTION OPTION IMAGE -->
-            <img class="reaction-option-image" src="img/reaction/happy.png" alt="reaction-happy">
-            <!-- /REACTION OPTION IMAGE -->
-          </div>
-          <!-- /REACTION OPTION -->
-
-          <!-- REACTION OPTION -->
-          <div class="reaction-option text-tooltip-tft" data-title="Funny">
-            <!-- REACTION OPTION IMAGE -->
-            <img class="reaction-option-image" src="img/reaction/funny.png" alt="reaction-funny">
-            <!-- /REACTION OPTION IMAGE -->
-          </div>
-          <!-- /REACTION OPTION -->
-
-          <!-- REACTION OPTION -->
-          <div class="reaction-option text-tooltip-tft" data-title="Wow">
-            <!-- REACTION OPTION IMAGE -->
-            <img class="reaction-option-image" src="img/reaction/wow.png" alt="reaction-wow">
-            <!-- /REACTION OPTION IMAGE -->
-          </div>
-          <!-- /REACTION OPTION -->
-
-          <!-- REACTION OPTION -->
-          <div class="reaction-option text-tooltip-tft" data-title="Angry">
-            <!-- REACTION OPTION IMAGE -->
-            <img class="reaction-option-image" src="img/reaction/angry.png" alt="reaction-angry">
-            <!-- /REACTION OPTION IMAGE -->
-          </div>
-          <!-- /REACTION OPTION -->
-
-          <!-- REACTION OPTION -->
-          <div class="reaction-option text-tooltip-tft" data-title="Sad">
-            <!-- REACTION OPTION IMAGE -->
-            <img class="reaction-option-image" src="img/reaction/sad.png" alt="reaction-sad">
-            <!-- /REACTION OPTION IMAGE -->
-          </div>
-          <!-- /REACTION OPTION -->
         </div>
         <!-- /REACTION OPTIONS -->
       </div>
@@ -477,41 +319,4 @@
     </div>
     <!-- /POST OPTIONS -->
   </div>
-
-  <script>
-    // Get the image element by its id
-    const imageElement_{{ $post->id }} = document.getElementById('reaction-like_{{$post->id}}');
-
-    const likeForm_{{ $post->id }} = document.getElementById('like_{{$post->id}}');
-
-  
-    // Get the CSRF token from the page
-    const csrfToken_{{ $post->id }} = likeForm_{{ $post->id }}.querySelector('input[name="_token"]').value;
-  
-    // Add a click event listener to the image
-    imageElement_{{ $post->id }}.addEventListener('click', () => {
-      // Define the data you want to send in the POST request
-      var myHeaders = new Headers();
-      myHeaders.append('Content-Type', 'application/json');
-      myHeaders.append('X-CSRF-TOKEN', csrfToken_{{ $post->id }});
-
-      var raw = JSON.stringify({
-        "type": "{{ $post->type }}",
-        "postId": "{{ $post->id }}",
-        "receivingUser": "{{ $post->studentId }}"
-      });
-
-      var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-      };
-
-      fetch("{{ route('react') }}", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error)); 
-    });
-  </script>
   

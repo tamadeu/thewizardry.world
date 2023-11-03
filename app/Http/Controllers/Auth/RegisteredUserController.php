@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Crm;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -29,7 +30,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request, DataModel $model): RedirectResponse
+    public function store(Request $request, DataModel $model, Crm $crm): RedirectResponse
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -39,11 +40,11 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $schools = $model->getAll('schools');
+        $schools = $crm->get('School');
 
         $country = $request->country;
 
-        $foundItem = array_filter(json_decode($schools), function ($item) use ($country) {
+        $foundItem = array_filter($schools->list, function ($item) use ($country) {
             return $item->country === $country;
         });
 
@@ -66,8 +67,7 @@ class RegisteredUserController extends Controller
             'lastName' => $request->lastName,
             'username' => $request->username,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'type' => 2
+            'password' => Hash::make($request->password)
         ]);
 
         event(new Registered($user));
@@ -79,8 +79,7 @@ class RegisteredUserController extends Controller
             "lastName" => $request->lastName,
             "email" => $request->email,
             "username" => $request->username,
-            "name" => $request->name . ' ' . $request->lastName,
-            "pictureUrl" => "placeholder.png",
+            "avatar" => "placeholder.png",
             "schoolId" => $school->id,
             "schoolName" => $school->name,
             "country" => $request->country,
@@ -88,14 +87,14 @@ class RegisteredUserController extends Controller
             "studentCode" => $studentCode,
             "houseId" => null,
             "houseName" => null,
-            "type" => "regular",
-            "level" => 1,
+            "levelId" => "653eff4d2edfce303",
+            "name" => $request->name . ' ' . $request->lastName,
             "points" => 10
         ];
 
-        $newUser = $model->post('users/', $body);
+        $newUser = $crm->post('Student', $body);
 
-        $user->crm_id = $newUser['id'];
+        $user->crm_id = $newUser->id;
         $user->save();
 
 
