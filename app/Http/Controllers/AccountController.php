@@ -9,34 +9,30 @@ use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
-    public function profile_info(User $user){
-        $user = $user->crmUser();
+    public function profile_info(){
         return view('account/profile_info',[
-            'user'=> $user,
             'activeMenu' => 'profile_info'
         ]);
     }
 
-    public function profile_social(User $user){
-        $user = $user->crmUser();
+    public function profile_social(){
         return view('account/profile_social',[
-            'user'=> $user,
             'activeMenu' => 'profile_social'
         ]);
     }
 
-    public function profile_notifications(User $user){
+    public function profile_notifications(User $user, Crm $crm){
         $user = $user->crmUser();
+
+        $notifications = $crm->get('Student/'.$user->id.'/userNotifications1');
         return view('account/profile_notifications',[
-            'user'=> $user,
+            'notifications' => $notifications,
             'activeMenu' => 'profile_notifications'
         ]);
     }
 
-    public function profile_messages(User $user){
-        $user = $user->crmUser();
+    public function profile_messages(){
         return view('account/profile_messages',[
-            'user'=> $user,
             'activeMenu' => 'profile_messages'
         ]);
     }
@@ -47,7 +43,6 @@ class AccountController extends Controller
         $requestsReceived = $crm->get("Student/".$user->id."/friendRequests1?where[0][type]=equals&where[0][field]=status&where[0][value]=Pending");
 
         return view('account/profile_requests',[
-            'user'=> $user,
             'requestsReceived' => $requestsReceived,
             'activeMenu' => 'profile_requests'
         ]);
@@ -77,74 +72,56 @@ class AccountController extends Controller
         return redirect()->back()->with('success', 'Request accepted succesfully');
     }
 
-    public function account_info(User $user){
-        $user = $user->crmUser();
+    public function account_info(){
         return view('account/account_info',[
-            'user'=> $user,
             'activeMenu' => 'account_info'
         ]);
     }
 
-    public function account_password(User $user){
-        $user = $user->crmUser();
+    public function account_password(){
         return view('account/account_password',[
-            'user'=> $user,
             'activeMenu' => 'account_password'
         ]);
     }
 
-    public function account_settings(User $user){
-        $user = $user->crmUser();
+    public function account_settings(){
         return view('account/account_settings',[
-            'user'=> $user,
             'activeMenu' => 'account_settings'
         ]);
     }
 
-    public function groups_manage(User $user){
-        $user = $user->crmUser();
+    public function groups_manage(){
         return view('account/groups_manage',[
-            'user'=> $user,
             'activeMenu' => 'groups_manage'
         ]);
     }
 
-    public function groups_invitations(User $user){
-        $user = $user->crmUser();
+    public function groups_invitations(){
         return view('account/groups_invitations',[
-            'user'=> $user,
             'activeMenu' => 'groups_invitations'
         ]);
     }
 
-    public function store_account(User $user){
-        $user = $user->crmUser();
+    public function store_account(){
         return view('account/store_account',[
-            'user'=> $user,
             'activeMenu' => 'store_account'
         ]);
     }
 
-    public function store_statement(User $user){
-        $user = $user->crmUser();
+    public function store_statement(){
         return view('account/store_statement',[
-            'user'=> $user,
             'activeMenu' => 'store_statement'
         ]);
     }
 
-    public function store_items(User $user){
-        $user = $user->crmUser();
+    public function store_items(){
         return view('account/store_items',[
-            'user'=> $user,
             'activeMenu' => 'store_items'
         ]);
     }
 
-    public function store_downloads(User $user){
-        $user = $user->crmUser();
+    public function store_downloads(){
         return view('account/store_downloads',[
-            'user'=> $user,
             'activeMenu' => 'store_downloads'
         ]);
     }

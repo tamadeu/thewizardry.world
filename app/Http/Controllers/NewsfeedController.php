@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 
 class NewsfeedController extends Controller
 {
-    public function index(User $user, Crm $crm){
-        $user = $user->crmUser();
-
+    public function index(Crm $crm){
         $users = $crm->get('Student');
 
         $posts = $crm->get("Post");
@@ -20,7 +18,6 @@ class NewsfeedController extends Controller
 
             return view('newsfeed', [
                 'posts' => $posts,
-                'user' => $user,
                 'reactions' => $reactions,
                 'reactionTypes' => $reactionTypes,
                 'users' => $users->list,

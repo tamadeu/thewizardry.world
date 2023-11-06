@@ -31,13 +31,11 @@ class ProfileController extends Controller
                 'friendRequest' => $friendRequest,
                 'friends' => $friends,
                 'isFriend' => $isFriend,
-                'user' => $user,
                 'activeMenu' => ''
             ]);
         } else {
             // Element with the specified id was not found
             return view('profile/error', [
-                'user' => $user,
                 'activeMenu' => ''
             ]);
         }

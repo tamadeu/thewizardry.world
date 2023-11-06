@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Crm;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CrmController;
@@ -38,7 +39,6 @@ class QuizController extends Controller
                     'test' => $questions,
                     'questions' => $questions,
                     'answers' => $answers,
-                    'user' => $user,
                     'activeMenu' => ''
                 ]);
             } else {
@@ -75,12 +75,11 @@ class QuizController extends Controller
         return redirect('/resultQuiz');
     }
 
-    public function result(Request $request, DataModel $model){
-        $user = $model->get('users/'.Auth::user()->crm_id);
-        $house = $model->get('houses/'.$user->houseId);
+    public function result(Crm $crm, User $user){
+        $user = $user->crmUser();
+        $house = $crm->get('House/'.$user->houseId);
 
         return view('quiz/result', [
-            'user' => $user,
             'house' => $house,
             'activeMenu' => ''
         ]);
