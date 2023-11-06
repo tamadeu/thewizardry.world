@@ -67,7 +67,7 @@
             <!-- /SECTION PRETITLE -->
 
             <!-- SECTION TITLE -->
-            <h2 class="section-title">Friend Requests <span class="highlighted">3</span></h2>
+            <h2 class="section-title">Friend Requests <span class="highlighted">{{ count($requestsReceived->list) }}</span></h2>
             <!-- /SECTION TITLE -->
           </div>
           <!-- /SECTION HEADER INFO -->
@@ -86,20 +86,34 @@
         </div>
         <!-- /SECTION HEADER -->
 
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
         <!-- NOTIFICATION BOX LIST -->
         <div class="notification-box-list">
+
+          @foreach($requestsReceived->list as $request)
           <!-- NOTIFICATION BOX -->
           <div class="notification-box">
             <!-- USER STATUS -->
             <div class="user-status request">
               <!-- USER STATUS AVATAR -->
-              <a class="user-status-avatar" href="profile-timeline.html">
+              <a class="user-status-avatar" href="/{{ '@'.$request->inviterUsername }}">
                 <!-- USER AVATAR -->
                 <div class="user-avatar small no-outline">
                   <!-- USER AVATAR CONTENT -->
                   <div class="user-avatar-content">
                     <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="/img/avatar/16.jpg"></div>
+                    <div class="hexagon-image-30-32" data-src="{{ asset('storage/img/profile/' . $request->inviterAvatar) }}"></div>
                     <!-- /HEXAGON -->
                   </div>
                   <!-- /USER AVATAR CONTENT -->
@@ -139,7 +153,7 @@
                     <!-- /USER AVATAR BADGE CONTENT -->
               
                     <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text">14</p>
+                    <p class="user-avatar-badge-text">{{ $request->inviterLevel }}</p>
                     <!-- /USER AVATAR BADGE TEXT -->
                   </div>
                   <!-- /USER AVATAR BADGE -->
@@ -149,7 +163,7 @@
               <!-- /USER STATUS AVATAR -->
 
               <!-- USER STATUS TITLE -->
-              <p class="user-status-title"><a class="bold" href="profile-timeline.html">Ginny Danvers</a></p>
+              <p class="user-status-title"><a class="bold" href="/{{ '@'.$request->inviterUsername }}">{{ $request->inviterName }}</a></p>
               <!-- /USER STATUS TITLE -->
 
               <!-- USER STATUS TEXT -->
@@ -159,17 +173,22 @@
               <!-- ACTION REQUEST LIST -->
               <div class="action-request-list">
                 <!-- ACTION REQUEST -->
-                <p class="action-request accept with-text">
-                  <!-- ACTION REQUEST ICON -->
-                  <svg class="action-request-icon icon-add-friend">
-                    <use xlink:href="#svg-add-friend"></use>
-                  </svg>
-                  <!-- /ACTION REQUEST ICON -->
+                <form action="{{ route('acceptRequest') }}" method="POST">
+                  @csrf
+                  <input type="hidden" name="friendId" value="{{ $request->inviterId }}" />
+                  <input type="hidden" name="requestId" value="{{ $request->id }}" />
+                  <button type="submit" class="action-request accept with-text" style="margin-right: 12px;">
+                    <!-- ACTION REQUEST ICON -->
+                    <svg class="action-request-icon icon-add-friend">
+                      <use xlink:href="#svg-add-friend"></use>
+                    </svg>
+                    <!-- /ACTION REQUEST ICON -->
 
-                  <!-- ACTION REQUEST TEXT -->
-                  <span class="action-request-text">Add Friend</span>
-                  <!-- /ACTION REQUEST TEXT -->
-                </p>
+                    <!-- ACTION REQUEST TEXT -->
+                    <span class="action-request-text">Accept Request</span>
+                    <!-- /ACTION REQUEST TEXT -->
+                  </button>
+                </form>
                 <!-- /ACTION REQUEST -->
 
                 <!-- ACTION REQUEST -->
@@ -187,206 +206,8 @@
             <!-- /USER STATUS -->
           </div>
           <!-- /NOTIFICATION BOX -->
+          @endforeach
 
-          <!-- NOTIFICATION BOX -->
-          <div class="notification-box">
-            <!-- USER STATUS -->
-            <div class="user-status request">
-              <!-- USER STATUS AVATAR -->
-              <a class="user-status-avatar" href="profile-timeline.html">
-                <!-- USER AVATAR -->
-                <div class="user-avatar small no-outline">
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="/img/avatar/14.jpg"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-              
-                  <!-- USER AVATAR PROGRESS -->
-                  <div class="user-avatar-progress">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-progress-40-44"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR PROGRESS -->
-              
-                  <!-- USER AVATAR PROGRESS BORDER -->
-                  <div class="user-avatar-progress-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-border-40-44"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR PROGRESS BORDER -->
-              
-                  <!-- USER AVATAR BADGE -->
-                  <div class="user-avatar-badge">
-                    <!-- USER AVATAR BADGE BORDER -->
-                    <div class="user-avatar-badge-border">
-                      <!-- HEXAGON -->
-                      <div class="hexagon-22-24"></div>
-                      <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE BORDER -->
-              
-                    <!-- USER AVATAR BADGE CONTENT -->
-                    <div class="user-avatar-badge-content">
-                      <!-- HEXAGON -->
-                      <div class="hexagon-dark-16-18"></div>
-                      <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE CONTENT -->
-              
-                    <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text">3</p>
-                    <!-- /USER AVATAR BADGE TEXT -->
-                  </div>
-                  <!-- /USER AVATAR BADGE -->
-                </div>
-                <!-- /USER AVATAR -->
-              </a>
-              <!-- /USER STATUS AVATAR -->
-
-              <!-- USER STATUS TITLE -->
-              <p class="user-status-title"><a class="bold" href="profile-timeline.html">Paul Lang</a></p>
-              <!-- /USER STATUS TITLE -->
-
-              <!-- USER STATUS TEXT -->
-              <p class="user-status-text small-space">2 friends in common</p>
-              <!-- /USER STATUS TEXT -->
-
-              <!-- ACTION REQUEST LIST -->
-              <div class="action-request-list">
-                <!-- ACTION REQUEST -->
-                <p class="action-request accept with-text">
-                  <!-- ACTION REQUEST ICON -->
-                  <svg class="action-request-icon icon-add-friend">
-                    <use xlink:href="#svg-add-friend"></use>
-                  </svg>
-                  <!-- /ACTION REQUEST ICON -->
-                  
-                  <!-- ACTION REQUEST TEXT -->
-                  <span class="action-request-text">Add Friend</span>
-                  <!-- /ACTION REQUEST TEXT -->
-                </p>
-                <!-- /ACTION REQUEST -->
-
-                <!-- ACTION REQUEST -->
-                <div class="action-request decline">
-                  <!-- ACTION REQUEST ICON -->
-                  <svg class="action-request-icon icon-remove-friend">
-                    <use xlink:href="#svg-remove-friend"></use>
-                  </svg>
-                  <!-- /ACTION REQUEST ICON -->
-                </div>
-                <!-- /ACTION REQUEST -->
-              </div>
-              <!-- ACTION REQUEST LIST -->
-            </div>
-            <!-- /USER STATUS -->
-          </div>
-          <!-- /NOTIFICATION BOX -->
-
-          <!-- NOTIFICATION BOX -->
-          <div class="notification-box">
-            <!-- USER STATUS -->
-            <div class="user-status request">
-              <!-- USER STATUS AVATAR -->
-              <a class="user-status-avatar" href="profile-timeline.html">
-                <!-- USER AVATAR -->
-                <div class="user-avatar small no-outline">
-                  <!-- USER AVATAR CONTENT -->
-                  <div class="user-avatar-content">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-image-30-32" data-src="/img/avatar/11.jpg"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR CONTENT -->
-              
-                  <!-- USER AVATAR PROGRESS -->
-                  <div class="user-avatar-progress">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-progress-40-44"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR PROGRESS -->
-              
-                  <!-- USER AVATAR PROGRESS BORDER -->
-                  <div class="user-avatar-progress-border">
-                    <!-- HEXAGON -->
-                    <div class="hexagon-border-40-44"></div>
-                    <!-- /HEXAGON -->
-                  </div>
-                  <!-- /USER AVATAR PROGRESS BORDER -->
-              
-                  <!-- USER AVATAR BADGE -->
-                  <div class="user-avatar-badge">
-                    <!-- USER AVATAR BADGE BORDER -->
-                    <div class="user-avatar-badge-border">
-                      <!-- HEXAGON -->
-                      <div class="hexagon-22-24"></div>
-                      <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE BORDER -->
-              
-                    <!-- USER AVATAR BADGE CONTENT -->
-                    <div class="user-avatar-badge-content">
-                      <!-- HEXAGON -->
-                      <div class="hexagon-dark-16-18"></div>
-                      <!-- /HEXAGON -->
-                    </div>
-                    <!-- /USER AVATAR BADGE CONTENT -->
-              
-                    <!-- USER AVATAR BADGE TEXT -->
-                    <p class="user-avatar-badge-text">9</p>
-                    <!-- /USER AVATAR BADGE TEXT -->
-                  </div>
-                  <!-- /USER AVATAR BADGE -->
-                </div>
-                <!-- /USER AVATAR -->
-              </a>
-              <!-- /USER STATUS AVATAR -->
-
-              <!-- USER STATUS TITLE -->
-              <p class="user-status-title"><a class="bold" href="profile-timeline.html">Cassie May</a></p>
-              <!-- /USER STATUS TITLE -->
-
-              <!-- USER STATUS TEXT -->
-              <p class="user-status-text small-space">4 friends in common</p>
-              <!-- /USER STATUS TEXT -->
-
-              <!-- ACTION REQUEST LIST -->
-              <div class="action-request-list">
-                <!-- ACTION REQUEST -->
-                <p class="action-request accept with-text">
-                  <!-- ACTION REQUEST ICON -->
-                  <svg class="action-request-icon icon-add-friend">
-                    <use xlink:href="#svg-add-friend"></use>
-                  </svg>
-                  <!-- /ACTION REQUEST ICON -->
-                  
-                  <!-- ACTION REQUEST TEXT -->
-                  <span class="action-request-text">Add Friend</span>
-                  <!-- /ACTION REQUEST TEXT -->
-                </p>
-                <!-- /ACTION REQUEST -->
-
-                <!-- ACTION REQUEST -->
-                <div class="action-request decline">
-                  <!-- ACTION REQUEST ICON -->
-                  <svg class="action-request-icon icon-remove-friend">
-                    <use xlink:href="#svg-remove-friend"></use>
-                  </svg>
-                  <!-- /ACTION REQUEST ICON -->
-                </div>
-                <!-- /ACTION REQUEST -->
-              </div>
-              <!-- ACTION REQUEST LIST -->
-            </div>
-            <!-- /USER STATUS -->
-          </div>
-          <!-- /NOTIFICATION BOX -->
         </div>
         <!-- /NOTIFICATION BOX LIST -->
       </div>

@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('account')->middleware(['auth', 'admin', 'quiz'])->group(function () {
+Route::prefix('account')->middleware(['auth', 'quiz'])->group(function () {
     Route::get('/profile', [AccountController::class, 'profile_info'])->name('profile.info');
     Route::get('/social', [AccountController::class, 'profile_social'])->name('profile.social');
     Route::get('/notifications', [AccountController::class, 'profile_notifications'])->name('profile.notifications');
@@ -65,6 +65,10 @@ Route::prefix('account')->middleware(['auth', 'admin', 'quiz'])->group(function 
 
 
 Route::post('/post', [NewsfeedController::class,'postContent'])->name('post');
+Route::post('/delete', [NewsfeedController::class,'delete'])->name('delete');
 Route::post('/react', [NewsfeedController::class,'react'])->name('react');
+
+Route::post('/sendFriendRequest', [NewsfeedController::class,'sendFriendRequest'])->name('sendFriendRequest');
+Route::post('/acceptRequest', [AccountController::class,'acceptRequest'])->name('acceptRequest');
 
 require __DIR__.'/auth.php';

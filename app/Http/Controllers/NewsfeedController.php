@@ -11,22 +11,19 @@ class NewsfeedController extends Controller
     public function index(User $user, Crm $crm){
         $user = $user->crmUser();
 
+        $users = $crm->get('Student');
+
         $posts = $crm->get("Post");
         $reactions = $crm->get("Reaction");
         $reactionTypes = $crm->get("ReactionType?orderBy=createdAt&order=asc");
 
-        $foundLikes = array_filter($reactions->list, function ($item) {
-            return $item->reactionTypeName === 'Like';
-        });
-
-        $likes = array_values($foundLikes);
 
             return view('newsfeed', [
                 'posts' => $posts,
                 'user' => $user,
                 'reactions' => $reactions,
                 'reactionTypes' => $reactionTypes,
-                'likes' => $likes,
+                'users' => $users->list,
                 'activeMenu' => 'feed'
             ]);
     }
@@ -44,11 +41,21 @@ class NewsfeedController extends Controller
 
         $post = $crm->post("Post", $data);
 
-        return redirect()->back()->with('success', json_encode($post));
+        return redirect()->back()->with('success', 'Post created succesfully');
+    }
+
+    public function deleteContent(Request $request, User $user, Crm $crm){
+        $user = $user->crmUser();
+
+        $post = $crm->del("Post", $request->id);
+
+        return redirect()->back()->with('success', 'Your post was deleted succesfully');
     }
 
     public function react(Request $request, User $user, Crm $crm){
         $user = $user->crmUser();
+        $userId = $user->id;
+        $reactionTypeId = $request->reactionTypeId;
 
         $data = array(
             'reactionTypeId' => $request->input('reactionTypeId'),
@@ -57,9 +64,62 @@ class NewsfeedController extends Controller
             'receivingUserId' => $request->input('receivingUser')
         );
 
-        $crm->post("Reaction", $data);
+        $existingPostReactions = $crm->get('Post/'.$request->input('postId').'/reactions');
 
-        return redirect()->back()->with('success', 'Post liked successfully');
+        if($existingPostReactions->total > 0){
+            $sameReactionFound = array_filter($existingPostReactions->list, function ($item) use($userId, $reactionTypeId) {
+                return $item->givingUserId === $userId && $item->reactionTypeId === $reactionTypeId;
+            });
+    
+            if (!empty($sameReactionFound)) {
+                $sameReaction = reset($sameReactionFound);
+                $response = $crm->del('Reaction', $sameReaction->id);
+                return response()->json(['message' => 'Post unliked succesfully']); 
+            }
+
+            $foundReactionDiffType = array_filter($existingPostReactions->list, function ($item) use($userId, $reactionTypeId) {
+                return $item->givingUserId === $userId && $item->reactionTypeId !== $reactionTypeId;
+            });
+    
+            if (!empty($foundReactionDiffType)) {
+                $sameReaction = reset($foundReactionDiffType);
+                $crm->del('Reaction', $sameReaction->id);
+                $crm->post("Reaction", $data);
+
+                return response()->json(['message' => 'Post updated successfully']);   
+            }
+
+            $newReaction = array_filter($existingPostReactions->list, function ($item) use($userId, $reactionTypeId) {
+                return $item->givingUserId !== $userId && $item->reactionTypeId !== $reactionTypeId;
+            });
+    
+            if (!empty($newReaction)) {
+                $crm->post("Reaction", $data);
+
+                return response()->json(['message' => 'Post liked successfully']);    
+            }
+
+        } else {
+            $crm->post("Reaction", $data);
+
+            return response()->json(['message' => 'Post liked successfully']);    
+        }
+
+    }
+
+    public function sendFriendRequest(Request $request, User $user, Crm $crm){
+        $user = $user->crmUser();
+        $data = $request->all();
+
+        $data = array(
+            "inviteeId" => $request->input('inviteeId'),
+            "inviterId" => $user->id,
+            "status" => "Pending"
+        );
+
+        $crm->post("FriendRequest", $data);
+
+        return response()->json(['message' => 'Friend request sent successfully']);  
     }
 
 

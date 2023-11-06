@@ -3292,6 +3292,9 @@ figure > img {
   font-weight: 700;
   cursor: pointer;
   transition: color .2s ease-in-out, padding-left .2s ease-in-out;
+  background-color: transparent;
+  text-align: left;
+  color: #3e3f5e;
 }
 
 .simple-dropdown .simple-dropdown-link:hover {

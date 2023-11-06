@@ -993,7 +993,7 @@
 
       <!-- GRID COLUMN -->
       <div class="grid-column">
-        <form action="{{ route('post') }}" method="POST">
+        <form action="{{ route('post') }}" id="postForm" method="POST">
           @csrf
           <!-- QUICK POST -->
           <div class="quick-post">
@@ -1058,6 +1058,7 @@
                     <!-- FORM TEXTAREA -->
                     <div class="form-textarea">
                       <textarea id="quick-post-text" name="content" placeholder="Hi {{ $user->firstName }}! Share your post here..."></textarea>
+                      <div id="suggestions"></div>
                       <!-- FORM TEXTAREA LIMIT TEXT -->
                       <p class="form-textarea-limit-text">998/1000</p>
                       <!-- /FORM TEXTAREA LIMIT TEXT -->
@@ -1182,18 +1183,21 @@
         <!-- /SIMPLE TAB ITEMS -->
 
         <!-- WIDGET BOX - VIDEO -->
-        @foreach($posts->list as $post)
 
+        @for($i = 0; $i < count($posts->list); $i++)
+          @php
+            $post = $posts->list[$i];
+          @endphp
           @if($post->type == "Text")
             @include('components/post_types/text')
           @elseif($post->type == "Picture")
             @include('components/post_types/pictures')
           @endif
 
-        @endforeach
+        @endfor
         <!-- /WIDGET BOX -->
 
-
+        @if(count($posts->list) > 10)
         <!-- LOADER BARS -->
         <div class="loader-bars">
           <div class="loader-bar"></div>
@@ -1206,6 +1210,7 @@
           <div class="loader-bar"></div>
         </div>
         <!-- /LOADER BARS -->
+        @endif
       </div>
       <!-- /GRID COLUMN -->
 
@@ -4073,5 +4078,79 @@
     <!-- /POPUP PICTURE IMAGE WRAP -->
   </div>
   <!-- /POPUP PICTURE -->
+  <script>
+// Get references to HTML elements
+const postInput = document.getElementById('quick-post-text');
+const suggestions = document.getElementById('suggestions');
+const postForm = document.getElementById('postForm');
 
+// Event listener for input changes
+postInput.addEventListener('input', () => {
+  const inputValue = postInput.value;
+  const caretPosition = postInput.selectionStart;
+  
+  // Check if the user has typed "@" and there is text before it
+  if (inputValue.includes('@')) {
+    const lastAtSignIndex = inputValue.lastIndexOf('@');
+    const query = inputValue.substring(lastAtSignIndex + 1, caretPosition);
+    
+    // Fetch user suggestions based on the query
+    // You can use AJAX or any data source to fetch user data
+    const userSuggestions = getUsersFromServer(query); // Replace with your actual user fetching logic
+    
+    // Display the suggestions
+    displaySuggestions(userSuggestions);
+  } else {
+    // If "@" is not present, clear the suggestions container
+    suggestions.innerHTML = '';
+  }
+});
+
+// Function to fetch user suggestions from the server
+function getUsersFromServer(query) {
+  // Replace with your logic to fetch user data
+  // You can use AJAX to make a request to a server or database
+  // Return an array of user objects matching the query
+  // For example:
+  return @json($users).filter(user => user.username.toLowerCase().includes(query.toLowerCase()));
+}
+
+// Function to display user suggestions
+function displaySuggestions(userSuggestions) {
+  suggestions.innerHTML = '';
+  userSuggestions.forEach((user) => {
+    const suggestionItem = document.createElement('div');
+    suggestionItem.textContent = `@${user.username}`;
+    
+    // Add a click event to insert the selected user into the input field
+    suggestionItem.addEventListener('click', () => {
+      const inputValue = postInput.value;
+      const lastAtSignIndex = inputValue.lastIndexOf('@');
+      const preText = inputValue.substring(0, lastAtSignIndex);
+      
+      // Replace the text in the input field with the selected user
+      postInput.value = `${preText}@${user.username} `;
+      
+      // Clear the suggestions container
+      suggestions.innerHTML = '';
+    });
+    
+    suggestions.appendChild(suggestionItem);
+  });
+}
+
+// Event listener for form submission
+postForm.addEventListener('submit', (e) => {
+
+  // Get the user's input from the input field
+  const inputValue = postInput.value;
+
+  // Replace mentions with links in the user's input
+  const transformedInput = inputValue.replace(/@(\w+)/g, '<a href="http://localhost:8000/@$1">@$1</a>');
+
+  // Update the input field with the transformed input
+  postInput.value = transformedInput;
+});
+
+  </script>
 @include('partials/footer')

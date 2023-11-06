@@ -55,11 +55,32 @@
         <!-- PROFILE HEADER INFO ACTIONS -->
         <div class="profile-header-info-actions">
           <!-- PROFILE HEADER INFO ACTION -->
-          <p class="profile-header-info-action button secondary"><span class="hide-text-mobile">Add</span> Friend +</p>
+          <form id="friendRequestForm" style="margin-right: 16px">
+            @csrf
+              @if($friendRequest->total == 0)
+                <p class="profile-header-info-action button secondary" id="sendFriendRequest">
+                  <span class="hide-text-mobile">Add</span> Friend +
+                </p>
+              @elseif($friendRequest->list[0]->status == "Pending")
+                <p class="profile-header-info-action button secondary">
+                  <span class="hide-text-mobile">Pending</span> Request
+                </p>
+              @elseif($isFriend->total > 0)
+                <p class="profile-header-info-action button secondary">
+                  <span class="hide-text-mobile">Friend</span>
+                </p>
+              @else
+                <p class="profile-header-info-action button secondary" id="sendFriendRequest">
+                  <span class="hide-text-mobile">Add</span> Friend +
+                </p>
+              @endif
+          </form>
           <!-- /PROFILE HEADER INFO ACTION -->
           
           <!-- PROFILE HEADER INFO ACTION -->
-          <p class="profile-header-info-action button primary"><span class="hide-text-mobile">Send</span> Message</p>
+          @if($isFriend->total > 0)
+            <p class="profile-header-info-action button primary"><span class="hide-text-mobile">Send</span> Message</p>
+          @endif
           <!-- /PROFILE HEADER INFO ACTION -->
         </div>
         <!-- /PROFILE HEADER INFO ACTIONS -->
@@ -4632,7 +4653,7 @@
             <div class="stream-box no-video-radius">
               <!-- STREAM BOX VIDEO -->
               <div class="stream-box-video">
-                <iframe src="https://player.twitch.tv/?channel=cohhcarnage" allowfullscreen></iframe>
+                
               </div>
               <!-- /STREAM BOX VIDEO -->
           
@@ -5228,7 +5249,7 @@
 
     <!-- IFRAME WRAP -->
     <div class="iframe-wrap">
-      <iframe src="https://www.youtube.com/embed/6ErE27RNLDQ?start=200" allowfullscreen></iframe>
+      
     </div>
     <!-- /IFRAME WRAP -->
   </div>
@@ -6568,5 +6589,36 @@
     <!-- /POPUP PICTURE IMAGE WRAP -->
   </div>
   <!-- /POPUP PICTURE -->
+@if($isFriend->total == 0)
+  <script>
+    const sendFriendRequest = document.querySelector('#sendFriendRequest');
+    const friendRequestForm = document.getElementById('friendRequestForm');
+    const csrfToken = friendRequestForm.querySelector('input[name="_token"]').value;
+    
+    sendFriendRequest.addEventListener('click', () => {
+      // Replace the button text with a loader
+      sendFriendRequest.innerHTML = 'Loading...';
+    
+      var settings = {
+        "url": "{{ route('sendFriendRequest') }}",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "X-CSRF-TOKEN": `${csrfToken}`,
+          "Content-Type": "application/json"
+        },
+        "data": JSON.stringify({
+          "inviteeId": "{{ $profile->id }}"
+        }),
+      };
+    
+      $.ajax(settings).done(function (response) {
+        // Replace the loader with "Sent Request" when the response is ready
+        sendFriendRequest.innerHTML = 'Request Sent!';
+        console.log(response);
+      });
+    });
+  </script>
+@endif
 
 @include('partials/footer')

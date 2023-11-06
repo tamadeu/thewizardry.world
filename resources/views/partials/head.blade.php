@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="/css/vendor/simplebar.css">
   <!-- tiny-slider styles -->
   <link rel="stylesheet" href="/css/vendor/tiny-slider.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <!-- favicon -->
   <link rel="icon" href="/img/favicon.ico">
   <title>The Wizardry World</title>

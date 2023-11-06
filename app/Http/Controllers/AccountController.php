@@ -41,12 +41,40 @@ class AccountController extends Controller
         ]);
     }
 
-    public function profile_requests(User $user){
+    public function profile_requests(User $user, Crm $crm){
         $user = $user->crmUser();
+
+        $requestsReceived = $crm->get("Student/".$user->id."/friendRequests1?where[0][type]=equals&where[0][field]=status&where[0][value]=Pending");
+
         return view('account/profile_requests',[
             'user'=> $user,
+            'requestsReceived' => $requestsReceived,
             'activeMenu' => 'profile_requests'
         ]);
+    }
+
+    public function acceptRequest(Request $request, User $user, Crm $crm){
+        $user = $user->crmUser();
+
+        $data = array(
+            "id" => $request->input('friendId'),
+        );
+
+        $data2 = array(
+            "id" => $user->id
+        );
+
+        $data3 = array(
+            "status" => "Accepted"
+        );
+
+        $crm->post("Student/".$user->id."/friends", $data);
+
+        $crm->post("Student/".$request->input('friendId')."/friends", $data2);
+
+        $crm->put("FriendRequest", $request->input("requestId"), $data3);
+
+        return redirect()->back()->with('success', 'Request accepted succesfully');
     }
 
     public function account_info(User $user){
