@@ -21,12 +21,8 @@ class AccountController extends Controller
         ]);
     }
 
-    public function profile_notifications(User $user, Crm $crm){
-        $user = $user->crmUser();
-
-        $notifications = $crm->get('Student/'.$user->id.'/userNotifications1');
+    public function profile_notifications(Crm $crm){
         return view('account/profile_notifications',[
-            'notifications' => $notifications,
             'activeMenu' => 'profile_notifications'
         ]);
     }

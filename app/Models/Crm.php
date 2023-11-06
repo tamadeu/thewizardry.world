@@ -13,10 +13,23 @@ class Crm extends Model
             $filter = '';
         }
 
-        $response = Http::withHeaders([
-            'Authorization' => 'Basic '.env('CRM_TOKEN').'',
-        ])
-        ->get('https://admin.thewizardry.world/api/v1/'.$endpoint.$filter);
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => 'https://admin.thewizardry.world/api/v1/'.$endpoint.$filter,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_2_0,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+        CURLOPT_HTTPHEADER => array(
+            'Authorization: Basic '.env('CRM_TOKEN').'='
+        ),
+        ));
+
+        $response = curl_exec($curl);
 
         return json_decode($response);
     }

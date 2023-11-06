@@ -1057,7 +1057,7 @@
                   <div class="form-item">
                     <!-- FORM TEXTAREA -->
                     <div class="form-textarea">
-                      <textarea id="quick-post-text" name="content" placeholder="Hi {{ $user->firstName }}! Share your post here..."></textarea>
+                      <textarea id="quick-post-text" name="content" placeholder="Hi {{ $user->firstName }}! Share your post here..." required></textarea>
                       <div id="suggestions"></div>
                       <!-- FORM TEXTAREA LIMIT TEXT -->
                       <p class="form-textarea-limit-text">998/1000</p>
@@ -1188,7 +1188,7 @@
           @php
             $post = $posts->list[$i];
           @endphp
-          @if($post->type == "Text")
+          @if($post->type == "Status Update")
             @include('components/post_types/text')
           @elseif($post->type == "Picture")
             @include('components/post_types/pictures')
